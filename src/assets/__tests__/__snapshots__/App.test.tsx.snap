@@ -1,0 +1,19 @@
+// Vitest Snapshot v1
+
+exports[`App component > snapshot test 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <h1>
+      Daniel Grossberg
+    </h1>
+    <h2>
+      Software Engineer
+    </h2>
+    <h4>
+      coming soon...
+    </h4>
+  </div>
+</div>
+`;
