@@ -1,13 +1,14 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import { CSSDoodle } from "css-doodle";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Daniel Grossberg</h1>
-      <h2>Software Engineer</h2>
-      <h4>coming soon...</h4>
+      <CSSDoodle>
+        <h1>Daniel Grossberg</h1>
+        <h2>Software Engineer</h2>
+        <h4>coming soon...</h4>
+      </CSSDoodle>
     </div>
   );
 }
