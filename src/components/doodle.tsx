@@ -8,8 +8,13 @@ declare global {
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       >;
+      forEach: Function;
     }
   }
 }
 
-export default ({ rule = "" }) => <css-doodle>{rule}</css-doodle>;
+export default ({ rule = "", className = "", onClick = (e: any) => {} }) => (
+  <css-doodle className={className} onClick={onClick}>
+    {rule}
+  </css-doodle>
+);
