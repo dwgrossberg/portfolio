@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import { Box } from "@chakra-ui/react";
 import Doodle from "./components/doodle";
 import "./App.css";
 
@@ -9,25 +10,15 @@ const App = () => {
       className="App"
       css={css`
         height: 6000px;
+        position: relative;
       `}
     >
       <div
         css={css`
           position: fixed;
-          top: 0;
+          top: -20px;
           right: 0;
-          clip-path: polygon(
-            54% 42%,
-            80% 10%,
-            73% 40%,
-            100% 70%,
-            44% 57%,
-            50% 100%,
-            20% 90%,
-            0% 70%,
-            0% 35%,
-            20% 10%
-          );
+          z-index: -1;
         `}
       >
         <Doodle
@@ -40,41 +31,31 @@ const App = () => {
             e.target.style.transition = ".2s;";
           }}
           rule={`
-       @shape: circle;
-    :after {
-    content: "";
-    @size: 2vmax;
-    border: solid 1.5vmax #21295C;
-    border-radius: 100%;
-    transform: translate(0,-0.5em);
-    }
-  :before {
-    content: "";
-    @size: .01vmax;
-    border: solid 1.5vmax rgba(158, 179, 194, .7);
-    border-radius: 100%;
-    position: absolute;
-    transform: translate(0,-0.5em);
-  }
-  :doodle {
-    @grid: 15 / 100vmax;
-    background: #21295C;
-  } 
-  transform: rotate(@rand(360)deg);
-  background: @pick(#1B3B6F, #065A82);
-  transition: .2s @rand(.6s);
-  @size: 80%;
-  margin: auto;
-  :hover{ 
-    transform: rotate(@rand(360)deg);
-    transition: .2s;
-  }
+@grid: 8 / 100vmax;
+
+@size: 1px calc(141.4% + 1px);
+transform: rotate(@p(±45deg));
+background: #AEACFB;
+margin: auto;
         `}
         />
       </div>
       <h1>Daniel Grossberg</h1>
       <h2>Software Engineer</h2>
       <h4>coming soon...</h4>
+      <Box
+        w="100%"
+        h="400px"
+        bg="blue"
+        bgImage="https://media.architecturaldigest.com/photos/5d3f6c8084a5790008e99f37/master/w_3000,h_2123,c_limit/GettyImages-1143278588.jpg"
+        bgSize="cover"
+        bgAttachment="fixed"
+        bgPos="50% 100%"
+        pos="relative"
+        bgRepeat="no-repeat"
+      >
+        {" "}
+      </Box>
     </div>
   );
 };
