@@ -1,61 +1,77 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import Doodle from "./components/doodle";
 import "./App.css";
 
 const App = () => {
   return (
-    <div className="App">
-      <Doodle
-        className="css-doodle"
-        onClick={(e: any) => {
-          e.target.update && e.target.update();
-        }}
-        rule={`
-       :doodle {
-          @grid: 5x5 / 250px;
-          background-color: #6e85a1;
-          border-radius: 4px;
-        }
-        transition: .5s ease all;
-        @even {
-          transform: rotate(@p(90deg, 270deg));
-        }
-        @odd {
-          transform: rotate(@p(0deg, 180deg));
-        }
-        ::before,
-        ::after {
-          content: "";
-          position: absolute;
+    <div
+      className="App"
+      css={css`
+        height: 6000px;
+      `}
+    >
+      <div
+        css={css`
+          position: fixed;
           top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-image: @m(2, linear-gradient(
-            calc(90deg * @n()),
-            transparent 10%,
-            #fff 10%,
-            #fff calc(10% + 2px),
-            #6e85a1 calc(10% + 2px),
-            #6e85a1 20%,
-            #fff 20%,
-            #fff calc(20% + 2px),
-            #6e85a1 calc(20% + 2px),
-            #6e85a1 30%,
-            #fff 30%,
-            #fff calc(30% + 2px),
-            #6e85a1 calc(30% + 2px),
-            #6e85a1 40%,
-            #fff 40%,
-            #fff calc(40% + 2px),
-            transparent calc(40% + 2px)
-          ));
-          clip-path: polygon(0 0, 100% 0 ,0 100%);
-        }
-        ::after {
-          transform: rotate(180deg);
-        }
+          right: 0;
+          clip-path: polygon(
+            54% 42%,
+            80% 10%,
+            73% 40%,
+            100% 70%,
+            44% 57%,
+            50% 100%,
+            20% 90%,
+            0% 70%,
+            0% 35%,
+            20% 10%
+          );
         `}
-      />
+      >
+        <Doodle
+          className="css-doodle"
+          onClick={(e: any) => {
+            e.target.update && e.target.update();
+          }}
+          onMouseOver={(e: any) => {
+            e.target.style.transform = "rotate(@rand(360)deg)";
+            e.target.style.transition = ".2s;";
+          }}
+          rule={`
+       @shape: circle;
+    :after {
+    content: "";
+    @size: 2vmax;
+    border: solid 1.5vmax #21295C;
+    border-radius: 100%;
+    transform: translate(0,-0.5em);
+    }
+  :before {
+    content: "";
+    @size: .01vmax;
+    border: solid 1.5vmax rgba(158, 179, 194, .7);
+    border-radius: 100%;
+    position: absolute;
+    transform: translate(0,-0.5em);
+  }
+  :doodle {
+    @grid: 15 / 100vmax;
+    background: #21295C;
+  } 
+  transform: rotate(@rand(360)deg);
+  background: @pick(#1B3B6F, #065A82);
+  transition: .2s @rand(.6s);
+  @size: 80%;
+  margin: auto;
+  :hover{ 
+    transform: rotate(@rand(360)deg);
+    transition: .2s;
+  }
+        `}
+        />
+      </div>
       <h1>Daniel Grossberg</h1>
       <h2>Software Engineer</h2>
       <h4>coming soon...</h4>

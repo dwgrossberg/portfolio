@@ -8,13 +8,19 @@ declare global {
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       >;
-      forEach: Function;
     }
   }
 }
 
-export default ({ rule = "", className = "", onClick = (e: any) => {} }) => (
-  <css-doodle className={className} onClick={onClick}>
-    {rule}
+type DoodleProps = {
+  rule: string;
+  className: string;
+  onClick: (e: any) => void;
+  onMouseOver: (e: any) => void;
+};
+
+export default (props: DoodleProps) => (
+  <css-doodle className={props.className} onClick={props.onClick}>
+    {props.rule}
   </css-doodle>
 );
