@@ -16,7 +16,7 @@ const App = () => {
       <div
         css={css`
           position: fixed;
-          top: -130px;
+          top: -30px;
           right: 0;
           z-index: -1;
         `}
@@ -31,17 +31,31 @@ const App = () => {
             e.target.style.transition = ".2s;";
           }}
           rule={`
-@grid: 100x1 / 100vmax;
+:doodle {
+  @grid: 15;
+			@size: 100vmax;
+    }
+		
+		background: linear-gradient(@pick-d(0deg, 90deg, 180deg, 270deg), #434343 25%, #242424 25% 50%, #242424 50%);
+		@random(.2) {
+		:after {
+			content: "";
+			@size: @r(10%, 25%);
+			border-radius: 50%;
+			background: radial-gradient(circle at @r(100%) @r(100%), #DBDBDB 0% 50%, #A5FFC9 50% 100%);
+			display: @pick(none, unset);
+			transform: translateX(@r(-30%, -60%));
+			animation: floatAnim @r(4s, 6s) @r(6s) infinite alternate ease-in-out;
+		}
+  }
+		
+		@keyframes floatAnim {
+			100% {
+				transform: translateX(@r(100%, 100%));
+        transform: translateY(@r(100%, 100%));
 
-@place: center;
-@size: calc(75% / @I * @i);
-
-transform: rotate(calc(@i * 7deg));
-
-border-radius: 15%;
-border: .5px solid hsla(
-  calc(10 + 4 * @i), 50%, 68%, @r.8
-);
+			}
+		}
         `}
         />
       </div>
