@@ -18,7 +18,9 @@
     "css-doodle": "^0.30.6",
     "framer-motion": "^7.6.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.3",
+    "react-router-hash-link": "^2.4.3"
   },
   "devDependencies": {
     "@testing-library/react": "^13.4.0",
