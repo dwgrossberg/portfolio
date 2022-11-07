@@ -16,7 +16,7 @@ const App = () => {
       <div
         css={css`
           position: fixed;
-          top: -30px;
+          top: -130px;
           right: 0;
           z-index: -1;
         `}
@@ -31,24 +31,17 @@ const App = () => {
             e.target.style.transition = ".2s;";
           }}
           rule={`
-@grid: 10 / 100vmax;
-@size: .5px calc(141.4% + 1px);
-transform: rotate(@p(±45deg));
-background: #DBDBDB;
-margin: auto;
-@random { border-top: .5px solid #DBDBDB; }
-@random { border-left: .5px solid #DBDBDB; }
-opacity: .5;
-@random { opacity: @rand(1) }
-@random(.2) {
-  :after {
-    content: '';
-    border-radius: 50%;
-    background: #A5FFC9;
-    @size: @rand(30px);
-    opacity: @rand(1)
-  }
-}
+@grid: 100x1 / 100vmax;
+
+@place: center;
+@size: calc(75% / @I * @i);
+
+transform: rotate(calc(@i * 7deg));
+
+border-radius: 15%;
+border: .5px solid hsla(
+  calc(10 + 4 * @i), 50%, 68%, @r.8
+);
         `}
         />
       </div>
