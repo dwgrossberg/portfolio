@@ -4,8 +4,10 @@ import { Routes, Route, HashRouter } from "react-router-dom";
 import Doodle from "./components/doodle";
 import "./App.css";
 import Home from "./pages/Home";
+import { FC } from "react";
+import NavTabs from "./components/NavTabs";
 
-const App = () => {
+const App: FC = () => {
   return (
     <div
       className="App"
@@ -56,14 +58,15 @@ const App = () => {
 		
 		      @keyframes floatAnim {
 			      100% {
-				      transform: translateX(@r(100%, 100%));
-              transform: translateY(@r(100%, 100%));
+				      transform: translateX(@r(100%, 150%));
+              transform: translateY(@r(100%, 150%));
 			      }
 		      }
         `}
         />
       </div>
       <HashRouter>
+        <NavTabs children={""} />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>

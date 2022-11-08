@@ -1,17 +1,19 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import { FC } from "react";
 import { RouteProps } from "react-router-dom";
 
-// type TParams = { id: number };
-
-const Home = (props: RouteProps): JSX.Element => {
+const Home: FC = (props: RouteProps): JSX.Element => {
   return (
     <div
       css={css`
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
+        gap: 20px;
+        min-height: 100vmax;
+        margin-top: -1.5em;
       `}
     >
       <h1>Daniel Grossberg</h1>
