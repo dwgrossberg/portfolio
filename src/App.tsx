@@ -2,9 +2,9 @@
 import { css } from "@emotion/react";
 import { Routes, Route, HashRouter } from "react-router-dom";
 import Doodle from "./components/doodle";
-import Home from "./pages/Home";
 import { FC } from "react";
 import Nav from "./components/Nav";
+import HashLinkFrame from "./components/HashLinkFrame";
 
 const App: FC = () => {
   return (
@@ -14,6 +14,7 @@ const App: FC = () => {
         position: relative;
         display: grid;
         grid-template: 100px repeat(4, 1fr) / 1fr;
+        align-items: center;
       `}
     >
       <div
@@ -65,7 +66,7 @@ const App: FC = () => {
       <HashRouter>
         <Nav />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<HashLinkFrame />} />
         </Routes>
       </HashRouter>
     </div>

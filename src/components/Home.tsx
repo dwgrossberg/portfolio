@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 import { FC } from "react";
 import { RouteProps } from "react-router-dom";
 
-const Home: FC = (props: RouteProps): JSX.Element => {
+const Home: FC = ({ ...props }): JSX.Element => {
   return (
     <div
       css={css`
