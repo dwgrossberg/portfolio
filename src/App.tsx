@@ -2,10 +2,9 @@
 import { css } from "@emotion/react";
 import { Routes, Route, HashRouter } from "react-router-dom";
 import Doodle from "./components/doodle";
-import "./App.css";
 import Home from "./pages/Home";
 import { FC } from "react";
-import NavTabs from "./components/NavTabs";
+import Nav from "./components/Nav";
 
 const App: FC = () => {
   return (
@@ -13,10 +12,8 @@ const App: FC = () => {
       className="App"
       css={css`
         position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        display: grid;
+        grid-template: 100px repeat(4, 1fr) / 1fr;
       `}
     >
       <div
@@ -66,7 +63,7 @@ const App: FC = () => {
         />
       </div>
       <HashRouter>
-        <NavTabs children={""} />
+        <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
