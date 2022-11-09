@@ -43,7 +43,6 @@ export default function Nav() {
           `}
         >
           <Box>
-            {" "}
             <HashLink
               smooth
               to={"/#"}
@@ -64,16 +63,24 @@ export default function Nav() {
               justify-content: space-between;
               gap: 20px;
               align-items: center;
-              width: 300px;
+              width: 360px;
             `}
           >
             <HashLink
               smooth
               to={"/#my-story"}
+              className={
+                document.location.hash === "#/#my-story" ? "active" : ""
+              }
               style={{
                 textDecoration: "none",
-                color: "inherit",
               }}
+              css={css`
+                color: inherit;
+                &:hover {
+                  color: #a5ffc9;
+                }
+              `}
             >
               My Story
             </HashLink>{" "}
@@ -82,17 +89,44 @@ export default function Nav() {
               to={"/#tech-stack"}
               style={{
                 textDecoration: "none",
-                color: "inherit",
               }}
+              css={css`
+                color: inherit;
+                &:hover {
+                  color: #a5ffc9;
+                }
+              `}
             >
               Tech Stack
             </HashLink>
             <HashLink
               smooth
               to={"/#projects"}
-              style={{ textDecoration: "none", color: "inherit" }}
+              style={{ textDecoration: "none" }}
+              css={css`
+                color: inherit;
+                &:hover {
+                  color: #a5ffc9;
+                }
+              `}
             >
               Projects
+            </HashLink>
+            <HashLink
+              smooth
+              to={"/#contact"}
+              style={{ textDecoration: "none" }}
+              css={css`
+                color: inherit;
+                &:hover {
+                  color: #a5ffc9;
+                }
+                &:target {
+                  color: #a5ffc9;
+                }
+              `}
+            >
+              Contact
             </HashLink>
             <Flex alignItems={"center"}>
               <Stack direction={"row"} spacing={7}>
