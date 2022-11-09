@@ -9,10 +9,10 @@ import {
   Stack,
   useColorMode,
 } from "@chakra-ui/react";
-import { NavHashLink } from "react-router-hash-link";
+import { HashLink } from "react-router-hash-link";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import logo from "../../public/logo-icon.png";
-import logoWhite from "../../public/logo-icon-white.png";
+import logoGW from "../../public/logo-icon-GW.png";
 
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -43,36 +43,57 @@ export default function Nav() {
           `}
         >
           <Box>
-            <img
-              alt="DGlogo"
-              src={logoWhite}
-              css={css`
-                width: 3em;
-              `}
-            />
-          </Box>
-          <div
-            css={css`
-              display: flex;
-              justify-content: space-evenly;
-              align-items: center;
-              width: 200px;
-            `}
-          >
-            <NavHashLink
+            {" "}
+            <HashLink
               smooth
               to={"/#"}
               style={{ textDecoration: "none", color: "inherit" }}
             >
-              Home
-            </NavHashLink>
-            <NavHashLink
+              <img
+                alt="DGlogo"
+                src={logoGW}
+                css={css`
+                  width: 3em;
+                `}
+              />
+            </HashLink>
+          </Box>
+          <div
+            css={css`
+              display: flex;
+              justify-content: space-between;
+              gap: 20px;
+              align-items: center;
+              width: 300px;
+            `}
+          >
+            <HashLink
               smooth
-              to={"/#about"}
+              to={"/#my-story"}
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+              }}
+            >
+              My Story
+            </HashLink>{" "}
+            <HashLink
+              smooth
+              to={"/#tech-stack"}
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+              }}
+            >
+              Tech Stack
+            </HashLink>
+            <HashLink
+              smooth
+              to={"/#projects"}
               style={{ textDecoration: "none", color: "inherit" }}
             >
-              About
-            </NavHashLink>
+              Projects
+            </HashLink>
             <Flex alignItems={"center"}>
               <Stack direction={"row"} spacing={7}>
                 <Button onClick={toggleColorMode}>

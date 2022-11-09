@@ -2,10 +2,9 @@
 import { css } from "@emotion/react";
 import { FC } from "react";
 
-const Home: FC = ({ ...props }): JSX.Element => {
+const Projects: FC = ({ ...props }): JSX.Element => {
   return (
     <div
-      // for controlling the page layout with hash link scroll to effect
       css={css`
         display: flex;
         flex-direction: column;
@@ -16,11 +15,9 @@ const Home: FC = ({ ...props }): JSX.Element => {
         margin-top: -1.5em;
       `}
     >
-      <h1>Daniel Grossberg</h1>
-      <h2>Software Engineer</h2>
-      <h4>coming soon...</h4>
+      <h2>projects</h2>
     </div>
   );
 };
 
-export default Home;
+export default Projects;

@@ -13,7 +13,7 @@ const App: FC = () => {
       css={css`
         position: relative;
         display: grid;
-        grid-template: 100px repeat(4, 1fr) / 1fr;
+        grid-template: 100px repeat(auto-fit, minmax(500px, 1fr)) / 1fr;
         align-items: center;
       `}
     >
