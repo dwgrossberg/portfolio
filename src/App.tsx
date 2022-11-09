@@ -51,13 +51,14 @@ const App: FC = () => {
 			        transform: translateX(@r(-100%, 100%)) ;
 			        animation: floatAnim @r(4s, 6s) @r(6s) infinite alternate ease-in-out;
               opacity: @r(1);
+              z-index:1;
 		        }
           }
 		
 		      @keyframes floatAnim {
 			      100% {
-				      transform: translateX(@r(100%, 150%));
-              transform: translateY(@r(100%, 150%));
+				      transform: translateX(@r(100%, 700%));
+              transform: translateY(@r(100%, 700%));
 			      }
 		      }
         `}

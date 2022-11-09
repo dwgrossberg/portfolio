@@ -6,6 +6,7 @@ import { RouteProps } from "react-router-dom";
 const Home: FC = ({ ...props }): JSX.Element => {
   return (
     <div
+      // for controlling the page layout with hash link scroll to effect
       css={css`
         display: flex;
         flex-direction: column;

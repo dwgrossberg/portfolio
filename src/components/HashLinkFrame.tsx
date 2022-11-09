@@ -7,12 +7,24 @@ import Home from "./Home";
 const HashLinkFrame: FC = (props: RouteProps): JSX.Element => {
   return (
     <div>
-      <div id="home">
+      <header id="home">
         <Home />
-      </div>
-      <div id="about">
+      </header>
+      <header
+        id="about"
+        css={css`
+          ::before {
+            display: block;
+            content: " ";
+            margin-top: -150px;
+            height: 150px;
+            visibility: hidden;
+            pointer-events: none;
+          }
+        `}
+      >
         <Home />
-      </div>
+      </header>
     </div>
   );
 };
