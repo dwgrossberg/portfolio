@@ -13,10 +13,37 @@ import { HashLink } from "react-router-hash-link";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import logo from "../../public/logo-icon.png";
 import logoGW from "../../public/logo-icon-GW.png";
+import { useEffect, useState } from "react";
 
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const handleClick = (e: any) => {
+    e.target.style.textDecoration = "underline";
+    switch (e.target.id) {
+      case "my-story":
+        document.getElementById("tech-stack")!.style.textDecoration = "none";
+        document.getElementById("projects")!.style.textDecoration = "none";
+        document.getElementById("contact")!.style.textDecoration = "none";
+        break;
+      case "tech-stack":
+        document.getElementById("my-story")!.style.textDecoration = "none";
+        document.getElementById("projects")!.style.textDecoration = "none";
+        document.getElementById("contact")!.style.textDecoration = "none";
+        break;
+      case "projects":
+        document.getElementById("my-story")!.style.textDecoration = "none";
+        document.getElementById("tech-stack")!.style.textDecoration = "none";
+        document.getElementById("contact")!.style.textDecoration = "none";
+        break;
+      case "contact":
+        document.getElementById("my-story")!.style.textDecoration = "none";
+        document.getElementById("tech-stack")!.style.textDecoration = "none";
+        document.getElementById("projects")!.style.textDecoration = "none";
+        break;
+    }
+  };
+  useEffect(() => {}, [document]);
   return (
     <div
       css={css`
@@ -69,9 +96,10 @@ export default function Nav() {
             <HashLink
               smooth
               to={"/#my-story"}
-              className={
-                document.location.hash === "#/#my-story" ? "active" : ""
-              }
+              id="my-story"
+              onClick={(e) => {
+                handleClick(e);
+              }}
               style={{
                 textDecoration: "none",
               }}
@@ -87,6 +115,10 @@ export default function Nav() {
             <HashLink
               smooth
               to={"/#tech-stack"}
+              id="tech-stack"
+              onClick={(e) => {
+                handleClick(e);
+              }}
               style={{
                 textDecoration: "none",
               }}
@@ -102,6 +134,10 @@ export default function Nav() {
             <HashLink
               smooth
               to={"/#projects"}
+              id="projects"
+              onClick={(e) => {
+                handleClick(e);
+              }}
               style={{ textDecoration: "none" }}
               css={css`
                 color: inherit;
@@ -115,6 +151,10 @@ export default function Nav() {
             <HashLink
               smooth
               to={"/#contact"}
+              id="contact"
+              onClick={(e) => {
+                handleClick(e);
+              }}
               style={{ textDecoration: "none" }}
               css={css`
                 color: inherit;
