@@ -10,6 +10,7 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { HashLink } from "react-router-hash-link";
+import { motion, transform } from "framer-motion";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import logo from "../../public/logo-icon.png";
 import logoGW from "../../public/logo-icon-GW.png";
@@ -17,33 +18,66 @@ import { useEffect, useState } from "react";
 
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const handleClick = (e: any) => {
-    e.target.style.textDecoration = "underline";
-    switch (e.target.id) {
-      case "my-story":
-        document.getElementById("tech-stack")!.style.textDecoration = "none";
-        document.getElementById("projects")!.style.textDecoration = "none";
-        document.getElementById("contact")!.style.textDecoration = "none";
+  const updateActive = (path: string) => {
+    switch (path) {
+      case "my-story-nav":
+        document.getElementById("tech-stack-nav")!.style.textDecoration =
+          "none";
+        document.getElementById("projects-nav")!.style.textDecoration = "none";
+        document.getElementById("contact-nav")!.style.textDecoration = "none";
         break;
-      case "tech-stack":
-        document.getElementById("my-story")!.style.textDecoration = "none";
-        document.getElementById("projects")!.style.textDecoration = "none";
-        document.getElementById("contact")!.style.textDecoration = "none";
+      case "tech-stack-nav":
+        document.getElementById("my-story-nav")!.style.textDecoration = "none";
+        document.getElementById("projects-nav")!.style.textDecoration = "none";
+        document.getElementById("contact-nav")!.style.textDecoration = "none";
         break;
-      case "projects":
-        document.getElementById("my-story")!.style.textDecoration = "none";
-        document.getElementById("tech-stack")!.style.textDecoration = "none";
-        document.getElementById("contact")!.style.textDecoration = "none";
+      case "projects-nav":
+        document.getElementById("my-story-nav")!.style.textDecoration = "none";
+        document.getElementById("tech-stack-nav")!.style.textDecoration =
+          "none";
+        document.getElementById("contact-nav")!.style.textDecoration = "none";
         break;
-      case "contact":
-        document.getElementById("my-story")!.style.textDecoration = "none";
-        document.getElementById("tech-stack")!.style.textDecoration = "none";
-        document.getElementById("projects")!.style.textDecoration = "none";
+      case "contact-nav":
+        document.getElementById("my-story-nav")!.style.textDecoration = "none";
+        document.getElementById("tech-stack-nav")!.style.textDecoration =
+          "none";
+        document.getElementById("projects-nav")!.style.textDecoration = "none";
+        break;
+      case "":
+        document.getElementById("my-story-nav")!.style.textDecoration = "none";
+        document.getElementById("tech-stack-nav")!.style.textDecoration =
+          "none";
+        document.getElementById("projects-nav")!.style.textDecoration = "none";
+        document.getElementById("contact-nav")!.style.textDecoration = "none";
+
         break;
     }
   };
-  useEffect(() => {}, [document]);
+  const handleClick = (e: any) => {
+    e.target.style.textDecoration = "underline";
+    updateActive(e.target.id);
+  };
+  useEffect(() => {
+    const path = document.location.hash.substring(3);
+    switch (path) {
+      case "my-story":
+        document.getElementById("my-story-nav")!.style.textDecoration =
+          "underline";
+        break;
+      case "tech-stack":
+        document.getElementById("tech-stack-nav")!.style.textDecoration =
+          "underline";
+        break;
+      case "projects":
+        document.getElementById("projects-nav")!.style.textDecoration =
+          "underline";
+        break;
+      case "contact":
+        document.getElementById("contact-nav")!.style.textDecoration =
+          "underline";
+        break;
+    }
+  }, []);
   return (
     <div
       css={css`
@@ -73,6 +107,9 @@ export default function Nav() {
             <HashLink
               smooth
               to={"/#"}
+              onClick={(e) => {
+                handleClick(e);
+              }}
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <img
@@ -93,29 +130,40 @@ export default function Nav() {
               width: 360px;
             `}
           >
-            <HashLink
-              smooth
-              to={"/#my-story"}
-              id="my-story"
-              onClick={(e) => {
-                handleClick(e);
+            <motion.div
+              whileHover={{
+                y: [0, 5, 0, -2.5, 0],
+                color: "#a5c9ff",
               }}
-              style={{
-                textDecoration: "none",
+              whileTap={{}}
+              transition={{
+                duration: 0.5,
+                ease: "easeInOut",
               }}
-              css={css`
-                color: inherit;
-                &:hover {
-                  color: #a5ffc9;
-                }
-              `}
+              layout
             >
-              My Story
-            </HashLink>{" "}
+              <HashLink
+                smooth
+                to={"/#my-story"}
+                id="my-story-nav"
+                onClick={(e) => {
+                  handleClick(e);
+                }}
+                style={{
+                  textDecoration: "none",
+                }}
+                css={css`
+                  color: inherit;
+                  text-underline-offset: 7px;
+                `}
+              >
+                My Story
+              </HashLink>
+            </motion.div>
             <HashLink
               smooth
               to={"/#tech-stack"}
-              id="tech-stack"
+              id="tech-stack-nav"
               onClick={(e) => {
                 handleClick(e);
               }}
@@ -124,8 +172,9 @@ export default function Nav() {
               }}
               css={css`
                 color: inherit;
+                text-underline-offset: 7px;
                 &:hover {
-                  color: #a5ffc9;
+                  color: #a5c9ff;
                 }
               `}
             >
@@ -134,15 +183,16 @@ export default function Nav() {
             <HashLink
               smooth
               to={"/#projects"}
-              id="projects"
+              id="projects-nav"
               onClick={(e) => {
                 handleClick(e);
               }}
               style={{ textDecoration: "none" }}
               css={css`
                 color: inherit;
+                text-underline-offset: 7px;
                 &:hover {
-                  color: #a5ffc9;
+                  color: #a5c9ff;
                 }
               `}
             >
@@ -151,18 +201,16 @@ export default function Nav() {
             <HashLink
               smooth
               to={"/#contact"}
-              id="contact"
+              id="contact-nav"
               onClick={(e) => {
                 handleClick(e);
               }}
               style={{ textDecoration: "none" }}
               css={css`
                 color: inherit;
+                text-underline-offset: 7px;
                 &:hover {
-                  color: #a5ffc9;
-                }
-                &:target {
-                  color: #a5ffc9;
+                  color: #a5c9ff;
                 }
               `}
             >
