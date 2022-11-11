@@ -15,7 +15,7 @@ const MenuItem = ({
 }) => (
   <motion.div
     whileHover={{
-      y: [0, -1.5, 1.5, 0],
+      y: [0, -1.5, 1.5, -0.5],
       color: "#a5c9ff",
     }}
     whileTap={{}}
@@ -23,11 +23,13 @@ const MenuItem = ({
       duration: 0.25,
       ease: "easeInOut",
     }}
+    animate={{ opacity: selected ? 1 : 0.5 }}
     className="menu-item"
     onClick={onClick}
     css={css`
-      margin: 0 1.5rem;
-      font-size: 1.5rem;
+      margin: 0 0.5rem;
+      width: 80px;
+      font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
       position: relative;

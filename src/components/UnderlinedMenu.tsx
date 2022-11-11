@@ -1,21 +1,47 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import MenuItem from "./MenuItem";
 
-const UnderlinedMenu = () => {
-  const [selected, setSelected] = useState(0);
+const UnderlinedMenu = ({
+  selected,
+  setSelected,
+}: {
+  selected: number;
+  setSelected: Dispatch<SetStateAction<number>>;
+}) => {
   const menuItems = ["My Story", "Tech Stack", "Projects", "Contact"];
 
+  useEffect(() => {
+    const path = document.location.hash.substring(3);
+    switch (path) {
+      case "my-story":
+        setSelected(0);
+        break;
+      case "tech-stack":
+        setSelected(1);
+        "underline";
+        break;
+      case "projects":
+        setSelected(2);
+        "underline";
+        break;
+      case "contact":
+        setSelected(3);
+        "underline";
+        break;
+    }
+  }, []);
   return (
     <div
       className="underlined-menu"
       css={css`
         height: 100%;
-        width: 700px;
+        width: 100%;
         display: grid;
         place-items: center left;
-        color: #171717;
+        color: ghostwhite;
+        margin-right: -1.5rem;
       `}
     >
       <div
@@ -23,6 +49,7 @@ const UnderlinedMenu = () => {
         css={css`
           display: flex;
           justify-content: space-evenly;
+          margin-right: 1.5rem;
         `}
       >
         {menuItems.map((el, i) => (

@@ -9,76 +9,16 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { HashLink } from "react-router-hash-link";
-import { motion, transform } from "framer-motion";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import logo from "../../public/logo-icon.png";
 import logoGW from "../../public/logo-icon-GW.png";
-import { useEffect, useState } from "react";
 import UnderlinedMenu from "./UnderlinedMenu";
+import { useState } from "react";
 
 export default function Nav() {
+  const [selected, setSelected] = useState(-1);
   const { colorMode, toggleColorMode } = useColorMode();
 
-  const updateActive = (path: string) => {
-    switch (path) {
-      case "my-story-nav":
-        document.getElementById("tech-stack-nav")!.style.textDecoration =
-          "none";
-        document.getElementById("projects-nav")!.style.textDecoration = "none";
-        document.getElementById("contact-nav")!.style.textDecoration = "none";
-        break;
-      case "tech-stack-nav":
-        document.getElementById("my-story-nav")!.style.textDecoration = "none";
-        document.getElementById("projects-nav")!.style.textDecoration = "none";
-        document.getElementById("contact-nav")!.style.textDecoration = "none";
-        break;
-      case "projects-nav":
-        document.getElementById("my-story-nav")!.style.textDecoration = "none";
-        document.getElementById("tech-stack-nav")!.style.textDecoration =
-          "none";
-        document.getElementById("contact-nav")!.style.textDecoration = "none";
-        break;
-      case "contact-nav":
-        document.getElementById("my-story-nav")!.style.textDecoration = "none";
-        document.getElementById("tech-stack-nav")!.style.textDecoration =
-          "none";
-        document.getElementById("projects-nav")!.style.textDecoration = "none";
-        break;
-      case "":
-        document.getElementById("my-story-nav")!.style.textDecoration = "none";
-        document.getElementById("tech-stack-nav")!.style.textDecoration =
-          "none";
-        document.getElementById("projects-nav")!.style.textDecoration = "none";
-        document.getElementById("contact-nav")!.style.textDecoration = "none";
-
-        break;
-    }
-  };
-  const handleClick = (e: any) => {
-    e.target.style.textDecoration = "underline";
-    updateActive(e.target.id);
-  };
-  useEffect(() => {
-    const path = document.location.hash.substring(3);
-    switch (path) {
-      case "my-story":
-        document.getElementById("my-story-nav")!.style.textDecoration =
-          "underline";
-        break;
-      case "tech-stack":
-        document.getElementById("tech-stack-nav")!.style.textDecoration =
-          "underline";
-        break;
-      case "projects":
-        document.getElementById("projects-nav")!.style.textDecoration =
-          "underline";
-        break;
-      case "contact":
-        document.getElementById("contact-nav")!.style.textDecoration =
-          "underline";
-        break;
-    }
-  }, []);
   return (
     <div
       css={css`
@@ -109,7 +49,7 @@ export default function Nav() {
               smooth
               to={"/#"}
               onClick={(e) => {
-                handleClick(e);
+                setSelected(-1);
               }}
               style={{ textDecoration: "none", color: "inherit" }}
             >
@@ -128,10 +68,10 @@ export default function Nav() {
               justify-content: space-between;
               gap: 20px;
               align-items: center;
-              width: 360px;
+              width: 400px;
             `}
           >
-            <UnderlinedMenu />
+            <UnderlinedMenu selected={selected} setSelected={setSelected} />
             <Flex alignItems={"center"}>
               <Stack direction={"row"} spacing={7}>
                 <Button onClick={toggleColorMode}>
