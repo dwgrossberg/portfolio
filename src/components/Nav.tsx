@@ -4,7 +4,6 @@ import {
   Box,
   Flex,
   Button,
-  useDisclosure,
   useColorModeValue,
   Stack,
   useColorMode,
@@ -15,9 +14,11 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import logo from "../../public/logo-icon.png";
 import logoGW from "../../public/logo-icon-GW.png";
 import { useEffect, useState } from "react";
+import UnderlinedMenu from "./UnderlinedMenu";
 
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
+
   const updateActive = (path: string) => {
     switch (path) {
       case "my-story-nav":
@@ -130,92 +131,7 @@ export default function Nav() {
               width: 360px;
             `}
           >
-            <motion.div
-              whileHover={{
-                y: [0, 5, 0, -2.5, 0],
-                color: "#a5c9ff",
-              }}
-              whileTap={{}}
-              transition={{
-                duration: 0.5,
-                ease: "easeInOut",
-              }}
-              layout
-            >
-              <HashLink
-                smooth
-                to={"/#my-story"}
-                id="my-story-nav"
-                onClick={(e) => {
-                  handleClick(e);
-                }}
-                style={{
-                  textDecoration: "none",
-                }}
-                css={css`
-                  color: inherit;
-                  text-underline-offset: 7px;
-                `}
-              >
-                My Story
-              </HashLink>
-            </motion.div>
-            <HashLink
-              smooth
-              to={"/#tech-stack"}
-              id="tech-stack-nav"
-              onClick={(e) => {
-                handleClick(e);
-              }}
-              style={{
-                textDecoration: "none",
-              }}
-              css={css`
-                color: inherit;
-                text-underline-offset: 7px;
-                &:hover {
-                  color: #a5c9ff;
-                }
-              `}
-            >
-              Tech Stack
-            </HashLink>
-            <HashLink
-              smooth
-              to={"/#projects"}
-              id="projects-nav"
-              onClick={(e) => {
-                handleClick(e);
-              }}
-              style={{ textDecoration: "none" }}
-              css={css`
-                color: inherit;
-                text-underline-offset: 7px;
-                &:hover {
-                  color: #a5c9ff;
-                }
-              `}
-            >
-              Projects
-            </HashLink>
-            <HashLink
-              smooth
-              to={"/#contact"}
-              id="contact-nav"
-              onClick={(e) => {
-                handleClick(e);
-              }}
-              style={{ textDecoration: "none" }}
-              css={css`
-                color: inherit;
-                text-underline-offset: 7px;
-                &:hover {
-                  color: #a5c9ff;
-                }
-              `}
-            >
-              Contact
-            </HashLink>
+            <UnderlinedMenu />
             <Flex alignItems={"center"}>
               <Stack direction={"row"} spacing={7}>
                 <Button onClick={toggleColorMode}>
