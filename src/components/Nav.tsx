@@ -14,6 +14,7 @@ import logo from "../../public/logo-icon.png";
 import logoGW from "../../public/logo-icon-GW.png";
 import UnderlinedMenu from "./UnderlinedMenu";
 import { useState } from "react";
+import ToggleSwitch from "./ToggleSwitch";
 
 export default function Nav() {
   const [selected, setSelected] = useState(-1);
@@ -68,12 +69,13 @@ export default function Nav() {
               justify-content: space-between;
               gap: 20px;
               align-items: center;
-              width: 400px;
+              width: 450px;
             `}
           >
             <UnderlinedMenu selected={selected} setSelected={setSelected} />
             <Flex alignItems={"center"}>
               <Stack direction={"row"} spacing={7}>
+                <ToggleSwitch />
                 <Button onClick={toggleColorMode}>
                   {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
                 </Button>

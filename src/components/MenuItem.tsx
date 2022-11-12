@@ -15,10 +15,10 @@ const MenuItem = ({
 }) => (
   <motion.div
     whileHover={{
-      y: [0, -1.5, 1.5, -0.5],
+      y: [0, -1.5, 1, -0.5],
       color: "#a5c9ff",
     }}
-    whileTap={{}}
+    whileTap={{ y: [0, -1.5, 1, -0.5], color: "#a5c9ff" }}
     transition={{
       duration: 0.25,
       ease: "easeInOut",
@@ -34,7 +34,7 @@ const MenuItem = ({
       cursor: pointer;
       position: relative;
       &:first-of-type {
-        margin-left: 1rem;
+        margin-left: 0.5rem;
       }
     `}
   >
@@ -65,7 +65,7 @@ const MenuItem = ({
             top: 100%;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 2px;
             border-radius: 15px;
             background: white;
             opacity: 0.85;
