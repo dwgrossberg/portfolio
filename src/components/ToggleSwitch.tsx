@@ -50,6 +50,12 @@ const ToggleSwitch = ({
       <motion.div
         className="switch"
         onTap={toggleOn}
+        style={{
+          backgroundColor:
+            colorMode === "dark"
+              ? "rgba(248, 248, 255, 0.4)"
+              : "rgba(25, 25, 25, 0.4)",
+        }}
         css={css`
           width: 50px;
           height: 30px;
@@ -76,7 +82,7 @@ const ToggleSwitch = ({
           css={css`
             width: 20px;
             height: 20px;
-            background-color: white;
+            background-color: ghostwhite;
             border-radius: 40px;
           `}
         />

@@ -22,7 +22,7 @@ const BackgroundLight = () => {
 			        content: "";
 			        @size: @r(5%, 25%);
 			        border-radius: 50%;
-			        background: radial-gradient(circle at @r(100%) @r(100%), #DBDBDB 0% 50%, #A5FFC9 50% 100%);
+			        background: radial-gradient(circle at @r(100%) @r(100%), #DBDBDB 0% 50%, #A5C9FF 50% 100%);
 			        display: @pick(none, unset);
 			        transform: translateX(@r(-100%, 100%)) ;
 			        animation: floatAnim @r(4s, 6s) @r(6s) infinite alternate ease-in-out;

@@ -1,14 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { FC, useEffect, useState } from "react";
-import { RouteProps } from "react-router-dom";
+import { useEffect, useState } from "react";
 import MyStory from "../pages/MyStory";
 import Home from "../pages/Home";
 import Projects from "../pages/Projects";
 import TechStack from "../pages/TechStack";
 import Contact from "../pages/Contact";
 
-const HashLinkFrame: FC = (props: RouteProps): JSX.Element => {
+const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
   const [width, setWidth] = useState(window.innerWidth);
   const breakpoint = 700;
   useEffect(() => {
@@ -21,7 +20,7 @@ const HashLinkFrame: FC = (props: RouteProps): JSX.Element => {
   return (
     <div>
       <header id="home">
-        <Home />
+        <Home colorMode={colorMode} />
       </header>
       <header
         id="my-story"
@@ -36,7 +35,7 @@ const HashLinkFrame: FC = (props: RouteProps): JSX.Element => {
           }
         `}
       >
-        <MyStory />
+        <MyStory colorMode={colorMode} />
       </header>
       <header
         id="tech-stack"
@@ -51,7 +50,7 @@ const HashLinkFrame: FC = (props: RouteProps): JSX.Element => {
           }
         `}
       >
-        <TechStack />
+        <TechStack colorMode={colorMode} />
       </header>
       <header
         id="projects"
@@ -66,7 +65,7 @@ const HashLinkFrame: FC = (props: RouteProps): JSX.Element => {
           }
         `}
       >
-        <Projects />
+        <Projects colorMode={colorMode} />
       </header>
       <header
         id="contact"
@@ -81,7 +80,7 @@ const HashLinkFrame: FC = (props: RouteProps): JSX.Element => {
           }
         `}
       >
-        <Contact />
+        <Contact colorMode={colorMode} />
       </header>
     </div>
   );

@@ -65,7 +65,7 @@ export default function Nav({
               justify-content: space-between;
               gap: 20px;
               align-items: center;
-              width: 460px;
+              width: 470px;
             `}
           >
             <UnderlinedMenu

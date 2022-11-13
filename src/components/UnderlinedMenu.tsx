@@ -50,7 +50,7 @@ const UnderlinedMenu = ({
         css={css`
           display: flex;
           justify-content: space-evenly;
-          margin-right: 1.5rem;
+          margin-right: 1rem;
         `}
       >
         {menuItems.map((el, i) => (

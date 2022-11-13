@@ -6,7 +6,6 @@ import { FC, useEffect, useState } from "react";
 import Nav from "./components/Nav";
 import HashLinkFrame from "./components/HashLinkFrame";
 import storage from "./utilities/storage";
-import theme from "../src/theme";
 import BackgroundDark from "./components/BackgroundDark";
 import BackgroundLight from "./components/BackgroundLight";
 
@@ -16,7 +15,7 @@ const App: FC = () => {
     storage();
   }, [colorMode]);
   return (
-    <ChakraProvider theme={theme}>
+    <ChakraProvider>
       <div
         className="App"
         css={css`
@@ -39,7 +38,7 @@ const App: FC = () => {
         <HashRouter>
           <Nav colorMode={colorMode} setColorMode={setColorMode} />
           <Routes>
-            <Route path="/" element={<HashLinkFrame />} />
+            <Route path="/" element={<HashLinkFrame colorMode={colorMode} />} />
           </Routes>
         </HashRouter>
       </div>

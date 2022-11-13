@@ -20,7 +20,6 @@ const MenuItem = ({
   <motion.div
     whileHover={{
       y: [0, -2.5, 2, -1],
-      color: "#a5c9ff",
     }}
     transition={{
       duration: 0.25,
@@ -38,7 +37,7 @@ const MenuItem = ({
       cursor: pointer;
       position: relative;
       &:first-of-type {
-        margin-left: 0.5rem;
+        margin-left: 1rem;
       }
     `}
   >
@@ -65,6 +64,9 @@ const MenuItem = ({
         <motion.div
           className="underline"
           layoutId="underline"
+          style={{
+            background: colorMode === "dark" ? "ghostwhite" : "#191919",
+          }}
           css={css`
             position: absolute;
             top: 100%;

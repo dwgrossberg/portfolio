@@ -1,19 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { FC } from "react";
+import "../styles/pageStyles.css";
 
-const Projects: FC = (): JSX.Element => {
+const Projects = ({ colorMode }: { colorMode: string }): JSX.Element => {
   return (
     <div
-      css={css`
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 20px;
-        min-height: 100vmax;
-        margin-top: -1.5em;
-      `}
+      style={{
+        color: colorMode === "dark" ? "ghostwhite" : "#191919",
+      }}
+      className="page"
     >
       <h2>projects</h2>
     </div>
