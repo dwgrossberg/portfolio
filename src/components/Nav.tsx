@@ -1,24 +1,21 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import {
-  Box,
-  Flex,
-  Button,
-  useColorModeValue,
-  Stack,
-  useColorMode,
-} from "@chakra-ui/react";
+import { Box, Flex, Stack } from "@chakra-ui/react";
 import { HashLink } from "react-router-hash-link";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import logo from "../../public/logo-icon.png";
 import logoGW from "../../public/logo-icon-GW.png";
 import UnderlinedMenu from "./UnderlinedMenu";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import ToggleSwitch from "./ToggleSwitch";
 
-export default function Nav() {
+export default function Nav({
+  colorMode,
+  setColorMode,
+}: {
+  colorMode: string;
+  setColorMode: Dispatch<SetStateAction<string>>;
+}) {
   const [selected, setSelected] = useState(-1);
-  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <div
@@ -28,7 +25,6 @@ export default function Nav() {
       `}
     >
       <Box
-        bg={useColorModeValue("gray.100", "gray.900")}
         px={4}
         position={"fixed"}
         top={"50px"}
@@ -56,7 +52,7 @@ export default function Nav() {
             >
               <img
                 alt="DGlogo"
-                src={logoGW}
+                src={colorMode === "dark" ? logoGW : logo}
                 css={css`
                   width: 3em;
                 `}
@@ -72,13 +68,17 @@ export default function Nav() {
               width: 450px;
             `}
           >
-            <UnderlinedMenu selected={selected} setSelected={setSelected} />
+            <UnderlinedMenu
+              selected={selected}
+              setSelected={setSelected}
+              colorMode={colorMode}
+            />
             <Flex alignItems={"center"}>
               <Stack direction={"row"} spacing={7}>
-                <ToggleSwitch />
-                <Button onClick={toggleColorMode}>
-                  {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-                </Button>
+                <ToggleSwitch
+                  colorMode={colorMode}
+                  setColorMode={setColorMode}
+                />
               </Stack>
             </Flex>
           </div>

@@ -1,47 +1,57 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { Routes, Route, HashRouter } from "react-router-dom";
-import Doodle from "./components/doodle";
-import { FC } from "react";
+import { ChakraProvider } from "@chakra-ui/react";
+import Doodle from "./utilities/doodle";
+import { FC, useEffect, useState } from "react";
 import Nav from "./components/Nav";
 import HashLinkFrame from "./components/HashLinkFrame";
+import storage from "./utilities/storage";
+import theme from "../src/theme";
 
 const App: FC = () => {
+  const [colorMode, setColorMode] = useState(localStorage.colorMode || "dark");
+  useEffect(() => {
+    storage();
+  }, [colorMode]);
   return (
-    <div
-      className="App"
-      css={css`
-        position: relative;
-        display: grid;
-        grid-template: 100px repeat(auto-fit, minmax(500px, 1fr)) / 1fr;
-        align-items: center;
-      `}
-    >
+    <ChakraProvider theme={theme}>
       <div
+        className="App"
         css={css`
-          position: fixed;
-          top: 0;
-          right: 0;
-          z-index: -1;
+          position: relative;
+          display: grid;
+          grid-template: 100px repeat(auto-fit, minmax(500px, 1fr)) / 1fr;
+          align-items: center;
         `}
       >
-        <Doodle
-          className="css-doodle"
-          onClick={(e: any) => {
-            e.target.update && e.target.update();
-          }}
-          onMouseOver={(e: any) => {
-            e.target.style.transform = "rotate(@rand(360)deg)";
-            e.target.style.transition = ".2s;";
-          }}
-          rule={`
+        <div
+          css={css`
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: -1;
+          `}
+        >
+          <Doodle
+            className="css-doodle"
+            onClick={(e: any) => {
+              e.target.update && e.target.update();
+            }}
+            onMouseOver={(e: any) => {
+              e.target.style.transform = "rotate(@rand(360)deg)";
+              e.target.style.transition = ".2s;";
+            }}
+            rule={`
           :doodle {
             @grid: 17;
 			      @size: 100vmax;
           }
 		
-		      background: linear-gradient(@pick-d(0deg, 90deg, 180deg, 270deg), #191919 25%, #141414 25% 50%, #141414 50%);
-		      @random(.2) {
+		      background: linear-gradient(@pick-d(0deg, 90deg, 180deg, 270deg), #191919 25%, ${
+            colorMode === "dark" ? "#141414" : "#DBDBDB"
+          }  25% 50%, ${colorMode === "dark" ? "#141414" : "#DBDBDB"} 50%);
+		      @random(.1) {
 		        :after {
 			        content: "";
 			        @size: @r(5%, 25%);
@@ -62,15 +72,16 @@ const App: FC = () => {
 			      }
 		      }
         `}
-        />
+          />
+        </div>
+        <HashRouter>
+          <Nav colorMode={colorMode} setColorMode={setColorMode} />
+          <Routes>
+            <Route path="/" element={<HashLinkFrame />} />
+          </Routes>
+        </HashRouter>
       </div>
-      <HashRouter>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<HashLinkFrame />} />
-        </Routes>
-      </HashRouter>
-    </div>
+    </ChakraProvider>
   );
 };
 

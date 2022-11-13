@@ -2,7 +2,7 @@
 import { css } from "@emotion/react";
 import { FC } from "react";
 
-const Home: FC = ({ ...props }): JSX.Element => {
+const Home: FC = (): JSX.Element => {
   return (
     <div
       // for controlling the page layout with hash link scroll to effect

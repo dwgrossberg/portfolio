@@ -2,11 +2,11 @@
 import { css } from "@emotion/react";
 import { FC, useEffect, useState } from "react";
 import { RouteProps } from "react-router-dom";
-import MyStory from "./MyStory";
-import Home from "./Home";
-import Projects from "./Projects";
-import TechStack from "./TechStack";
-import Contact from "./Contact";
+import MyStory from "../pages/MyStory";
+import Home from "../pages/Home";
+import Projects from "../pages/Projects";
+import TechStack from "../pages/TechStack";
+import Contact from "../pages/Contact";
 
 const HashLinkFrame: FC = (props: RouteProps): JSX.Element => {
   const [width, setWidth] = useState(window.innerWidth);

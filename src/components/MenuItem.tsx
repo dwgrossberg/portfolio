@@ -1,24 +1,27 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { motion } from "framer-motion";
-import { MouseEventHandler } from "react";
+import { Dispatch, MouseEventHandler, SetStateAction } from "react";
 import { HashLink } from "react-router-hash-link";
 
 const MenuItem = ({
   text,
   selected,
+  colorMode,
   onClick,
+  onTap,
 }: {
   text: string;
   selected: boolean;
+  colorMode: string;
   onClick: MouseEventHandler<HTMLDivElement>;
+  onTap: (event: MouseEvent | TouchEvent | PointerEvent) => void;
 }) => (
   <motion.div
     whileHover={{
       y: [0, -1.5, 1, -0.5],
       color: "#a5c9ff",
     }}
-    whileTap={{ y: [0, -1.5, 1, -0.5], color: "#a5c9ff" }}
     transition={{
       duration: 0.25,
       ease: "easeInOut",
@@ -26,9 +29,10 @@ const MenuItem = ({
     animate={{ opacity: selected ? 1 : 0.5 }}
     className="menu-item"
     onClick={onClick}
+    onTap={onTap}
     css={css`
       margin: 0 0.5rem;
-      width: 80px;
+      width: 90px;
       font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
@@ -50,6 +54,7 @@ const MenuItem = ({
       }
       style={{
         textDecoration: "none",
+        color: colorMode === "dark" ? "ghostwhite" : "#191919",
       }}
       css={css`
         color: inherit;

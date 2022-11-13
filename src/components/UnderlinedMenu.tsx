@@ -6,9 +6,11 @@ import MenuItem from "./MenuItem";
 const UnderlinedMenu = ({
   selected,
   setSelected,
+  colorMode,
 }: {
   selected: number;
   setSelected: Dispatch<SetStateAction<number>>;
+  colorMode: string;
 }) => {
   const menuItems = ["My Story", "Tech Stack", "Projects", "Contact"];
 
@@ -40,8 +42,7 @@ const UnderlinedMenu = ({
         width: 100%;
         display: grid;
         place-items: center left;
-        color: ghostwhite;
-        margin-right: -1.5rem;
+        margin-right: -2rem;
       `}
     >
       <div
@@ -57,7 +58,11 @@ const UnderlinedMenu = ({
             text={el}
             key={i}
             selected={selected === i}
+            colorMode={colorMode}
             onClick={() => {
+              setSelected(i);
+            }}
+            onTap={() => {
               setSelected(i);
             }}
           />

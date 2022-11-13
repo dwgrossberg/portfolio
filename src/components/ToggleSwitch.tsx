@@ -1,53 +1,86 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import "../../src/index.css";
+import { Dispatch, SetStateAction, useState } from "react";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
-const ToggleSwitch = () => {
-  const [isOn, setIsOn] = useState(false);
-  const toggleSwitch = () => setIsOn(!isOn);
+const ToggleSwitch = ({
+  colorMode,
+  setColorMode,
+}: {
+  colorMode: string;
+  setColorMode: Dispatch<SetStateAction<string>>;
+}) => {
   const [toggleDirection, setToggleDirection] = useState(0);
   const toggleOn = () => {
-    setToggleDirection(toggleDirection === 0 ? 10 : 0);
+    setToggleDirection(toggleDirection === 0 ? 20 : 0);
+    setColorMode(colorMode === "dark" ? "light" : "dark");
+    window.location.reload();
   };
 
   return (
-    <motion.div
-      className="switch"
-      data-ison={isOn}
-      onTap={toggleOn}
-      css={css`
-        width: 25px;
-        height: 15px;
-        background-color: rgba(255, 255, 255, 0.4);
-        display: flex;
-        justify-content: flex-start;
-        border-radius: 50px;
-        padding: 5px;
-        cursor: pointer;
-      `}
-    >
-      <motion.div
-        className="handle"
-        whileHover={{ scale: 1.2 }}
-        onTap={toggleOn}
-        animate={{
-          x: toggleDirection,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 700,
-          damping: 30,
-        }}
+    <div>
+      <div
         css={css`
-          width: 15px;
-          height: 15px;
-          background-color: white;
-          border-radius: 40px;
+          position: relative;
         `}
-      />
-    </motion.div>
+      >
+        <span
+          css={css`
+            position: absolute;
+            top: 2px;
+            left: 5px;
+            z-index: -1;
+          `}
+        >
+          <MoonIcon color="#191919" />
+        </span>
+        <span
+          css={css`
+            position: absolute;
+            top: 2px;
+            right: 5px;
+            z-index: -1;
+          `}
+        >
+          <SunIcon color="ghostwhite" />
+        </span>
+      </div>
+      <motion.div
+        className="switch"
+        onTap={toggleOn}
+        css={css`
+          width: 50px;
+          height: 30px;
+          background-color: rgba(255, 255, 255, 0.4);
+          display: flex;
+          justify-content: flex-start;
+          border-radius: 50px;
+          padding: 5px;
+          cursor: pointer;
+        `}
+      >
+        <motion.div
+          className="handle"
+          whileHover={{ scale: 1.2, backgroundColor: "#a5c9ff" }}
+          onTap={toggleOn}
+          animate={{
+            x: toggleDirection,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 700,
+            damping: 30,
+          }}
+          css={css`
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 40px;
+          `}
+        />
+      </motion.div>
+    </div>
   );
 };
 

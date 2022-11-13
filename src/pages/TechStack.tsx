@@ -2,7 +2,7 @@
 import { css } from "@emotion/react";
 import { FC } from "react";
 
-const TechStack: FC = ({ ...props }): JSX.Element => {
+const TechStack: FC = (): JSX.Element => {
   return (
     <div
       css={css`

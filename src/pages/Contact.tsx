@@ -2,7 +2,7 @@
 import { css } from "@emotion/react";
 import { FC } from "react";
 
-const Projects: FC = ({ ...props }): JSX.Element => {
+const Contact: FC = (): JSX.Element => {
   return (
     <div
       css={css`
@@ -15,9 +15,9 @@ const Projects: FC = ({ ...props }): JSX.Element => {
         margin-top: -1.5em;
       `}
     >
-      <h2>projects</h2>
+      <h2>contact</h2>
     </div>
   );
 };
 
-export default Projects;
+export default Contact;
