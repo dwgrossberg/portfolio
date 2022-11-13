@@ -19,7 +19,7 @@ const MenuItem = ({
 }) => (
   <motion.div
     whileHover={{
-      y: [0, -1.5, 1, -0.5],
+      y: [0, -2.5, 2, -1],
       color: "#a5c9ff",
     }}
     transition={{

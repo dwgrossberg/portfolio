@@ -11,11 +11,12 @@ const ToggleSwitch = ({
   colorMode: string;
   setColorMode: Dispatch<SetStateAction<string>>;
 }) => {
-  const [toggleDirection, setToggleDirection] = useState(0);
+  const [toggleDirection, setToggleDirection] = useState(
+    colorMode === "dark" ? 0 : 20
+  );
   const toggleOn = () => {
     setToggleDirection(toggleDirection === 0 ? 20 : 0);
     setColorMode(colorMode === "dark" ? "light" : "dark");
-    window.location.reload();
   };
 
   return (
@@ -62,7 +63,7 @@ const ToggleSwitch = ({
       >
         <motion.div
           className="handle"
-          whileHover={{ scale: 1.2, backgroundColor: "#a5c9ff" }}
+          whileHover={{ scale: 1.2 }}
           onTap={toggleOn}
           animate={{
             x: toggleDirection,

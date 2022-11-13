@@ -1,6 +1,8 @@
 import * as React from "react";
 import "css-doodle";
 
+// type rules for css-doodle module
+
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -15,8 +17,6 @@ declare global {
 type DoodleProps = {
   rule: string;
   className: string;
-  onClick: (e: any) => void;
-  onMouseOver: (e: any) => void;
 };
 
 export default (props: DoodleProps) => (
