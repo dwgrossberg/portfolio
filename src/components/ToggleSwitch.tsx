@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import { motion } from "framer-motion";
 import { Dispatch, SetStateAction, useState } from "react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import theme from "../utilities/theme";
 
 const ToggleSwitch = ({
   colorMode,
@@ -53,8 +54,8 @@ const ToggleSwitch = ({
         style={{
           backgroundColor:
             colorMode === "dark"
-              ? "rgba(248, 248, 255, 0.4)"
-              : "rgba(25, 25, 25, 0.4)",
+              ? theme.colors.dark.toggle
+              : theme.colors.light.toggle,
         }}
         css={css`
           width: 50px;

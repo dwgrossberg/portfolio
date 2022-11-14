@@ -2,11 +2,15 @@
 import { css } from "@emotion/react";
 import "../styles/pageStyles.css";
 
+import theme from "../utilities/theme";
 const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
   return (
     <div
       style={{
-        color: colorMode === "dark" ? "ghostwhite" : "#191919",
+        color:
+          colorMode === "dark"
+            ? theme.colors.dark.text
+            : theme.colors.light.text,
       }}
       className="page"
     >

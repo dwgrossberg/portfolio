@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import { motion } from "framer-motion";
 import { Dispatch, MouseEventHandler, SetStateAction } from "react";
 import { HashLink } from "react-router-hash-link";
+import theme from "../utilities/theme";
 
 const MenuItem = ({
   text,
@@ -53,7 +54,10 @@ const MenuItem = ({
       }
       style={{
         textDecoration: "none",
-        color: colorMode === "dark" ? "ghostwhite" : "#191919",
+        color:
+          colorMode === "dark"
+            ? theme.colors.dark.text
+            : theme.colors.light.text,
       }}
       css={css`
         color: inherit;
@@ -65,7 +69,10 @@ const MenuItem = ({
           className="underline"
           layoutId="underline"
           style={{
-            background: colorMode === "dark" ? "ghostwhite" : "#191919",
+            background:
+              colorMode === "dark"
+                ? theme.colors.dark.text
+                : theme.colors.light.text,
           }}
           css={css`
             position: absolute;

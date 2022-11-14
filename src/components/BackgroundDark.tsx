@@ -1,4 +1,5 @@
 import CSSDoodle from "../utilities/doodle";
+import theme from "../utilities/theme";
 const BackgroundDark = () => {
   return (
     <CSSDoodle
@@ -15,14 +16,13 @@ const BackgroundDark = () => {
             @grid: 17;
 			      @size: 100vmax;
           }
-		
-		      background: linear-gradient(@pick-d(0deg, 90deg, 180deg, 270deg), #191919 25%, #141414 25% 50%, #141414 50%);
+		      background: linear-gradient(@pick-d(0deg, 90deg, 180deg, 270deg), ${theme.colors.dark.backgroundSec} 25%, ${theme.colors.dark.backgroundPri} 25% 50%, ${theme.colors.dark.backgroundPri} 50%);
 		      @random(.1) {
 		        :after {
 			        content: "";
 			        @size: @r(5%, 25%);
 			        border-radius: 50%;
-			        background: radial-gradient(circle at @r(100%) @r(100%), #DBDBDB 0% 50%, #A5FFC9 50% 100%);
+			        background: radial-gradient(circle at @r(100%) @r(100%), ${theme.colors.dark.backgroundBall} 0% 50%, ${theme.colors.dark.backgroundAccent} 50% 100%);
 			        display: @pick(none, unset);
 			        transform: translateX(@r(-100%, 100%)) ;
 			        animation: floatAnim @r(4s, 6s) @r(6s) infinite alternate ease-in-out;
@@ -30,7 +30,6 @@ const BackgroundDark = () => {
               z-index:1;
 		        }
           }
-		
 		      @keyframes floatAnim {
 			      100% {
 				      transform: translateX(@r(100%, 700%));
