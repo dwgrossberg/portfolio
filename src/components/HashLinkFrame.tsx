@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { useEffect, useState } from "react";
 import MyStory from "../pages/MyStory";
 import Home from "../pages/Home";
 import Projects from "../pages/Projects";
@@ -8,15 +7,6 @@ import TechStack from "../pages/TechStack";
 import Contact from "../pages/Contact";
 
 const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
-  const [width, setWidth] = useState(window.innerWidth);
-  const breakpoint = 700;
-  useEffect(() => {
-    const handleResizeWindow = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", handleResizeWindow);
-    return () => {
-      window.removeEventListener("resize", handleResizeWindow);
-    };
-  }, []);
   return (
     <div>
       <header id="home">

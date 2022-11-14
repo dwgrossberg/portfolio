@@ -8,9 +8,11 @@ import theme from "../utilities/theme";
 const ToggleSwitch = ({
   colorMode,
   setColorMode,
+  style,
 }: {
   colorMode: string;
   setColorMode: Dispatch<SetStateAction<string>>;
+  style: any;
 }) => {
   const [toggleDirection, setToggleDirection] = useState(
     colorMode === "dark" ? 0 : 20
@@ -21,7 +23,7 @@ const ToggleSwitch = ({
   };
 
   return (
-    <div>
+    <div style={style}>
       <div
         css={css`
           position: relative;

@@ -1,13 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { Box, Flex, Stack } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import { HashLink } from "react-router-hash-link";
-import logoDark from "../../public/logo-icon-dark.svg";
-import logoLight from "../../public/logo-icon-light.svg";
 import UnderlinedMenu from "./UnderlinedMenu";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import ToggleSwitch from "./ToggleSwitch";
 import AnimatedLogo from "./AnimatedLogo";
+import { MobileMenu } from "./MobileMenu";
 
 export default function Nav({
   colorMode,
@@ -17,7 +16,16 @@ export default function Nav({
   setColorMode: Dispatch<SetStateAction<string>>;
 }) {
   const [selected, setSelected] = useState(-1);
-
+  const menuItems = ["My Story", "Tech Stack", "Projects", "Contact"];
+  const [width, setWidth] = useState(window.innerWidth);
+  const breakpoint = 600;
+  useEffect(() => {
+    const handleResizeWindow = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResizeWindow);
+    return () => {
+      window.removeEventListener("resize", handleResizeWindow);
+    };
+  }, []);
   return (
     <div
       css={css`
@@ -63,19 +71,24 @@ export default function Nav({
               width: 470px;
             `}
           >
-            <UnderlinedMenu
-              selected={selected}
-              setSelected={setSelected}
+            {width > breakpoint ? (
+              <UnderlinedMenu
+                selected={selected}
+                setSelected={setSelected}
+                colorMode={colorMode}
+                menuItems={menuItems}
+              />
+            ) : (
+              <MobileMenu />
+            )}
+            <ToggleSwitch
               colorMode={colorMode}
+              setColorMode={setColorMode}
+              style={{
+                position: width > breakpoint ? "" : "absolute",
+                right: width > breakpoint ? "" : "100px",
+              }}
             />
-            <Flex alignItems={"center"}>
-              <Stack direction={"row"} spacing={7}>
-                <ToggleSwitch
-                  colorMode={colorMode}
-                  setColorMode={setColorMode}
-                />
-              </Stack>
-            </Flex>
           </div>
         </Flex>
       </Box>

@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import "../styles/pageStyles.css";
+import "../styles/pages.css";
 import theme from "../utilities/theme";
 
 const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {

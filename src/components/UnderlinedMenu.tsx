@@ -7,13 +7,13 @@ const UnderlinedMenu = ({
   selected,
   setSelected,
   colorMode,
+  menuItems,
 }: {
   selected: number;
   setSelected: Dispatch<SetStateAction<number>>;
   colorMode: string;
+  menuItems: Array<string>;
 }) => {
-  const menuItems = ["My Story", "Tech Stack", "Projects", "Contact"];
-
   useEffect(() => {
     const path = document.location.hash.substring(3);
     switch (path) {

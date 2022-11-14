@@ -3,7 +3,7 @@ import theme from "../utilities/theme";
 
 const AnimatedLogo = ({ colorMode }: { colorMode: string }) => {
   const transition = {
-    duration: 2.5,
+    duration: 1.5,
     ease: "easeInOut",
   };
   return (
@@ -28,7 +28,7 @@ const AnimatedLogo = ({ colorMode }: { colorMode: string }) => {
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           whileHover={{ pathLength: 0 }}
-          whileTap={{ pathLength: 1000 }}
+          whileTap={{ pathLength: 250 }}
           transition={transition}
         />
       </svg>
