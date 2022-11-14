@@ -2,11 +2,12 @@
 import { css } from "@emotion/react";
 import { Box, Flex, Stack } from "@chakra-ui/react";
 import { HashLink } from "react-router-hash-link";
-import logo from "../../public/logo-icon.png";
-import logoGW from "../../public/logo-icon-GW.png";
+import logoDark from "../../public/logo-icon-dark.svg";
+import logoLight from "../../public/logo-icon-light.svg";
 import UnderlinedMenu from "./UnderlinedMenu";
 import { Dispatch, SetStateAction, useState } from "react";
 import ToggleSwitch from "./ToggleSwitch";
+import AnimatedLogo from "./AnimatedLogo";
 
 export default function Nav({
   colorMode,
@@ -50,13 +51,7 @@ export default function Nav({
               }}
               style={{ textDecoration: "none", color: "inherit" }}
             >
-              <img
-                alt="DGlogo"
-                src={colorMode === "dark" ? logoGW : logo}
-                css={css`
-                  width: 3em;
-                `}
-              />
+              <AnimatedLogo colorMode={colorMode} />
             </HashLink>
           </Box>
           <div

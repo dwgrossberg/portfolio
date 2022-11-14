@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { motion } from "framer-motion";
-import { Dispatch, MouseEventHandler, SetStateAction } from "react";
+import { MouseEventHandler } from "react";
 import { HashLink } from "react-router-hash-link";
 import theme from "../utilities/theme";
 
