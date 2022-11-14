@@ -66,6 +66,7 @@ export default function Nav({
             css={css`
               display: flex;
               justify-content: space-between;
+              align-items: center;
               gap: 20px;
               align-items: center;
               width: 470px;
@@ -79,14 +80,16 @@ export default function Nav({
                 menuItems={menuItems}
               />
             ) : (
-              <MobileMenu />
+              <MobileMenu colorMode={colorMode} menuItems={menuItems} />
             )}
             <ToggleSwitch
               colorMode={colorMode}
               setColorMode={setColorMode}
               style={{
                 position: width > breakpoint ? "" : "absolute",
-                right: width > breakpoint ? "" : "100px",
+                right: width > breakpoint ? "" : "125px",
+                top: width > breakpoint ? "" : "27px",
+                zIndex: width > breakpoint ? "" : "5",
               }}
             />
           </div>

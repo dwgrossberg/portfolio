@@ -20,7 +20,7 @@ const variants = {
 
 const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
 
-export const MobileMenuItem = ({ i }: { i: any }) => {
+export const MobileMenuItem = ({ i, text }: { i: any; text: string }) => {
   const style = { border: `2px solid ${colors[i]}` };
   return (
     <motion.li
@@ -28,8 +28,9 @@ export const MobileMenuItem = ({ i }: { i: any }) => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      <div className="icon-placeholder" style={style} />
-      <div className="text-placeholder" style={style} />
+      <div className="text-placeholder" style={style}>
+        {text}
+      </div>
     </motion.li>
   );
 };

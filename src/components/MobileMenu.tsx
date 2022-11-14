@@ -7,7 +7,7 @@ import { MobileNav } from "./MobileNav";
 import "../styles/mobileMenu.css";
 
 const sidebar = {
-  open: (height = 1000) => ({
+  open: (height = 500) => ({
     clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
     transition: {
       type: "spring",
@@ -16,7 +16,7 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: "circle(30px at 260px 40px)",
+    clipPath: "circle(20px at 213px 43px)",
     transition: {
       delay: 0.5,
       type: "spring",
@@ -26,7 +26,13 @@ const sidebar = {
   },
 };
 
-export const MobileMenu = () => {
+export const MobileMenu = ({
+  colorMode,
+  menuItems,
+}: {
+  colorMode: string;
+  menuItems: Array<string>;
+}) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
@@ -39,7 +45,7 @@ export const MobileMenu = () => {
       ref={containerRef}
     >
       <motion.div className="background" variants={sidebar} />
-      <MobileNav />
+      <MobileNav menuItems={menuItems} />
       <MobileMenuToggle toggle={() => toggleOpen()} />
     </motion.nav>
   );

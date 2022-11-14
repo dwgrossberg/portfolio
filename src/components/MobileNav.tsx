@@ -11,12 +11,10 @@ const variants = {
   },
 };
 
-export const MobileNav = () => (
+export const MobileNav = ({ menuItems }: { menuItems: Array<string> }) => (
   <motion.ul variants={variants}>
-    {itemIds.map((i) => (
-      <MobileMenuItem i={i} key={i} />
+    {menuItems.map((i) => (
+      <MobileMenuItem i={i} key={i} text={i} />
     ))}
   </motion.ul>
 );
-
-const itemIds = [0, 1, 2, 3, 4];

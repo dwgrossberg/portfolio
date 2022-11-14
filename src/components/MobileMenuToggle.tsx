@@ -13,7 +13,7 @@ const Path = (props: any) => (
 
 export const MobileMenuToggle = ({ toggle }: { toggle: any }) => (
   <button onClick={toggle}>
-    <svg width="23" height="23" viewBox="0 0 23 23">
+    <svg width="16" height="16" viewBox="0 0 18 18">
       <Path
         variants={{
           closed: { d: "M 2 2.5 L 20 2.5" },
