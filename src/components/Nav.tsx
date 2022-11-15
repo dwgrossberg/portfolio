@@ -87,8 +87,8 @@ export default function Nav({
               setColorMode={setColorMode}
               style={{
                 position: width > breakpoint ? "" : "absolute",
-                right: width > breakpoint ? "" : "125px",
-                top: width > breakpoint ? "" : "27px",
+                right: width > breakpoint ? "" : "107px",
+                top: width > breakpoint ? "" : "30px",
                 zIndex: width > breakpoint ? "" : "5",
               }}
             />

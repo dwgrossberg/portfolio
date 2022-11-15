@@ -28,7 +28,7 @@ const AnimatedLogo = ({ colorMode }: { colorMode: string }) => {
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           whileHover={{ pathLength: 0 }}
-          whileTap={{ pathLength: 250 }}
+          whileTap={{ pathLength: 200 }}
           transition={transition}
         />
       </svg>

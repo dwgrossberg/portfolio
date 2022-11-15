@@ -16,7 +16,7 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: "circle(20px at 213px 43px)",
+    clipPath: "circle(22.5px at 230px 43px)",
     transition: {
       delay: 0.5,
       type: "spring",
@@ -44,9 +44,16 @@ export const MobileMenu = ({
       custom={height}
       ref={containerRef}
     >
-      <motion.div className="background" variants={sidebar} />
-      <MobileNav menuItems={menuItems} />
-      <MobileMenuToggle toggle={() => toggleOpen()} />
+      <motion.div
+        className="background"
+        variants={sidebar}
+        style={{
+          background:
+            colorMode === "dark" ? "rgba(248,248,255,.3)" : "rgba(25,25,25,.3)",
+        }}
+      />
+      <MobileNav menuItems={menuItems} colorMode={colorMode} />
+      <MobileMenuToggle toggle={() => toggleOpen()} colorMode={colorMode} />
     </motion.nav>
   );
 };

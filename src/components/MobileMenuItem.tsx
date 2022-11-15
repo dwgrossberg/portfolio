@@ -1,5 +1,6 @@
 import * as React from "react";
 import { motion } from "framer-motion";
+import theme from "../utilities/theme";
 
 const variants = {
   open: {
@@ -18,10 +19,19 @@ const variants = {
   },
 };
 
-const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
-
-export const MobileMenuItem = ({ i, text }: { i: any; text: string }) => {
-  const style = { border: `2px solid ${colors[i]}` };
+export const MobileMenuItem = ({
+  i,
+  text,
+  colorMode,
+}: {
+  i: any;
+  text: string;
+  colorMode: string;
+}) => {
+  const style = {
+    color:
+      colorMode === "dark" ? theme.colors.dark.text : theme.colors.light.text,
+  };
   return (
     <motion.li
       variants={variants}

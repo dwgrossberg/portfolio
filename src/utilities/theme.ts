@@ -12,7 +12,7 @@ const theme = (() => {
       light: {
         backgroundPri: "ghostwhite",
         backgroundSec: "#F2F3F4",
-        backgroundBall: "#DBDBDB",
+        backgroundBall: "#4b4b4b",
         backgroundAccent: "#A5C9FF",
         text: "#191919",
         toggle: "rgba(25, 25, 25, 0.4)",

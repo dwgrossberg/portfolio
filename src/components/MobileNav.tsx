@@ -11,10 +11,16 @@ const variants = {
   },
 };
 
-export const MobileNav = ({ menuItems }: { menuItems: Array<string> }) => (
+export const MobileNav = ({
+  menuItems,
+  colorMode,
+}: {
+  menuItems: Array<string>;
+  colorMode: string;
+}) => (
   <motion.ul variants={variants}>
     {menuItems.map((i) => (
-      <MobileMenuItem i={i} key={i} text={i} />
+      <MobileMenuItem i={i} key={i} text={i} colorMode={colorMode} />
     ))}
   </motion.ul>
 );
