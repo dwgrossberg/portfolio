@@ -11,7 +11,7 @@ nav {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 270px;
+  width: 230px;
   height: 400px;
   border-radius: 13px;
 }
@@ -41,14 +41,14 @@ li {
 ul {
   padding: 25px;
   position: absolute;
-  right: 20px;
+  right: 0px;
   top: 100px;
   width: 230px;
 }
 
 li {
   list-style: none;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   display: flex;
   align-items: center;
   cursor: pointer;

@@ -63,11 +63,11 @@ const UnderlinedMenu = ({
             colorMode={colorMode}
             onClick={() => {
               setSelected(i);
-              setStrokeVar("12");
+              setStrokeVar("10");
             }}
             onTap={() => {
               setSelected(i);
-              setStrokeVar("12");
+              setStrokeVar("10");
             }}
           />
         ))}

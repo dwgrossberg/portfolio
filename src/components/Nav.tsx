@@ -17,7 +17,7 @@ export default function Nav({
 }) {
   const [selected, setSelected] = useState(-1);
   const menuItems = ["My Story", "Tech Stack", "Projects", "Contact"];
-  const [strokeVar, setStrokeVar] = useState("30");
+  const [strokeVar, setStrokeVar] = useState("20");
   const [width, setWidth] = useState(window.innerWidth);
   const breakpoint = 600;
   useEffect(() => {
@@ -57,7 +57,7 @@ export default function Nav({
               to={"/#"}
               onClick={(e) => {
                 setSelected(-1);
-                setStrokeVar("30");
+                setStrokeVar("20");
               }}
               style={{ textDecoration: "none" }}
             >
@@ -83,14 +83,20 @@ export default function Nav({
                 setStrokeVar={setStrokeVar}
               />
             ) : (
-              <MobileMenu colorMode={colorMode} menuItems={menuItems} />
+              <MobileMenu
+                selected={selected}
+                setSelected={setSelected}
+                colorMode={colorMode}
+                menuItems={menuItems}
+                setStrokeVar={setStrokeVar}
+              />
             )}
             <ToggleSwitch
               colorMode={colorMode}
               setColorMode={setColorMode}
               style={{
                 position: width > breakpoint ? "" : "absolute",
-                right: width > breakpoint ? "" : "107px",
+                right: width > breakpoint ? "" : "90px",
                 top: width > breakpoint ? "" : "30px",
                 zIndex: width > breakpoint ? "" : "5",
               }}

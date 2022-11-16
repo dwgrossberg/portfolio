@@ -1,6 +1,8 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import theme from "../utilities/theme";
+import { Dispatch, SetStateAction } from "react";
+import MenuItem from "./MenuItem";
 
 const variants = {
   open: {
@@ -20,26 +22,41 @@ const variants = {
 };
 
 export const MobileMenuItem = ({
-  i,
-  text,
   colorMode,
+  selected,
+  setSelected,
+  menuItems,
+  setStrokeVar,
 }: {
-  i: any;
-  text: string;
   colorMode: string;
+  selected: number;
+  setSelected: Dispatch<SetStateAction<number>>;
+  menuItems: Array<string>;
+  setStrokeVar: Dispatch<SetStateAction<string>>;
 }) => {
   const style = {
     color:
       colorMode === "dark" ? theme.colors.light.text : theme.colors.dark.text,
   };
   return (
-    <motion.li
-      variants={variants}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-    >
+    <motion.li variants={variants}>
       <div className="text-placeholder" style={style}>
-        {text}
+        {menuItems.map((el, i) => (
+          <MenuItem
+            text={el}
+            key={i}
+            selected={selected === i}
+            colorMode={colorMode}
+            onClick={() => {
+              setSelected(i);
+              setStrokeVar("10");
+            }}
+            onTap={() => {
+              setSelected(i);
+              setStrokeVar("10");
+            }}
+          />
+        ))}{" "}
       </div>
     </motion.li>
   );

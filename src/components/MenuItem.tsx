@@ -19,6 +19,7 @@ const MenuItem = ({
   onTap: (event: MouseEvent | TouchEvent | PointerEvent) => void;
 }) => (
   <motion.div
+    whileTap={{ scale: 0.85 }}
     whileHover={{
       y: [0, -2.5, 2, -1],
     }}

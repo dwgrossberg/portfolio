@@ -17,7 +17,7 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: "circle(22.5px at 230px 43px)",
+    clipPath: "circle(22.5px at 190px 43px)",
     transition: {
       delay: 0.5,
       type: "spring",
@@ -28,11 +28,17 @@ const sidebar = {
 };
 
 export const MobileMenu = ({
+  selected,
+  setSelected,
   colorMode,
   menuItems,
+  setStrokeVar,
 }: {
+  selected: number;
+  setSelected: Dispatch<SetStateAction<number>>;
   colorMode: string;
   menuItems: Array<string>;
+  setStrokeVar: Dispatch<SetStateAction<string>>;
 }) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
@@ -55,7 +61,13 @@ export const MobileMenu = ({
               : theme.colors.light.toggle,
         }}
       />
-      <MobileNav menuItems={menuItems} colorMode={colorMode} />
+      <MobileNav
+        selected={selected}
+        setSelected={setSelected}
+        menuItems={menuItems}
+        colorMode={colorMode}
+        setStrokeVar={setStrokeVar}
+      />
       <MobileMenuToggle toggle={() => toggleOpen()} colorMode={colorMode} />
     </motion.nav>
   );
