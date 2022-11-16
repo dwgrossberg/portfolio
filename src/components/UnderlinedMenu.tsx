@@ -8,11 +8,13 @@ const UnderlinedMenu = ({
   setSelected,
   colorMode,
   menuItems,
+  setStrokeVar,
 }: {
   selected: number;
   setSelected: Dispatch<SetStateAction<number>>;
   colorMode: string;
   menuItems: Array<string>;
+  setStrokeVar: Dispatch<SetStateAction<string>>;
 }) => {
   useEffect(() => {
     const path = document.location.hash.substring(3);
@@ -42,7 +44,7 @@ const UnderlinedMenu = ({
         width: 100%;
         display: grid;
         place-items: center left;
-        margin-right: -2rem;
+        margin-right: -1rem;
       `}
     >
       <div
@@ -61,9 +63,11 @@ const UnderlinedMenu = ({
             colorMode={colorMode}
             onClick={() => {
               setSelected(i);
+              setStrokeVar("12");
             }}
             onTap={() => {
               setSelected(i);
+              setStrokeVar("12");
             }}
           />
         ))}

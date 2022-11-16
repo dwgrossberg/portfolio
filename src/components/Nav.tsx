@@ -17,6 +17,7 @@ export default function Nav({
 }) {
   const [selected, setSelected] = useState(-1);
   const menuItems = ["My Story", "Tech Stack", "Projects", "Contact"];
+  const [strokeVar, setStrokeVar] = useState("30");
   const [width, setWidth] = useState(window.innerWidth);
   const breakpoint = 600;
   useEffect(() => {
@@ -56,10 +57,11 @@ export default function Nav({
               to={"/#"}
               onClick={(e) => {
                 setSelected(-1);
+                setStrokeVar("30");
               }}
-              style={{ textDecoration: "none", color: "inherit" }}
+              style={{ textDecoration: "none" }}
             >
-              <AnimatedLogo colorMode={colorMode} />
+              <AnimatedLogo colorMode={colorMode} strokeVar={strokeVar} />
             </HashLink>
           </Box>
           <div
@@ -69,7 +71,7 @@ export default function Nav({
               align-items: center;
               gap: 20px;
               align-items: center;
-              width: 470px;
+              width: 500px;
             `}
           >
             {width > breakpoint ? (
@@ -78,6 +80,7 @@ export default function Nav({
                 setSelected={setSelected}
                 colorMode={colorMode}
                 menuItems={menuItems}
+                setStrokeVar={setStrokeVar}
               />
             ) : (
               <MobileMenu colorMode={colorMode} menuItems={menuItems} />

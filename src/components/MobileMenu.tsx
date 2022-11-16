@@ -5,6 +5,7 @@ import { useDimensions } from "../utilities/useDimensions";
 import { MobileMenuToggle } from "./MobileMenuToggle";
 import { MobileNav } from "./MobileNav";
 import "../styles/mobileMenu.css";
+import theme from "../utilities/theme";
 
 const sidebar = {
   open: (height = 500) => ({
@@ -49,7 +50,9 @@ export const MobileMenu = ({
         variants={sidebar}
         style={{
           background:
-            colorMode === "dark" ? "rgba(248,248,255,.3)" : "rgba(25,25,25,.3)",
+            colorMode === "dark"
+              ? theme.colors.dark.toggle
+              : theme.colors.light.toggle,
         }}
       />
       <MobileNav menuItems={menuItems} colorMode={colorMode} />

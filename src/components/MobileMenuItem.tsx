@@ -30,7 +30,7 @@ export const MobileMenuItem = ({
 }) => {
   const style = {
     color:
-      colorMode === "dark" ? theme.colors.dark.text : theme.colors.light.text,
+      colorMode === "dark" ? theme.colors.light.text : theme.colors.dark.text,
   };
   return (
     <motion.li
