@@ -46,6 +46,7 @@ const MenuItem = ({
       width: ${mobileClass === "yes" ? "100%" : ""};
       flex: ${mobileClass === "yes" ? "1" : ""};
       margin-bottom: ${mobileClass === "yes" ? "35px" : "0"};
+      list-style: none;
       mar &:first-of-type {
         margin-left: 1rem;
       }

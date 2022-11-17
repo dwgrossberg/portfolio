@@ -11,7 +11,7 @@ const theme = (() => {
         mobileMenu: "rgba(25, 25, 25, 0.9)",
       },
       light: {
-        backgroundPri: "ghostwhite",
+        backgroundPri: "#f8f8ff",
         backgroundSec: "#F2F3F4",
         backgroundBall: "#4b4b4b",
         backgroundAccent: "#A5C9FF",

@@ -12,7 +12,7 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
             ? theme.colors.dark.text
             : theme.colors.light.text,
       }}
-      className="page"
+      className="page home"
     >
       <h1>Daniel Grossberg</h1>
       <h2>Software Engineer</h2>

@@ -16,26 +16,6 @@ const UnderlinedMenu = ({
   menuItems: Array<string>;
   setStrokeVar: Dispatch<SetStateAction<string>>;
 }) => {
-  useEffect(() => {
-    const path = document.location.hash.substring(3);
-    switch (path) {
-      case "my-story":
-        setSelected(0);
-        break;
-      case "tech-stack":
-        setSelected(1);
-        "underline";
-        break;
-      case "projects":
-        setSelected(2);
-        "underline";
-        break;
-      case "contact":
-        setSelected(3);
-        "underline";
-        break;
-    }
-  }, []);
   return (
     <div
       className="underlined-menu"

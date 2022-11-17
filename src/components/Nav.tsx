@@ -27,6 +27,30 @@ export default function Nav({
       window.removeEventListener("resize", handleResizeWindow);
     };
   }, []);
+  useEffect(() => {
+    const path = document.location.hash.substring(3);
+    switch (path) {
+      case "my-story":
+        setSelected(0);
+        setStrokeVar("10");
+        break;
+      case "tech-stack":
+        setSelected(1);
+        setStrokeVar("10");
+        "underline";
+        break;
+      case "projects":
+        setSelected(2);
+        setStrokeVar("10");
+        "underline";
+        break;
+      case "contact":
+        setSelected(3);
+        setStrokeVar("10");
+        "underline";
+        break;
+    }
+  }, []);
   return (
     <div
       css={css`

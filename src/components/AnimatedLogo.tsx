@@ -33,8 +33,11 @@ const AnimatedLogo = ({
               : theme.colors.light.text
           }
           strokeLinecap="round"
-          initial={{ pathLength: 0, fill: "none" }}
-          animate={{ pathLength: 1 }}
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{
+            pathLength: 1,
+            opacity: [0.2, 0.4, 0.6, 0.8, 1],
+          }}
           whileHover={{ pathLength: [1, 0, 0.25, 0.5, 0.75, 1] }}
           transition={transition}
         />
