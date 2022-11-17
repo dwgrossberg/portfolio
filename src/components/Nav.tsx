@@ -15,8 +15,8 @@ export default function Nav({
   colorMode: string;
   setColorMode: Dispatch<SetStateAction<string>>;
 }) {
-  const [selected, setSelected] = useState(-1);
   const menuItems = ["My Story", "Tech Stack", "Projects", "Contact"];
+  const [selected, setSelected] = useState(-1);
   const [strokeVar, setStrokeVar] = useState("20");
   const [width, setWidth] = useState(window.innerWidth);
   const breakpoint = 600;

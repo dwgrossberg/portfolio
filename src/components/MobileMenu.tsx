@@ -57,8 +57,12 @@ export const MobileMenu = ({
         style={{
           background:
             colorMode === "dark"
-              ? theme.colors.dark.toggle
-              : theme.colors.light.toggle,
+              ? theme.colors.dark.mobileMenu
+              : theme.colors.light.mobileMenu,
+          border:
+            colorMode === "dark"
+              ? `1px solid ${theme.colors.light.mobileMenu}`
+              : `1px solid ${theme.colors.dark.mobileMenu}`,
         }}
       />
       <MobileNav

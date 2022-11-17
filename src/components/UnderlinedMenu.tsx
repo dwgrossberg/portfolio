@@ -61,6 +61,7 @@ const UnderlinedMenu = ({
             key={i}
             selected={selected === i}
             colorMode={colorMode}
+            mobileClass={""}
             onClick={() => {
               setSelected(i);
               setStrokeVar("10");

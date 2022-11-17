@@ -9,12 +9,14 @@ const MenuItem = ({
   text,
   selected,
   colorMode,
+  mobileClass,
   onClick,
   onTap,
 }: {
   text: string;
   selected: boolean;
   colorMode: string;
+  mobileClass: string;
   onClick: MouseEventHandler<HTMLDivElement>;
   onTap: (event: MouseEvent | TouchEvent | PointerEvent) => void;
 }) => (
@@ -38,7 +40,13 @@ const MenuItem = ({
       font-weight: 700;
       cursor: pointer;
       position: relative;
-      &:first-of-type {
+      display: ${mobileClass === "yes" ? "flex" : ""};
+      justify-content: ${mobileClass === "yes" ? "center" : ""};
+      align-items: ${mobileClass === "yes" ? "center" : ""};
+      width: ${mobileClass === "yes" ? "100%" : ""};
+      flex: ${mobileClass === "yes" ? "1" : ""};
+      margin-bottom: ${mobileClass === "yes" ? "35px" : "0"};
+      mar &:first-of-type {
         margin-left: 1rem;
       }
     `}

@@ -25,7 +25,18 @@ export const MobileNav = ({
   menuItems: Array<string>;
   setStrokeVar: Dispatch<SetStateAction<string>>;
 }) => (
-  <motion.ul variants={variants}>
+  <motion.ul
+    variants={variants}
+    style={{
+      display: "flex",
+      alignItems: "center",
+      width: "230px",
+      padding: "25px",
+      position: "absolute",
+      right: "-30px",
+      top: "90px",
+    }}
+  >
     <MobileMenuItem
       colorMode={colorMode}
       menuItems={menuItems}

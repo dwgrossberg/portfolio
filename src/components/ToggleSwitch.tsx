@@ -54,8 +54,6 @@ const ToggleSwitch = ({
         className="switch"
         onTap={toggleOn}
         style={{
-          boxShadow:
-            colorMode === "dark" ? ".5px .5px #191919" : ".5px .5px ghostwhite",
           backgroundColor:
             colorMode === "dark"
               ? theme.colors.dark.toggle

@@ -36,15 +36,21 @@ export const MobileMenuItem = ({
 }) => {
   const style = {
     color:
-      colorMode === "dark" ? theme.colors.light.text : theme.colors.dark.text,
+      colorMode === "dark" ? theme.colors.dark.text : theme.colors.light.text,
+    display: "flex",
+    flexDirection: "column" as "column",
+    width: "120px",
+    alignItems: "center",
+    justifyContent: "center",
   };
   return (
     <motion.li variants={variants}>
-      <div className="text-placeholder" style={style}>
+      <div style={style}>
         {menuItems.map((el, i) => (
           <MenuItem
             text={el}
             key={i}
+            mobileClass="yes"
             selected={selected === i}
             colorMode={colorMode}
             onClick={() => {
