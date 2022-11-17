@@ -17,6 +17,8 @@ declare global {
 type DoodleProps = {
   rule: string;
   className: string;
+  onClick: (e: any) => void;
+  onMouseOver: (e: any) => void;
 };
 
 export default (props: DoodleProps) => (
