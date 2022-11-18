@@ -19,7 +19,7 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          gap: clamp(30px, 12vw, 60px);
+          gap: clamp(5px, 20vw, 20px);
         `}
       >
         <h1
@@ -38,7 +38,14 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
               0.07em 0.07em 0 ${colorMode === "dark" ? "#4a4a4d " : "#c6c6cc"};
           `}
         >
-          DANIEL
+          <span
+            css={css`
+              font-size: clamp(18px, 13vw, 120px);
+            `}
+          >
+            D
+          </span>
+          ANIEL
         </h1>
         <h1
           css={css`
@@ -57,7 +64,14 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
               0.07em 0.07em 0 ${colorMode === "dark" ? "#4a4a4d " : "#c6c6cc"};
           `}
         >
-          GROSSBERG
+          <span
+            css={css`
+              font-size: clamp(18px, 13vw, 120px);
+            `}
+          >
+            G
+          </span>
+          ROSSBERG
         </h1>
         <h2
           css={css`

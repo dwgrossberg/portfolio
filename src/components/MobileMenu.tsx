@@ -71,6 +71,7 @@ export const MobileMenu = ({
         menuItems={menuItems}
         colorMode={colorMode}
         setStrokeVar={setStrokeVar}
+        toggle={() => toggleOpen()}
       />
       <MobileMenuToggle toggle={() => toggleOpen()} colorMode={colorMode} />
     </motion.nav>

@@ -15,7 +15,7 @@ export const MobileMenuToggle = ({
   toggle,
   colorMode,
 }: {
-  toggle: any;
+  toggle: MouseEventHandler<HTMLButtonElement>;
   colorMode: string;
 }) => (
   <button

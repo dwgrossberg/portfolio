@@ -1,7 +1,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { MobileMenuItem } from "./MobileMenuItem";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, MouseEventHandler, SetStateAction } from "react";
 
 const variants = {
   open: {
@@ -18,12 +18,14 @@ export const MobileNav = ({
   colorMode,
   menuItems,
   setStrokeVar,
+  toggle,
 }: {
   selected: number;
   setSelected: Dispatch<SetStateAction<number>>;
   colorMode: string;
   menuItems: Array<string>;
   setStrokeVar: Dispatch<SetStateAction<string>>;
+  toggle: MouseEventHandler<HTMLButtonElement>;
 }) => (
   <motion.ul
     variants={variants}
@@ -43,6 +45,7 @@ export const MobileNav = ({
       selected={selected}
       setSelected={setSelected}
       setStrokeVar={setStrokeVar}
+      toggle={toggle}
     />
   </motion.ul>
 );

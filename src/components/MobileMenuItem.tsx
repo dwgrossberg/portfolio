@@ -1,7 +1,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import theme from "../utilities/theme";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, MouseEventHandler, SetStateAction } from "react";
 import MenuItem from "./MenuItem";
 
 const variants = {
@@ -27,12 +27,14 @@ export const MobileMenuItem = ({
   setSelected,
   menuItems,
   setStrokeVar,
+  toggle,
 }: {
   colorMode: string;
   selected: number;
   setSelected: Dispatch<SetStateAction<number>>;
   menuItems: Array<string>;
   setStrokeVar: Dispatch<SetStateAction<string>>;
+  toggle: MouseEventHandler<HTMLButtonElement>;
 }) => {
   const style = {
     color:
@@ -56,6 +58,9 @@ export const MobileMenuItem = ({
             onClick={() => {
               setSelected(i);
               setStrokeVar("10");
+              {
+                toggle();
+              }
             }}
             onTap={() => {
               setSelected(i);
