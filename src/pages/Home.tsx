@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import WavyText from "../components/WavyText";
 import "../styles/pages.css";
 
 import theme from "../utilities/theme";
@@ -43,9 +44,8 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
               font-size: clamp(18px, 13vw, 120px);
             `}
           >
-            D
+            <WavyText text="DANIEL" />
           </span>
-          ANIEL
         </h1>
         <h1
           css={css`
@@ -69,9 +69,8 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
               font-size: clamp(18px, 13vw, 120px);
             `}
           >
-            G
+            <WavyText text="GROSSBERG" />
           </span>
-          ROSSBERG
         </h1>
         <h2
           css={css`

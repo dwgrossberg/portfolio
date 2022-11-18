@@ -34,7 +34,7 @@ export const MobileMenuItem = ({
   setSelected: Dispatch<SetStateAction<number>>;
   menuItems: Array<string>;
   setStrokeVar: Dispatch<SetStateAction<string>>;
-  toggle: MouseEventHandler<HTMLButtonElement>;
+  toggle: MouseEventHandler<HTMLButtonElement | MouseEvent>;
 }) => {
   const style = {
     color:
@@ -58,9 +58,7 @@ export const MobileMenuItem = ({
             onClick={() => {
               setSelected(i);
               setStrokeVar("10");
-              {
-                toggle();
-              }
+              toggle();
             }}
             onTap={() => {
               setSelected(i);
