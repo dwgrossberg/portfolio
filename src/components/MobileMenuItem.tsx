@@ -58,7 +58,9 @@ export const MobileMenuItem = ({
             onClick={() => {
               setSelected(i);
               setStrokeVar("10");
-              toggle();
+              {
+                toggle();
+              }
             }}
             onTap={() => {
               setSelected(i);

@@ -1,10 +1,32 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import WavyText from "../components/WavyText";
+import { motion, Variants } from "framer-motion";
 import "../styles/pages.css";
 
 import theme from "../utilities/theme";
 const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
+  const subHeader: Variants = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 200,
+        delay: 1,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 200,
+      },
+    },
+  };
   return (
     <div
       style={{
@@ -89,7 +111,13 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
               0.035em 0.035em 0 ${colorMode === "dark" ? "#4a4a4d " : "#c6c6cc"};
           `}
         >
-          Software
+          <motion.h2
+            variants={subHeader}
+            initial={"hidden"}
+            animate={"visible"}
+          >
+            Software
+          </motion.h2>
         </h2>
         <h2
           css={css`
@@ -108,7 +136,13 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
               0.035em 0.035em 0 ${colorMode === "dark" ? "#4a4a4d " : "#c6c6cc"};
           `}
         >
-          Engineer
+          <motion.h2
+            variants={subHeader}
+            initial={"hidden"}
+            animate={"visible"}
+          >
+            Engineer
+          </motion.h2>
         </h2>
       </div>
     </div>

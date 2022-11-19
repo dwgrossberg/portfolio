@@ -9,7 +9,7 @@ interface Props extends HTMLMotionProps<"div"> {
 
 const WavyText: FC<Props> = ({
   text,
-  delay = 0,
+  delay = 0.25,
   duration = 0.05,
   ...props
 }: Props) => {
