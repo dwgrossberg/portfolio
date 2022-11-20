@@ -15,7 +15,7 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
         type: "spring",
         damping: 12,
         stiffness: 200,
-        delay: 0.8,
+        delay: 0.35,
       },
     },
     hidden: {
@@ -48,7 +48,7 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
       >
         <h1
           css={css`
-            font-size: clamp(16px, 10vw, 100px);
+            font-size: clamp(18px, 11vw, 110px);
             text-shadow: -0.0075em 0.0075em 0
                 ${colorMode === "dark"
                   ? theme.colors.dark.text
@@ -64,7 +64,7 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
         >
           <span
             css={css`
-              font-size: clamp(18px, 13vw, 120px);
+              font-size: clamp(18px, 11vw, 110px);
             `}
           >
             <WavyText text="DANIEL" />
@@ -72,7 +72,7 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
         </h1>
         <h1
           css={css`
-            font-size: clamp(16px, 10vw, 100px);
+            font-size: clamp(18px, 11vw, 110px);
             margin-left: 10vw;
             text-shadow: -0.0075em 0.0075em 0
                 ${colorMode === "dark"
@@ -89,10 +89,10 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
         >
           <span
             css={css`
-              font-size: clamp(18px, 13vw, 120px);
+              font-size: clamp(18px, 11vw, 110px);
             `}
           >
-            <WavyText text="GROSSBERG" delay={0.5} />
+            <WavyText text="GROSSBERG" />
           </span>
         </h1>
         <h2

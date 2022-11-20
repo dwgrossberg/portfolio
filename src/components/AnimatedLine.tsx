@@ -3,8 +3,8 @@ import theme from "../utilities/theme";
 
 const AnimatedLine = ({ colorMode }: { colorMode: string }) => {
   const transition = {
-    duration: 0.5,
-    delay: 0.85,
+    duration: 0.25,
+    delay: 0.45,
     ease: "easeInOut",
   };
   return (

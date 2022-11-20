@@ -11,7 +11,7 @@ const AnimatedLogo = ({
   strokeVar: string;
 }) => {
   const transition = {
-    duration: 1,
+    duration: 0.5,
     ease: "easeInOut",
   };
 

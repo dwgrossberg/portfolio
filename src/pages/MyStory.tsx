@@ -14,7 +14,23 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
       }}
       className="page"
     >
-      <h2>my story</h2>
+      <div
+        css={css`
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 75vw;
+        `}
+      >
+        <h2
+          className="title"
+          css={css`
+            font-size: 1.5rem;
+          `}
+        >
+          My Story
+        </h2>
+      </div>
     </div>
   );
 };
