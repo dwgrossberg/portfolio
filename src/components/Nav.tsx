@@ -56,6 +56,7 @@ export default function Nav({
       css={css`
         position: relative;
         place-self: center;
+        z-index: 100;
       `}
     >
       <Box
