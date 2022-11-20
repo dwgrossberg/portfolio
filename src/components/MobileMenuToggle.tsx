@@ -1,6 +1,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import theme from "../utilities/theme";
+import { MouseEventHandler } from "react";
 
 const Path = (props: any) => (
   <motion.path
@@ -18,15 +19,7 @@ export const MobileMenuToggle = ({
   toggle: MouseEventHandler<HTMLButtonElement>;
   colorMode: string;
 }) => (
-  <button
-    onClick={toggle}
-    style={{
-      border:
-        colorMode === "dark"
-          ? `1px solid ${theme.colors.dark.text}`
-          : `1px solid ${theme.colors.light.text}`,
-    }}
-  >
+  <button onClick={toggle}>
     <svg width="16" height="16" viewBox="0 0 18 18">
       <Path
         stroke={

@@ -1,5 +1,6 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import theme from "../utilities/theme";
 
 const AnimatedLogo = ({
@@ -15,7 +16,12 @@ const AnimatedLogo = ({
   };
 
   return (
-    <div className="container">
+    <div
+      className="container"
+      css={css`
+        z-index: 50;
+      `}
+    >
       <svg
         width="50"
         height="50"

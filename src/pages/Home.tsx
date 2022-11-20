@@ -5,6 +5,7 @@ import { motion, Variants } from "framer-motion";
 import "../styles/pages.css";
 
 import theme from "../utilities/theme";
+import AnimatedLine from "../components/AnimatedLine";
 const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
   const subHeader: Variants = {
     visible: {
@@ -14,7 +15,7 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
         type: "spring",
         damping: 12,
         stiffness: 200,
-        delay: 0.75,
+        delay: 0.8,
       },
     },
     hidden: {
@@ -91,7 +92,7 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
               font-size: clamp(18px, 13vw, 120px);
             `}
           >
-            <WavyText text="GROSSBERG" />
+            <WavyText text="GROSSBERG" delay={0.5} />
           </span>
         </h1>
         <h2
@@ -144,6 +145,7 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
             Engineer
           </motion.h2>
         </h2>
+        <AnimatedLine colorMode={colorMode} />
       </div>
     </div>
   );
