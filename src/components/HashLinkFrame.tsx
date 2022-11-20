@@ -5,8 +5,30 @@ import Home from "../pages/Home";
 import Projects from "../pages/Projects";
 import TechStack from "../pages/TechStack";
 import Contact from "../pages/Contact";
+import { motion, Variants } from "framer-motion";
 
 const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
+  const pageLoad: Variants = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 200,
+        delay: 1,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 200,
+      },
+    },
+  };
   return (
     <div>
       <header id="home">
@@ -25,7 +47,9 @@ const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
           }
         `}
       >
-        <MyStory colorMode={colorMode} />
+        <motion.div variants={pageLoad} initial={"hidden"} animate={"visible"}>
+          <MyStory colorMode={colorMode} />
+        </motion.div>
       </header>
       <header
         id="tech-stack"
@@ -40,7 +64,9 @@ const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
           }
         `}
       >
-        <TechStack colorMode={colorMode} />
+        <motion.div variants={pageLoad} initial={"hidden"} animate={"visible"}>
+          <TechStack colorMode={colorMode} />
+        </motion.div>
       </header>
       <header
         id="projects"
@@ -55,7 +81,9 @@ const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
           }
         `}
       >
-        <Projects colorMode={colorMode} />
+        <motion.div variants={pageLoad} initial={"hidden"} animate={"visible"}>
+          <Projects colorMode={colorMode} />
+        </motion.div>
       </header>
       <header
         id="contact"
@@ -70,7 +98,9 @@ const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
           }
         `}
       >
-        <Contact colorMode={colorMode} />
+        <motion.div variants={pageLoad} initial={"hidden"} animate={"visible"}>
+          <Contact colorMode={colorMode} />
+        </motion.div>
       </header>
     </div>
   );
