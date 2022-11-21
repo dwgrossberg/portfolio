@@ -95,7 +95,7 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
             <WavyText text="GROSSBERG" />
           </span>
         </h1>
-        <h2
+        <motion.h2
           css={css`
             font-size: clamp(13px, 7vw, 70px);
             margin-left: 20vw;
@@ -111,16 +111,13 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
               0.03em 0.03em 0 ${colorMode === "dark" ? "#636366 " : "#aeaeb3"},
               0.035em 0.035em 0 ${colorMode === "dark" ? "#4a4a4d " : "#c6c6cc"};
           `}
+          variants={subHeader}
+          initial={"hidden"}
+          animate={"visible"}
         >
-          <motion.h2
-            variants={subHeader}
-            initial={"hidden"}
-            animate={"visible"}
-          >
-            Software
-          </motion.h2>
-        </h2>
-        <h2
+          Software
+        </motion.h2>
+        <motion.h2
           css={css`
             font-size: clamp(13px, 7vw, 70px);
             margin-left: 40vw;
@@ -136,15 +133,12 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
               0.03em 0.03em 0 ${colorMode === "dark" ? "#636366 " : "#aeaeb3"},
               0.035em 0.035em 0 ${colorMode === "dark" ? "#4a4a4d " : "#c6c6cc"};
           `}
+          variants={subHeader}
+          initial={"hidden"}
+          animate={"visible"}
         >
-          <motion.h2
-            variants={subHeader}
-            initial={"hidden"}
-            animate={"visible"}
-          >
-            Engineer
-          </motion.h2>
-        </h2>
+          Engineer
+        </motion.h2>
         <AnimatedLine colorMode={colorMode} />
       </div>
     </div>

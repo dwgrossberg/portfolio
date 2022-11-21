@@ -4,6 +4,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 40px;
-  min-height: 75vmin;
+  min-height: 80vmin;
   margin-top: 2em;
+  margin-bottom: 2em;
 }

@@ -68,6 +68,10 @@ const ToggleSwitch = ({
           border-radius: 50px;
           padding: 5px;
           cursor: pointer;
+          box-shadow: 0px 0px 5px 0.5px
+            ${colorMode === "dark"
+              ? theme.colors.dark.text
+              : theme.colors.light.text};
         `}
       >
         <motion.div

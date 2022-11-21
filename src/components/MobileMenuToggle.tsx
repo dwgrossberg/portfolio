@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import * as React from "react";
 import { motion } from "framer-motion";
 import theme from "../utilities/theme";
@@ -19,7 +21,15 @@ export const MobileMenuToggle = ({
   toggle: MouseEventHandler<HTMLButtonElement>;
   colorMode: string;
 }) => (
-  <button onClick={toggle}>
+  <button
+    onClick={toggle}
+    css={css`
+      box-shadow: 0px 0px 5px 0.25px
+        ${colorMode === "dark"
+          ? theme.colors.dark.text
+          : theme.colors.light.text};
+    `}
+  >
     <svg width="16" height="16" viewBox="0 0 18 18">
       <Path
         stroke={

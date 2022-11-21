@@ -14,7 +14,31 @@ const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
       }}
       className="page"
     >
-      <h2>tech stack</h2>
+      <div
+        css={css`
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 3rem;
+          width: 75vw;
+          @media screen and (max-width: 600px) {
+            align-items: center;
+          }
+        `}
+      >
+        <h2
+          className="title"
+          css={css`
+            font-size: 1.5rem;
+            margin-left: 3rem;
+            @media screen and (max-width: 600px) {
+              margin-left: 0;
+            }
+          `}
+        >
+          Tech Stack
+        </h2>
+      </div>
     </div>
   );
 };
