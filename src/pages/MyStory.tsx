@@ -4,8 +4,10 @@ import theme from "../utilities/theme";
 import { Image } from "@chakra-ui/react";
 import casualMe from "../assets/casualMe.jpg";
 import "../styles/pages.css";
+import useFitText from "use-fit-text";
 
 const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
+  const { fontSize, ref } = useFitText({ minFontSize: 50, maxFontSize: 1000 });
   return (
     <div
       style={{
@@ -44,15 +46,20 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
           css={css`
             display: flex;
             justify-content: space-between;
-            gap: 2rem;
+            gap: 1rem;
             @media screen and (max-width: 600px) {
               flex-direction: column-reverse;
+              align-items: center;
             }
           `}
         >
-          <p
+          <div
+            id="storyText"
+            ref={ref}
+            style={{ fontSize }}
             css={css`
-              width: 50vw;
+              width: 500px;
+              height: 300px;
               text-align: justify;
               @media screen and (max-width: 600px) {
                 width: 100%;
@@ -70,7 +77,7 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim
             veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
             ea commodo consequat.
-          </p>
+          </div>
           <span
             css={css`
               filter: drop-shadow(
@@ -85,21 +92,10 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
               src={casualMe}
               alt="Daniel Grossberg"
               css={css`
-                max-height: 330px;
-                max-width: 275px;å
-                min-width: 200px;
-                width: 25vw;
-                clip-path: polygon(
-                  20% 0%,
-                  80% 0%,
-                  100% 20%,
-                  100% 80%,
-                  80% 100%,
-                  20% 100%,
-                  0% 80%,
-                  0% 20%
-                );
+                height: 300px;
+                clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
                 @media screen and (max-width: 600px) {
+                  max-width: 225px;
                   width: 100%;
                   place-self: center;
                 }
