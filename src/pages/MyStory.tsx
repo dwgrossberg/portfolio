@@ -3,8 +3,9 @@ import { css } from "@emotion/react";
 import theme from "../utilities/theme";
 import { Image } from "@chakra-ui/react";
 import casualMe from "../assets/casualMe.jpg";
-import "../styles/pages.css";
 import useFitText from "use-fit-text";
+
+import "../styles/pages.css";
 
 const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
   const { fontSize, ref } = useFitText({ minFontSize: 75, maxFontSize: 1000 });
@@ -51,7 +52,8 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
             gap: 2rem;
             flex-direction: row-reverse;
             @media screen and (max-width: 600px) {
-              align-items: center;
+              align-items: flex-start;
+              flex-direction: column-reverse;
             }
           `}
         >

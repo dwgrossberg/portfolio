@@ -15,13 +15,13 @@ const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
       transition: {
         type: "spring",
         damping: 12,
-        stiffness: 200,
-        delay: 0.75,
+        stiffness: 50,
+        duration: 0.6,
       },
     },
     hidden: {
       opacity: 0,
-      y: 20,
+      y: 300,
       transition: {
         type: "spring",
         damping: 12,
@@ -47,7 +47,11 @@ const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
           }
         `}
       >
-        <motion.div variants={pageLoad} initial={"hidden"} animate={"visible"}>
+        <motion.div
+          variants={pageLoad}
+          initial={"hidden"}
+          whileInView={"visible"}
+        >
           <MyStory colorMode={colorMode} />
         </motion.div>
       </header>
