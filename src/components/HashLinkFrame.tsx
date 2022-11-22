@@ -16,7 +16,7 @@ const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
         type: "spring",
         damping: 12,
         stiffness: 200,
-        delay: 0.5,
+        delay: 0.75,
       },
     },
     hidden: {

@@ -15,7 +15,7 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
         type: "spring",
         damping: 12,
         stiffness: 200,
-        delay: 0.35,
+        delay: 0.6,
       },
     },
     hidden: {
@@ -92,7 +92,7 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
               font-size: clamp(18px, 11vw, 110px);
             `}
           >
-            <WavyText text="GROSSBERG" />
+            <WavyText text="GROSSBERG" delay={0.35} />
           </span>
         </h1>
         <motion.h2

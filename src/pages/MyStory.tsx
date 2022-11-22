@@ -7,7 +7,7 @@ import "../styles/pages.css";
 import useFitText from "use-fit-text";
 
 const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
-  const { fontSize, ref } = useFitText({ minFontSize: 50, maxFontSize: 1000 });
+  const { fontSize, ref } = useFitText({ minFontSize: 75, maxFontSize: 1000 });
   return (
     <div
       style={{
@@ -33,6 +33,7 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
         <h2
           className="title"
           css={css`
+            place-self: flex-start;
             font-size: 1.5rem;
             margin-left: 3rem;
             @media screen and (max-width: 600px) {
@@ -46,9 +47,10 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
           css={css`
             display: flex;
             justify-content: space-between;
-            gap: 1rem;
+            align-items: flex-start;
+            gap: 2rem;
+            flex-direction: row-reverse;
             @media screen and (max-width: 600px) {
-              flex-direction: column-reverse;
               align-items: center;
             }
           `}
@@ -58,9 +60,9 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
             ref={ref}
             style={{ fontSize }}
             css={css`
-              width: 500px;
               height: 300px;
-              text-align: justify;
+              text-align: left;
+              min-width: 200px;
               @media screen and (max-width: 600px) {
                 width: 100%;
               }
@@ -92,13 +94,17 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
               src={casualMe}
               alt="Daniel Grossberg"
               css={css`
-                height: 300px;
-                clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-                @media screen and (max-width: 600px) {
-                  max-width: 225px;
-                  width: 100%;
-                  place-self: center;
-                }
+                clip-path: polygon(
+                  20% 0%,
+                  80% 0%,
+                  100% 20%,
+                  100% 80%,
+                  80% 100%,
+                  20% 100%,
+                  0% 80%,
+                  0% 20%
+                );
+                max-width: 175px;
               `}
             />
           </span>

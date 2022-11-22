@@ -4,7 +4,7 @@ import theme from "../utilities/theme";
 const AnimatedLine = ({ colorMode }: { colorMode: string }) => {
   const transition = {
     duration: 0.25,
-    delay: 0.45,
+    delay: 0.75,
     ease: "easeInOut",
   };
   return (
