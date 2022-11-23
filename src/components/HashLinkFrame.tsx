@@ -15,17 +15,17 @@ const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
       transition: {
         type: "spring",
         damping: 12,
-        stiffness: 50,
+        stiffness: 150,
         duration: 0.6,
       },
     },
     hidden: {
       opacity: 0,
-      y: 300,
+      y: 200,
       transition: {
         type: "spring",
         damping: 12,
-        stiffness: 200,
+        stiffness: 50,
       },
     },
   };
@@ -51,6 +51,7 @@ const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
           variants={pageLoad}
           initial={"hidden"}
           whileInView={"visible"}
+          viewport={{ once: true }}
         >
           <MyStory colorMode={colorMode} />
         </motion.div>
@@ -68,7 +69,12 @@ const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
           }
         `}
       >
-        <motion.div variants={pageLoad} initial={"hidden"} animate={"visible"}>
+        <motion.div
+          variants={pageLoad}
+          initial={"hidden"}
+          whileInView={"visible"}
+          viewport={{ once: true }}
+        >
           <TechStack colorMode={colorMode} />
         </motion.div>
       </header>
@@ -85,7 +91,12 @@ const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
           }
         `}
       >
-        <motion.div variants={pageLoad} initial={"hidden"} animate={"visible"}>
+        <motion.div
+          variants={pageLoad}
+          initial={"hidden"}
+          whileInView={"visible"}
+          viewport={{ once: true }}
+        >
           <Projects colorMode={colorMode} />
         </motion.div>
       </header>
@@ -102,7 +113,12 @@ const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
           }
         `}
       >
-        <motion.div variants={pageLoad} initial={"hidden"} animate={"visible"}>
+        <motion.div
+          variants={pageLoad}
+          initial={"hidden"}
+          whileInView={"visible"}
+          viewport={{ once: true }}
+        >
           <Contact colorMode={colorMode} />
         </motion.div>
       </header>

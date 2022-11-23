@@ -4,7 +4,8 @@
   justify-content: flex-start;
   align-items: center;
   gap: 40px;
-  min-height: 100vmax;
+  min-height: 100vmin;
   margin-top: 2em;
   margin-bottom: 2em;
+  font-family: "Lato";
 }

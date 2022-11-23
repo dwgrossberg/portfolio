@@ -4,7 +4,6 @@ import theme from "../utilities/theme";
 import { Image } from "@chakra-ui/react";
 import casualMe from "../assets/casualMe.jpg";
 import useFitText from "use-fit-text";
-
 import "../styles/pages.css";
 
 const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
@@ -17,7 +16,7 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
             ? theme.colors.dark.text
             : theme.colors.light.text,
       }}
-      className="page"
+      className="page myStory"
     >
       <div
         css={css`
@@ -39,6 +38,7 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
             margin-left: 3rem;
             @media screen and (max-width: 600px) {
               margin-left: 0;
+              place-self: center;
             }
           `}
         >
@@ -50,13 +50,41 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
             justify-content: space-between;
             align-items: flex-start;
             gap: 2rem;
-            flex-direction: row-reverse;
+            flex-direction: row;
             @media screen and (max-width: 600px) {
-              align-items: flex-start;
-              flex-direction: column-reverse;
+              align-items: center;
+              flex-direction: column;
             }
           `}
         >
+          <span
+            css={css`
+              filter: drop-shadow(
+                2px 3px 3px
+                  ${colorMode === "dark"
+                    ? theme.colors.dark.text
+                    : theme.colors.light.text}
+              );
+            `}
+          >
+            <Image
+              src={casualMe}
+              alt="Daniel Grossberg"
+              css={css`
+                clip-path: polygon(
+                  20% 0%,
+                  80% 0%,
+                  100% 20%,
+                  100% 80%,
+                  80% 100%,
+                  20% 100%,
+                  0% 80%,
+                  0% 20%
+                );
+                max-width: 185px;
+              `}
+            />
+          </span>
           <div
             id="storyText"
             ref={ref}
@@ -82,34 +110,6 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
             veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
             ea commodo consequat.
           </div>
-          <span
-            css={css`
-              filter: drop-shadow(
-                2px 3px 3px
-                  ${colorMode === "dark"
-                    ? theme.colors.dark.text
-                    : theme.colors.light.text}
-              );
-            `}
-          >
-            <Image
-              src={casualMe}
-              alt="Daniel Grossberg"
-              css={css`
-                clip-path: polygon(
-                  20% 0%,
-                  80% 0%,
-                  100% 20%,
-                  100% 80%,
-                  80% 100%,
-                  20% 100%,
-                  0% 80%,
-                  0% 20%
-                );
-                max-width: 175px;
-              `}
-            />
-          </span>
         </div>
       </div>
     </div>
