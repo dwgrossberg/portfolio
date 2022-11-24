@@ -3,8 +3,11 @@ import { css } from "@emotion/react";
 import { Box, VStack, HStack, StackDivider, Flex } from "@chakra-ui/react";
 import theme from "../utilities/theme";
 import "../styles/pages.css";
+import EmblaCarousel from "../components/EmblaCarousel";
 
 const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
+  const SLIDE_COUNT = 6;
+  const slides = Array.from(Array(SLIDE_COUNT).keys());
   return (
     <div
       style={{
@@ -40,6 +43,7 @@ const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
         >
           Tech Stack
         </h2>
+        <EmblaCarousel slides={slides} />
         <VStack spacing="30px" justify="flex-start">
           <Box>Languages</Box>
           <HStack
