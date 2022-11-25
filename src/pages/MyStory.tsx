@@ -7,7 +7,7 @@ import useFitText from "use-fit-text";
 import "../styles/pages.css";
 
 const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
-  const { fontSize, ref } = useFitText({ minFontSize: 50, maxFontSize: 1000 });
+  const { fontSize, ref } = useFitText({ minFontSize: 75, maxFontSize: 1000 });
   return (
     <div
       style={{
@@ -25,6 +25,7 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
           align-items: flex-start;
           gap: 3rem;
           width: 75vw;
+          margin-bottom: 5rem;
           @media screen and (max-width: 600px) {
             align-items: center;
           }
@@ -95,6 +96,8 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
               min-width: 200px;
               @media screen and (max-width: 600px) {
                 width: 100%;
+                text-align: center;
+                place-self: center;
               }
             `}
           >

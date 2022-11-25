@@ -7,7 +7,15 @@ import TechStack from "../pages/TechStack";
 import Contact from "../pages/Contact";
 import { motion, Variants } from "framer-motion";
 
-const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
+const HashLinkFrame = ({
+  colorMode,
+  width,
+  breakpoint,
+}: {
+  colorMode: string;
+  width: number;
+  breakpoint: number;
+}): JSX.Element => {
   const pageLoad: Variants = {
     visible: {
       opacity: 1,
@@ -75,7 +83,11 @@ const HashLinkFrame = ({ colorMode }: { colorMode: string }): JSX.Element => {
           whileInView={"visible"}
           viewport={{ once: true }}
         >
-          <TechStack colorMode={colorMode} />
+          <TechStack
+            colorMode={colorMode}
+            width={width}
+            breakpoint={breakpoint}
+          />
         </motion.div>
       </header>
       <header

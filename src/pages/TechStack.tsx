@@ -1,11 +1,19 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { Box, VStack, HStack, StackDivider, Image } from "@chakra-ui/react";
-import { langIcons } from "../assets/langIcons";
+import { icons } from "../assets/icons";
 import theme from "../utilities/theme";
 import "../styles/pages.css";
 
-const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
+const TechStack = ({
+  colorMode,
+  width,
+  breakpoint,
+}: {
+  colorMode: string;
+  width: number;
+  breakpoint: number;
+}): JSX.Element => {
   return (
     <div
       style={{
@@ -23,6 +31,7 @@ const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
           align-items: center;
           gap: 3rem;
           width: 75vw;
+          margin-bottom: 5rem;
           @media screen and (max-width: 600px) {
             align-items: center;
           }
@@ -36,6 +45,7 @@ const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
             place-self: flex-start;
             @media screen and (max-width: 600px) {
               margin-left: 0;
+              place-self: center;
             }
           `}
         >
@@ -46,22 +56,23 @@ const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
             margin-left: 3rem;
             place-self: flex-start;
             margin-bottom: 1rem;
+            max-width: 65vw;
+            text-align: left;
             @media screen and (max-width: 600px) {
               margin-left: 0;
+              text-align: center;
+              place-self: center;
             }
           `}
         >
-          Some of tools and technologies that I use on a regular basis to create
-          powerful software experiences
+          Some of programming languages, libraries, and tools that I use on a
+          regular basis to create powerful and engaging software experiences
         </p>
-        <VStack spacing="7vw" justify="center">
-          <Box className="title" fontSize={"1.25rem"}>
-            Languages
-          </Box>
+        <VStack spacing="3rem" justify="center">
           <HStack
-            spacing="10vw"
+            spacing={width > breakpoint ? "6vw" : "4vw"}
             overflowX={"auto"}
-            maxWidth={"85vw"}
+            maxWidth={"75vw"}
             divider={
               <StackDivider
                 borderColor={
@@ -76,12 +87,14 @@ const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
               justify-content: center;
             `}
           >
-            {langIcons.slice(0, 3).map((icon, i) => {
+            {icons.slice(0, 5).map((icon, i) => {
               return (
                 <Box
                   key={i}
                   h="10vw"
                   w="10vw"
+                  minH="20px"
+                  minW="20px"
                   maxW="100px"
                   maxH="100px"
                   display={"flex"}
@@ -94,9 +107,9 @@ const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
             })}
           </HStack>
           <HStack
-            spacing="10vw"
+            spacing={width > breakpoint ? "6vw" : "4vw"}
             overflowX={"auto"}
-            maxWidth={"85vw"}
+            maxWidth={"75vw"}
             divider={
               <StackDivider
                 borderColor={
@@ -111,12 +124,14 @@ const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
               justify-content: center;
             `}
           >
-            {langIcons.slice(3, 6).map((icon, i) => {
+            {icons.slice(5, 10).map((icon, i) => {
               return (
                 <Box
                   key={i}
                   h="10vw"
                   w="10vw"
+                  minH="20px"
+                  minW="20px"
                   maxW="100px"
                   maxH="100px"
                   display={"flex"}
@@ -128,13 +143,10 @@ const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
               );
             })}
           </HStack>
-          <Box className="title" fontSize={"1.25rem"}>
-            Tools & Libraries
-          </Box>
           <HStack
-            spacing="10vw"
+            spacing={width > breakpoint ? "6vw" : "4vw"}
             overflowX={"auto"}
-            maxWidth={"85vw"}
+            maxWidth={"75vw"}
             divider={
               <StackDivider
                 borderColor={
@@ -144,28 +156,88 @@ const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
                 }
               />
             }
+            css={css`
+              overflow: scroll;
+              justify-content: center;
+            `}
+          >
+            {icons.slice(10, 15).map((icon, i) => {
+              return (
+                <Box
+                  key={i}
+                  h="10vw"
+                  w="10vw"
+                  minH="20px"
+                  minW="20px"
+                  maxW="100px"
+                  maxH="100px"
+                  display={"flex"}
+                  alignContent={"center"}
+                  justifyContent={"center"}
+                >
+                  <Image src={icon} />
+                </Box>
+              );
+            })}
+          </HStack>
+          <HStack
+            spacing={width > breakpoint ? "6vw" : "4vw"}
+            overflowX={"auto"}
+            maxWidth={"75vw"}
+            divider={
+              <StackDivider
+                borderColor={
+                  colorMode === "dark"
+                    ? theme.colors.dark.text
+                    : theme.colors.light.text
+                }
+              />
+            }
+            css={css`
+              overflow: scroll;
+              justify-content: center;
+            `}
           >
             <Box
               h="10vw"
               w="10vw"
+              minH="20px"
+              minW="20px"
               maxW="100px"
               maxH="100px"
-              background="pink"
-            ></Box>
+              display={"flex"}
+              alignContent={"center"}
+              justifyContent={"center"}
+            />
+            {icons.slice(15, 18).map((icon, i) => {
+              return (
+                <Box
+                  key={i}
+                  h="10vw"
+                  w="10vw"
+                  minH="20px"
+                  minW="20px"
+                  maxW="100px"
+                  maxH="100px"
+                  display={"flex"}
+                  alignContent={"center"}
+                  justifyContent={"center"}
+                >
+                  <Image src={icon} />
+                </Box>
+              );
+            })}
             <Box
               h="10vw"
               w="10vw"
+              minH="20px"
+              minW="20px"
               maxW="100px"
               maxH="100px"
-              background="pink"
-            ></Box>
-            <Box
-              h="10vw"
-              w="10vw"
-              maxW="100px"
-              maxH="100px"
-              background="pink"
-            ></Box>
+              display={"flex"}
+              alignContent={"center"}
+              justifyContent={"center"}
+            />
           </HStack>
         </VStack>
       </div>

@@ -11,22 +11,18 @@ import { MobileMenu } from "./MobileMenu";
 export default function Nav({
   colorMode,
   setColorMode,
+  width,
+  breakpoint,
 }: {
   colorMode: string;
   setColorMode: Dispatch<SetStateAction<string>>;
+  width: number;
+  breakpoint: number;
 }) {
   const menuItems = ["My Story", "Tech Stack", "Projects", "Contact"];
   const [selected, setSelected] = useState(-1);
   const [strokeVar, setStrokeVar] = useState("20");
-  const [width, setWidth] = useState(window.innerWidth);
-  const breakpoint = 600;
-  useEffect(() => {
-    const handleResizeWindow = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", handleResizeWindow);
-    return () => {
-      window.removeEventListener("resize", handleResizeWindow);
-    };
-  }, []);
+
   useEffect(() => {
     const path = document.location.hash.substring(3);
     switch (path) {

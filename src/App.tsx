@@ -11,6 +11,15 @@ import BackgroundLight from "./components/BackgroundLight";
 
 const App: FC = () => {
   const [colorMode, setColorMode] = useState(localStorage.colorMode || "dark");
+  const [width, setWidth] = useState(window.innerWidth);
+  const breakpoint = 600;
+  useEffect(() => {
+    const handleResizeWindow = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResizeWindow);
+    return () => {
+      window.removeEventListener("resize", handleResizeWindow);
+    };
+  }, []);
   useEffect(() => {
     storage();
   }, [colorMode]);
@@ -36,9 +45,23 @@ const App: FC = () => {
           {colorMode === "dark" ? <BackgroundDark /> : <BackgroundLight />}
         </div>
         <HashRouter>
-          <Nav colorMode={colorMode} setColorMode={setColorMode} />
+          <Nav
+            colorMode={colorMode}
+            setColorMode={setColorMode}
+            width={width}
+            breakpoint={breakpoint}
+          />
           <Routes>
-            <Route path="/" element={<HashLinkFrame colorMode={colorMode} />} />
+            <Route
+              path="/"
+              element={
+                <HashLinkFrame
+                  colorMode={colorMode}
+                  width={width}
+                  breakpoint={breakpoint}
+                />
+              }
+            />
           </Routes>
         </HashRouter>
       </div>
