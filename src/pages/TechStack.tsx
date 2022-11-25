@@ -3,7 +3,6 @@ import { css } from "@emotion/react";
 import { Box, VStack, HStack, StackDivider, Flex } from "@chakra-ui/react";
 import theme from "../utilities/theme";
 import "../styles/pages.css";
-import EmblaCarousel from "../components/EmblaCarousel";
 
 const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
   const SLIDE_COUNT = 6;
@@ -43,11 +42,10 @@ const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
         >
           Tech Stack
         </h2>
-        <EmblaCarousel slides={slides} />
         <VStack spacing="30px" justify="flex-start">
           <Box>Languages</Box>
           <HStack
-            spacing="20px"
+            spacing="3.5vw"
             overflowX={"auto"}
             maxWidth={"75vw"}
             divider={
@@ -63,14 +61,32 @@ const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
               overflow: scroll;
             `}
           >
-            <Box h="60px" minWidth="60px" background="pink"></Box>
-            <Box h="60px" minWidth="60px" background="pink"></Box>
-            <Box h="60px" minWidth="60px" background="pink"></Box>
-            <Box h="60px" minWidth="60px" background="pink"></Box>
-            <Box h="60px" minWidth="60px" background="pink"></Box>
-            <Box h="60px" minWidth="60px" background="pink"></Box>
-            <Box h="60px" minWidth="60px" background="pink"></Box>
-            <Box h="60px" minWidth="60px" background="pink"></Box>
+            <Box minH="60px" minW="60px" background="pink"></Box>
+            <Box minH="60px" minW="60px" background="pink"></Box>
+            <Box minH="60px" minW="60px" background="pink"></Box>
+            <Box minH="60px" minW="60px" background="pink"></Box>
+          </HStack>
+          <HStack
+            spacing="3.5vw"
+            overflowX={"auto"}
+            maxWidth={"75vw"}
+            divider={
+              <StackDivider
+                borderColor={
+                  colorMode === "dark"
+                    ? theme.colors.dark.text
+                    : theme.colors.light.text
+                }
+              />
+            }
+            css={css`
+              overflow: scroll;
+            `}
+          >
+            <Box h="60px" minW="60px" background="pink"></Box>
+            <Box h="60px" minW="60px" background="pink"></Box>
+            <Box h="60px" minW="60px" background="pink"></Box>
+            <Box h="60px" minW="60px" background="pink"></Box>
           </HStack>
           <Box>Tools & Libraries</Box>
           <HStack

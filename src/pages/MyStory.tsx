@@ -7,7 +7,7 @@ import useFitText from "use-fit-text";
 import "../styles/pages.css";
 
 const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
-  const { fontSize, ref } = useFitText({ minFontSize: 75, maxFontSize: 1000 });
+  const { fontSize, ref } = useFitText({ minFontSize: 50, maxFontSize: 1000 });
   return (
     <div
       style={{
