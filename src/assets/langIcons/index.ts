@@ -5,5 +5,6 @@ import js from "./javascript-original.svg";
 import ts from "./typescript-original.svg";
 import python from "./python-original-wordmark.svg";
 
-export const icons = [html, css, sass, js, ts, python];
-export const iconsByIndex = (index: number) => icons[index % icons.length];
+export const langIcons = [html, css, sass, js, ts, python];
+export const langIconsByIndex = (index: number) =>
+  langIcons[index % langIcons.length];

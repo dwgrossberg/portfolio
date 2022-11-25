@@ -1,12 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { Box, VStack, HStack, StackDivider, Flex } from "@chakra-ui/react";
+import { Box, VStack, HStack, StackDivider, Image } from "@chakra-ui/react";
+import { langIcons } from "../assets/langIcons";
 import theme from "../utilities/theme";
 import "../styles/pages.css";
 
 const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
-  const SLIDE_COUNT = 6;
-  const slides = Array.from(Array(SLIDE_COUNT).keys());
   return (
     <div
       style={{
@@ -42,12 +41,27 @@ const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
         >
           Tech Stack
         </h2>
-        <VStack spacing="30px" justify="flex-start">
-          <Box>Languages</Box>
+        <p
+          css={css`
+            margin-left: 3rem;
+            place-self: flex-start;
+            margin-bottom: 1rem;
+            @media screen and (max-width: 600px) {
+              margin-left: 0;
+            }
+          `}
+        >
+          Some of tools and technologies that I use on a regular basis to create
+          powerful software experiences
+        </p>
+        <VStack spacing="7vw" justify="center">
+          <Box className="title" fontSize={"1.25rem"}>
+            Languages
+          </Box>
           <HStack
-            spacing="3.5vw"
+            spacing="10vw"
             overflowX={"auto"}
-            maxWidth={"75vw"}
+            maxWidth={"85vw"}
             divider={
               <StackDivider
                 borderColor={
@@ -59,17 +73,30 @@ const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
             }
             css={css`
               overflow: scroll;
+              justify-content: center;
             `}
           >
-            <Box minH="60px" minW="60px" background="pink"></Box>
-            <Box minH="60px" minW="60px" background="pink"></Box>
-            <Box minH="60px" minW="60px" background="pink"></Box>
-            <Box minH="60px" minW="60px" background="pink"></Box>
+            {langIcons.slice(0, 3).map((icon, i) => {
+              return (
+                <Box
+                  key={i}
+                  h="10vw"
+                  w="10vw"
+                  maxW="100px"
+                  maxH="100px"
+                  display={"flex"}
+                  alignContent={"center"}
+                  justifyContent={"center"}
+                >
+                  <Image src={icon} />
+                </Box>
+              );
+            })}
           </HStack>
           <HStack
-            spacing="3.5vw"
+            spacing="10vw"
             overflowX={"auto"}
-            maxWidth={"75vw"}
+            maxWidth={"85vw"}
             divider={
               <StackDivider
                 borderColor={
@@ -81,16 +108,33 @@ const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
             }
             css={css`
               overflow: scroll;
+              justify-content: center;
             `}
           >
-            <Box h="60px" minW="60px" background="pink"></Box>
-            <Box h="60px" minW="60px" background="pink"></Box>
-            <Box h="60px" minW="60px" background="pink"></Box>
-            <Box h="60px" minW="60px" background="pink"></Box>
+            {langIcons.slice(3, 6).map((icon, i) => {
+              return (
+                <Box
+                  key={i}
+                  h="10vw"
+                  w="10vw"
+                  maxW="100px"
+                  maxH="100px"
+                  display={"flex"}
+                  alignContent={"center"}
+                  justifyContent={"center"}
+                >
+                  <Image src={icon} />
+                </Box>
+              );
+            })}
           </HStack>
-          <Box>Tools & Libraries</Box>
+          <Box className="title" fontSize={"1.25rem"}>
+            Tools & Libraries
+          </Box>
           <HStack
-            spacing="20px"
+            spacing="10vw"
+            overflowX={"auto"}
+            maxWidth={"85vw"}
             divider={
               <StackDivider
                 borderColor={
@@ -101,8 +145,27 @@ const TechStack = ({ colorMode }: { colorMode: string }): JSX.Element => {
               />
             }
           >
-            <Box h="60px" w="60px" background="pink"></Box>
-            <Box h="60px" w="60px" background="pink"></Box>
+            <Box
+              h="10vw"
+              w="10vw"
+              maxW="100px"
+              maxH="100px"
+              background="pink"
+            ></Box>
+            <Box
+              h="10vw"
+              w="10vw"
+              maxW="100px"
+              maxH="100px"
+              background="pink"
+            ></Box>
+            <Box
+              h="10vw"
+              w="10vw"
+              maxW="100px"
+              maxH="100px"
+              background="pink"
+            ></Box>
           </HStack>
         </VStack>
       </div>
