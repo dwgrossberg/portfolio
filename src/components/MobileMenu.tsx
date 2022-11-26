@@ -33,12 +33,16 @@ export const MobileMenu = ({
   colorMode,
   menuItems,
   setStrokeVar,
+  width,
+  breakpoint,
 }: {
   selected: number;
   setSelected: Dispatch<SetStateAction<number>>;
   colorMode: string;
   menuItems: Array<string>;
   setStrokeVar: Dispatch<SetStateAction<string>>;
+  width: number;
+  breakpoint: number;
 }) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
@@ -72,6 +76,9 @@ export const MobileMenu = ({
         colorMode={colorMode}
         setStrokeVar={setStrokeVar}
         toggle={() => toggleOpen()}
+        isOpen={isOpen}
+        width={width}
+        breakpoint={breakpoint}
       />
       <MobileMenuToggle toggle={() => toggleOpen()} colorMode={colorMode} />
     </motion.nav>

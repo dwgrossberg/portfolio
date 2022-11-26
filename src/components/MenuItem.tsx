@@ -10,6 +10,9 @@ const MenuItem = ({
   selected,
   colorMode,
   mobileClass,
+  isOpen,
+  width,
+  breakpoint,
   onClick,
   onTap,
 }: {
@@ -17,6 +20,9 @@ const MenuItem = ({
   selected: boolean;
   colorMode: string;
   mobileClass: string;
+  isOpen: boolean;
+  width: number;
+  breakpoint: number;
   onClick: MouseEventHandler<HTMLDivElement>;
   onTap: (event: MouseEvent | TouchEvent | PointerEvent) => void;
 }) => (
@@ -33,6 +39,7 @@ const MenuItem = ({
     className="menu-item"
     onClick={onClick}
     onTap={onTap}
+    style={{ pointerEvents: isOpen && width < breakpoint ? "auto" : "none" }}
     css={css`
       margin: 0 0.5rem;
       width: 90px;

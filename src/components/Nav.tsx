@@ -19,7 +19,7 @@ export default function Nav({
   width: number;
   breakpoint: number;
 }) {
-  const menuItems = ["My Story", "Tech Stack", "Projects", "Contact"];
+  const menuItems = ["My Story", "Projects", "Tech Stack", "Contact"];
   const [selected, setSelected] = useState(-1);
   const [strokeVar, setStrokeVar] = useState("20");
 
@@ -110,6 +110,8 @@ export default function Nav({
                 colorMode={colorMode}
                 menuItems={menuItems}
                 setStrokeVar={setStrokeVar}
+                width={width}
+                breakpoint={breakpoint}
               />
             )}
             <ToggleSwitch

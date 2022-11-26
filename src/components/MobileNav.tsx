@@ -19,6 +19,9 @@ export const MobileNav = ({
   menuItems,
   setStrokeVar,
   toggle,
+  isOpen,
+  width,
+  breakpoint,
 }: {
   selected: number;
   setSelected: Dispatch<SetStateAction<number>>;
@@ -26,6 +29,9 @@ export const MobileNav = ({
   menuItems: Array<string>;
   setStrokeVar: Dispatch<SetStateAction<string>>;
   toggle: MouseEventHandler<HTMLButtonElement>;
+  isOpen: boolean;
+  width: number;
+  breakpoint: number;
 }) => (
   <motion.ul
     variants={variants}
@@ -46,6 +52,9 @@ export const MobileNav = ({
       setSelected={setSelected}
       setStrokeVar={setStrokeVar}
       toggle={toggle}
+      isOpen={isOpen}
+      width={width}
+      breakpoint={breakpoint}
     />
   </motion.ul>
 );

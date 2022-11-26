@@ -28,6 +28,9 @@ export const MobileMenuItem = ({
   menuItems,
   setStrokeVar,
   toggle,
+  isOpen,
+  width,
+  breakpoint,
 }: {
   colorMode: string;
   selected: number;
@@ -35,6 +38,9 @@ export const MobileMenuItem = ({
   menuItems: Array<string>;
   setStrokeVar: Dispatch<SetStateAction<string>>;
   toggle: MouseEventHandler<HTMLButtonElement | MouseEvent>;
+  isOpen: boolean;
+  width: number;
+  breakpoint: number;
 }) => {
   const style = {
     color:
@@ -44,6 +50,7 @@ export const MobileMenuItem = ({
     width: "120px",
     alignItems: "center",
     justifyContent: "center",
+    cursor: isOpen && width < breakpoint ? "pointer" : "default",
   };
   return (
     <motion.li variants={variants}>
@@ -55,6 +62,9 @@ export const MobileMenuItem = ({
             mobileClass="yes"
             selected={selected === i}
             colorMode={colorMode}
+            isOpen={isOpen}
+            width={width}
+            breakpoint={breakpoint}
             onClick={() => {
               setSelected(i);
               setStrokeVar("10");

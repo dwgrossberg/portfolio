@@ -42,19 +42,7 @@ const HashLinkFrame = ({
       <header id="home">
         <Home colorMode={colorMode} />
       </header>
-      <header
-        id="my-story"
-        css={css`
-          ::before {
-            display: block;
-            content: " ";
-            margin-top: -150px;
-            height: 150px;
-            visibility: hidden;
-            pointer-events: none;
-          }
-        `}
-      >
+      <header id="my-story" className="header">
         <motion.div
           variants={pageLoad}
           initial={"hidden"}
@@ -64,19 +52,17 @@ const HashLinkFrame = ({
           <MyStory colorMode={colorMode} />
         </motion.div>
       </header>
-      <header
-        id="tech-stack"
-        css={css`
-          ::before {
-            display: block;
-            content: " ";
-            margin-top: -150px;
-            height: 150px;
-            visibility: hidden;
-            pointer-events: none;
-          }
-        `}
-      >
+      <header id="projects" className="header">
+        <motion.div
+          variants={pageLoad}
+          initial={"hidden"}
+          whileInView={"visible"}
+          viewport={{ once: true }}
+        >
+          <Projects colorMode={colorMode} />
+        </motion.div>
+      </header>
+      <header id="tech-stack" className="header">
         <motion.div
           variants={pageLoad}
           initial={"hidden"}
@@ -90,41 +76,7 @@ const HashLinkFrame = ({
           />
         </motion.div>
       </header>
-      <header
-        id="projects"
-        css={css`
-          ::before {
-            display: block;
-            content: " ";
-            margin-top: -150px;
-            height: 150px;
-            visibility: hidden;
-            pointer-events: none;
-          }
-        `}
-      >
-        <motion.div
-          variants={pageLoad}
-          initial={"hidden"}
-          whileInView={"visible"}
-          viewport={{ once: true }}
-        >
-          <Projects colorMode={colorMode} />
-        </motion.div>
-      </header>
-      <header
-        id="contact"
-        css={css`
-          ::before {
-            display: block;
-            content: " ";
-            margin-top: -150px;
-            height: 150px;
-            visibility: hidden;
-            pointer-events: none;
-          }
-        `}
-      >
+      <header id="contact" className="header">
         <motion.div
           variants={pageLoad}
           initial={"hidden"}

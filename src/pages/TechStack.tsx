@@ -14,20 +14,6 @@ const TechStack = ({
   width: number;
   breakpoint: number;
 }): JSX.Element => {
-  const styledBox = (i: number) => {
-    <Box
-      key={i}
-      h="10vw"
-      w="10vw"
-      minH="20px"
-      minW="20px"
-      maxW="100px"
-      maxH="100px"
-      display={"flex"}
-      alignContent={"center"}
-      justifyContent={"center"}
-    />;
-  };
   return (
     <div
       style={{
@@ -103,18 +89,7 @@ const TechStack = ({
           >
             {icons.slice(0, 5).map((icon, i) => {
               return (
-                <Box
-                  key={i}
-                  h="10vw"
-                  w="10vw"
-                  minH="20px"
-                  minW="20px"
-                  maxW="100px"
-                  maxH="100px"
-                  display={"flex"}
-                  alignContent={"center"}
-                  justifyContent={"center"}
-                >
+                <Box key={i} className="icon">
                   <Image src={icon} />
                 </Box>
               );
@@ -140,18 +115,7 @@ const TechStack = ({
           >
             {icons.slice(5, 10).map((icon, i) => {
               return (
-                <Box
-                  key={i}
-                  h="10vw"
-                  w="10vw"
-                  minH="20px"
-                  minW="20px"
-                  maxW="100px"
-                  maxH="100px"
-                  display={"flex"}
-                  alignContent={"center"}
-                  justifyContent={"center"}
-                >
+                <Box key={i} className="icon">
                   <Image src={icon} />
                 </Box>
               );
@@ -177,18 +141,7 @@ const TechStack = ({
           >
             {icons.slice(10, 15).map((icon, i) => {
               return (
-                <Box
-                  key={i}
-                  h="10vw"
-                  w="10vw"
-                  minH="20px"
-                  minW="20px"
-                  maxW="100px"
-                  maxH="100px"
-                  display={"flex"}
-                  alignContent={"center"}
-                  justifyContent={"center"}
-                >
+                <Box key={i} className="icon">
                   <Image src={icon} />
                 </Box>
               );
@@ -214,18 +167,7 @@ const TechStack = ({
           >
             {icons.slice(15, 20).map((icon, i) => {
               return (
-                <Box
-                  key={i}
-                  h="10vw"
-                  w="10vw"
-                  minH="20px"
-                  minW="20px"
-                  maxW="100px"
-                  maxH="100px"
-                  display={"flex"}
-                  alignContent={"center"}
-                  justifyContent={"center"}
-                >
+                <Box key={i} className="icon">
                   <Image src={icon} />
                 </Box>
               );
