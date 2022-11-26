@@ -39,7 +39,6 @@ const MenuItem = ({
     className="menu-item"
     onClick={onClick}
     onTap={onTap}
-    style={{ pointerEvents: isOpen && width < breakpoint ? "auto" : "none" }}
     css={css`
       margin: 0 0.5rem;
       width: 90px;
@@ -56,6 +55,9 @@ const MenuItem = ({
       list-style: none;
       mar &:first-of-type {
         margin-left: 1rem;
+      }
+      @media screen and (max-width: 600px) {
+        pointer-events: ${isOpen ? "inherit" : "none"};
       }
     `}
   >

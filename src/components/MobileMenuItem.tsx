@@ -50,7 +50,7 @@ export const MobileMenuItem = ({
     width: "120px",
     alignItems: "center",
     justifyContent: "center",
-    cursor: isOpen && width < breakpoint ? "pointer" : "default",
+    cursor: isOpen || width > breakpoint ? "pointer" : "default",
   };
   return (
     <motion.li variants={variants}>
@@ -65,11 +65,11 @@ export const MobileMenuItem = ({
             isOpen={isOpen}
             width={width}
             breakpoint={breakpoint}
-            onClick={() => {
+            onClick={(e: any) => {
               setSelected(i);
               setStrokeVar("10");
               {
-                toggle();
+                toggle(e);
               }
             }}
             onTap={() => {
