@@ -17,6 +17,12 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
             : theme.colors.light.text,
       }}
       className="page myStory"
+      css={css`
+        margin-bottom: -15rem;
+        @media screen and (max-width: 600px) {
+          margin-bottom: 7rem;
+        }
+      `}
     >
       <div
         css={css`
@@ -25,7 +31,6 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
           align-items: flex-start;
           gap: 3rem;
           width: 75vw;
-          margin-bottom: 5rem;
           @media screen and (max-width: 600px) {
             align-items: center;
           }

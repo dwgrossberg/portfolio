@@ -15,7 +15,9 @@ import eslint from "./eslint-original.svg";
 import nodejs from "./nodejs-original.svg";
 import mui from "./material-ui-1.svg";
 import chakra from "./chakra-icon.svg";
-import framerMotion from "./framer-motion.png";
+import framerMotion from "./framer-motion.svg";
+import firebase from "./firebase-plain-wordmark.svg";
+import vsCode from "./vscode-original.svg";
 
 export const icons = [
   html,
@@ -33,8 +35,10 @@ export const icons = [
   npm,
   vite,
   framerMotion,
+  vsCode,
+  nodejs,
   eslint,
   jest,
-  nodejs,
+  firebase,
 ];
 export const iconsByIndex = (index: number) => icons[index % icons.length];

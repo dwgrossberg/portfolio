@@ -14,6 +14,20 @@ const TechStack = ({
   width: number;
   breakpoint: number;
 }): JSX.Element => {
+  const styledBox = (i: number) => {
+    <Box
+      key={i}
+      h="10vw"
+      w="10vw"
+      minH="20px"
+      minW="20px"
+      maxW="100px"
+      maxH="100px"
+      display={"flex"}
+      alignContent={"center"}
+      justifyContent={"center"}
+    />;
+  };
   return (
     <div
       style={{
@@ -31,7 +45,7 @@ const TechStack = ({
           align-items: center;
           gap: 3rem;
           width: 75vw;
-          margin-bottom: 5rem;
+          margin-bottom: 7rem;
           @media screen and (max-width: 600px) {
             align-items: center;
           }
@@ -198,18 +212,7 @@ const TechStack = ({
               justify-content: center;
             `}
           >
-            <Box
-              h="10vw"
-              w="10vw"
-              minH="20px"
-              minW="20px"
-              maxW="100px"
-              maxH="100px"
-              display={"flex"}
-              alignContent={"center"}
-              justifyContent={"center"}
-            />
-            {icons.slice(15, 18).map((icon, i) => {
+            {icons.slice(15, 20).map((icon, i) => {
               return (
                 <Box
                   key={i}
@@ -227,17 +230,6 @@ const TechStack = ({
                 </Box>
               );
             })}
-            <Box
-              h="10vw"
-              w="10vw"
-              minH="20px"
-              minW="20px"
-              maxW="100px"
-              maxH="100px"
-              display={"flex"}
-              alignContent={"center"}
-              justifyContent={"center"}
-            />
           </HStack>
         </VStack>
       </div>
