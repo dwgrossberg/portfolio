@@ -1,6 +1,17 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { Box, VStack, HStack, StackDivider, Image } from "@chakra-ui/react";
+import {
+  Box,
+  VStack,
+  HStack,
+  StackDivider,
+  Image,
+  Link,
+  Text,
+  chakra,
+  shouldForwardProp,
+} from "@chakra-ui/react";
+import { motion, isValidMotionProp } from "framer-motion";
 import { icons } from "../assets/icons";
 import theme from "../utilities/theme";
 import "../styles/pages.css";
@@ -14,6 +25,10 @@ const TechStack = ({
   width: number;
   breakpoint: number;
 }): JSX.Element => {
+  const ChakraBox = chakra(motion.div, {
+    shouldForwardProp: (prop) =>
+      isValidMotionProp(prop) || shouldForwardProp(prop),
+  });
   return (
     <div
       style={{
@@ -66,7 +81,7 @@ const TechStack = ({
           `}
         >
           Some of programming languages, libraries, and tools that I use on a
-          regular basis to create powerful and engaging software experiences
+          regular basis to develop engaging software experiences
         </p>
         <VStack spacing="3rem" justify="center">
           <HStack
@@ -85,9 +100,52 @@ const TechStack = ({
             css={css`
               overflow: scroll;
               justify-content: center;
+              overflow: visible;
             `}
           >
-            {icons.slice(0, 5).map((icon, i) => {
+            {icons.slice(0, 5).map((icon: any, i: any) => {
+              return (
+                <Link
+                  key={i}
+                  css={css`
+                    margin: 0;
+                    padding: 0;
+                    width: 7%;
+                    display: flex;
+                  `}
+                >
+                  <ChakraBox
+                    className="icon"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    cursor="pointer"
+                  >
+                    <Image src={icon.img} />
+                    <Text fontSize="smaller">{icon.text}</Text>
+                  </ChakraBox>
+                </Link>
+              );
+            })}
+          </HStack>
+          <HStack
+            spacing={width > breakpoint ? "6vw" : "4vw"}
+            overflowX={"auto"}
+            maxWidth={"75vw"}
+            divider={
+              <StackDivider
+                borderColor={
+                  colorMode === "dark"
+                    ? theme.colors.dark.text
+                    : theme.colors.light.text
+                }
+              />
+            }
+            css={css`
+              overflow: scroll;
+              justify-content: center;
+            `}
+          >
+            {icons.slice(5, 10).map((icon: any, i: any) => {
               return (
                 <Box key={i} className="icon">
                   <Image src={icon} />
@@ -113,7 +171,7 @@ const TechStack = ({
               justify-content: center;
             `}
           >
-            {icons.slice(5, 10).map((icon, i) => {
+            {icons.slice(10, 15).map((icon: any, i: any) => {
               return (
                 <Box key={i} className="icon">
                   <Image src={icon} />
@@ -139,33 +197,7 @@ const TechStack = ({
               justify-content: center;
             `}
           >
-            {icons.slice(10, 15).map((icon, i) => {
-              return (
-                <Box key={i} className="icon">
-                  <Image src={icon} />
-                </Box>
-              );
-            })}
-          </HStack>
-          <HStack
-            spacing={width > breakpoint ? "6vw" : "4vw"}
-            overflowX={"auto"}
-            maxWidth={"75vw"}
-            divider={
-              <StackDivider
-                borderColor={
-                  colorMode === "dark"
-                    ? theme.colors.dark.text
-                    : theme.colors.light.text
-                }
-              />
-            }
-            css={css`
-              overflow: scroll;
-              justify-content: center;
-            `}
-          >
-            {icons.slice(15, 20).map((icon, i) => {
+            {icons.slice(15, 20).map((icon: any, i: any) => {
               return (
                 <Box key={i} className="icon">
                   <Image src={icon} />

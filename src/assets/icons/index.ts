@@ -19,9 +19,19 @@ import framerMotion from "./framer-motion.svg";
 import firebase from "./firebase-plain-wordmark.svg";
 import vsCode from "./vscode-original.svg";
 
-export const icons = [
-  html,
-  python,
+export const icons: any = [
+  {
+    img: html,
+    text: "HTML5",
+    alt: "HTML5",
+    href: "https://en.wikipedia.org/wiki/HTML5",
+  },
+  {
+    img: python,
+    text: "python3",
+    alt: "python3",
+    href: "https://en.wikipedia.org/wiki/HTML5",
+  },
   git,
   webpack,
   mui,
