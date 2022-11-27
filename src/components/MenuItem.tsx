@@ -29,12 +29,12 @@ const MenuItem = ({
   <motion.div
     whileTap={{ scale: 0.9 }}
     whileHover={{
-      scale: [1, 1.1, 1.1, 1.1],
-      y: [0, -3.5, 2, -1],
+      scale: 1.1,
     }}
     transition={{
+      type: "spring",
       duration: 0.25,
-      ease: "easeInOut",
+      stiffness: 300,
     }}
     animate={{ opacity: selected ? 1 : 0.5 }}
     className="menu-item"

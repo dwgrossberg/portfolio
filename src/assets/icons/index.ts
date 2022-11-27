@@ -67,7 +67,7 @@ export const icons: any = [
   },
   {
     img: chakra,
-    text: "Chakra",
+    text: "Chakra UI",
     href: "https://chakra-ui.com/",
   },
   {
@@ -77,7 +77,7 @@ export const icons: any = [
   },
   {
     img: ts,
-    text: "Typescript",
+    text: "TypeScript",
     href: "https://www.typescriptlang.org/",
   },
   {
