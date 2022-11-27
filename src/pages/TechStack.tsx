@@ -1,13 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import {
-  Box,
   VStack,
   HStack,
   StackDivider,
   Image,
   Link,
-  Text,
+  Tooltip,
   chakra,
   shouldForwardProp,
 } from "@chakra-ui/react";
@@ -29,6 +28,50 @@ const TechStack = ({
     shouldForwardProp: (prop) =>
       isValidMotionProp(prop) || shouldForwardProp(prop),
   });
+  const LinkedBox = (i: any, icon: any) => {
+    return (
+      <Tooltip
+        key={i}
+        hasArrow
+        fontSize="sm"
+        label={icon.text}
+        bg={
+          colorMode === "dark"
+            ? theme.colors.dark.text
+            : theme.colors.light.text
+        }
+        color={
+          colorMode === "dark"
+            ? theme.colors.light.text
+            : theme.colors.dark.text
+        }
+      >
+        <Link
+          css={css`
+            margin: 0;
+            padding: 0;
+            display: flex;
+            max-width: 65px;
+            width: 7%;
+            @media screen and (max-width: 600px) {
+              width: 10%;
+            }
+          `}
+          href={icon.href}
+          isExternal
+        >
+          <ChakraBox
+            className="icon"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            cursor="pointer"
+          >
+            <Image src={icon.img} alt={icon.text} />
+          </ChakraBox>
+        </Link>
+      </Tooltip>
+    );
+  };
   return (
     <div
       style={{
@@ -86,7 +129,6 @@ const TechStack = ({
         <VStack spacing="3rem" justify="center">
           <HStack
             spacing={width > breakpoint ? "6vw" : "4vw"}
-            overflowX={"auto"}
             maxWidth={"75vw"}
             divider={
               <StackDivider
@@ -98,33 +140,12 @@ const TechStack = ({
               />
             }
             css={css`
-              overflow: scroll;
               justify-content: center;
               overflow: visible;
             `}
           >
             {icons.slice(0, 5).map((icon: any, i: any) => {
-              return (
-                <Link
-                  key={i}
-                  css={css`
-                    margin: 0;
-                    padding: 0;
-                    width: 7%;
-                    display: flex;
-                  `}
-                >
-                  <ChakraBox
-                    className="icon"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    cursor="pointer"
-                  >
-                    <Image src={icon.img} />
-                    <Text fontSize="smaller">{icon.text}</Text>
-                  </ChakraBox>
-                </Link>
-              );
+              return LinkedBox(i, icon);
             })}
           </HStack>
           <HStack
@@ -141,16 +162,12 @@ const TechStack = ({
               />
             }
             css={css`
-              overflow: scroll;
+              overflow: visible;
               justify-content: center;
             `}
           >
             {icons.slice(5, 10).map((icon: any, i: any) => {
-              return (
-                <Box key={i} className="icon">
-                  <Image src={icon} />
-                </Box>
-              );
+              return LinkedBox(i, icon);
             })}
           </HStack>
           <HStack
@@ -167,16 +184,12 @@ const TechStack = ({
               />
             }
             css={css`
-              overflow: scroll;
+              overflow: visible;
               justify-content: center;
             `}
           >
             {icons.slice(10, 15).map((icon: any, i: any) => {
-              return (
-                <Box key={i} className="icon">
-                  <Image src={icon} />
-                </Box>
-              );
+              return LinkedBox(i, icon);
             })}
           </HStack>
           <HStack
@@ -193,16 +206,12 @@ const TechStack = ({
               />
             }
             css={css`
-              overflow: scroll;
+              overflow: visible;
               justify-content: center;
             `}
           >
             {icons.slice(15, 20).map((icon: any, i: any) => {
-              return (
-                <Box key={i} className="icon">
-                  <Image src={icon} />
-                </Box>
-              );
+              return LinkedBox(i, icon);
             })}
           </HStack>
         </VStack>

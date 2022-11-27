@@ -36,7 +36,7 @@ export const MobileNav = ({
   <motion.ul
     variants={variants}
     style={{
-      display: "flex",
+      display: isOpen ? "flex" : "none",
       alignItems: "center",
       width: "230px",
       padding: "25px",
