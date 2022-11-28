@@ -14,7 +14,7 @@ const Contact = ({ colorMode }: { colorMode: string }): JSX.Element => {
       }}
       className="page"
     >
-      <div className="frameContainer">
+      <div className="page-container">
         <h2 className="title">contact</h2>
       </div>
     </div>

@@ -32,6 +32,7 @@ const App: FC = () => {
           display: grid;
           grid-template: 100px repeat(auto-fit, minmax(500px, 1fr)) / 1fr;
           align-items: center;
+          overflow: hidden;
         `}
       >
         <div

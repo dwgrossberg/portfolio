@@ -82,7 +82,7 @@ const TechStack = ({
       }}
       className="page"
     >
-      <div className="frameContainer">
+      <div className="page-container">
         <h2 className="title">Tech Stack</h2>
         <p
           css={css`

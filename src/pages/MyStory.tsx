@@ -24,7 +24,7 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
         }
       `}
     >
-      <div className="frameContainer">
+      <div className="page-container">
         <h2 className="title">My Story</h2>
         <div
           css={css`
