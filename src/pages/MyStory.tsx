@@ -24,32 +24,8 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
         }
       `}
     >
-      <div
-        css={css`
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 3rem;
-          width: 75vw;
-          @media screen and (max-width: 600px) {
-            align-items: center;
-          }
-        `}
-      >
-        <h2
-          className="title"
-          css={css`
-            place-self: flex-start;
-            font-size: 1.5rem;
-            margin-left: 3rem;
-            @media screen and (max-width: 600px) {
-              margin-left: 0;
-              place-self: center;
-            }
-          `}
-        >
-          My Story
-        </h2>
+      <div className="frameContainer">
+        <h2 className="title">My Story</h2>
         <div
           css={css`
             display: flex;

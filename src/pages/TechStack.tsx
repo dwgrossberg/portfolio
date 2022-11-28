@@ -82,33 +82,8 @@ const TechStack = ({
       }}
       className="page"
     >
-      <div
-        css={css`
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 3rem;
-          width: 75vw;
-          margin-bottom: 7rem;
-          @media screen and (max-width: 600px) {
-            align-items: center;
-          }
-        `}
-      >
-        <h2
-          className="title"
-          css={css`
-            font-size: 1.5rem;
-            margin-left: 3rem;
-            place-self: flex-start;
-            @media screen and (max-width: 600px) {
-              margin-left: 0;
-              place-self: center;
-            }
-          `}
-        >
-          Tech Stack
-        </h2>
+      <div className="frameContainer">
+        <h2 className="title">Tech Stack</h2>
         <p
           css={css`
             margin-left: 3rem;

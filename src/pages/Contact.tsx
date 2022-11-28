@@ -14,18 +14,9 @@ const Contact = ({ colorMode }: { colorMode: string }): JSX.Element => {
       }}
       className="page"
     >
-      <h2
-        className="title"
-        css={css`
-          font-size: 1.5rem;
-          margin-left: 3rem;
-          @media screen and (max-width: 600px) {
-            margin-left: 0;
-          }
-        `}
-      >
-        contact
-      </h2>
+      <div className="frameContainer">
+        <h2 className="title">contact</h2>
+      </div>
     </div>
   );
 };

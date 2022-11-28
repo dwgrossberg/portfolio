@@ -25,6 +25,7 @@ const HashLinkFrame = ({
         damping: 12,
         stiffness: 150,
         duration: 0.6,
+        delayChildren: 0.3,
       },
     },
     hidden: {

@@ -34,7 +34,7 @@ const MenuItem = ({
     transition={{
       type: "spring",
       duration: 0.25,
-      stiffness: 300,
+      stiffness: 150,
     }}
     animate={{ opacity: selected ? 1 : 0.5 }}
     className="menu-item"

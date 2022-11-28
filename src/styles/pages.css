@@ -19,6 +19,32 @@
   pointer-events: none;
 }
 
+.title {
+  font-size: 1.5rem;
+  margin-left: 3rem;
+  place-self: flex-start;
+}
+
+@media screen and (max-width: 600px) {
+  .title {
+    margin-left: 0;
+    place-self: center;
+  }
+}
+
+.frameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3rem;
+  width: 75vw;
+}
+@media screen and (max-width: 600px) {
+  .frameContainer {
+    align-items: center;
+  }
+}
+
 .icon {
   height: 10vw;
   width: 10vw;
