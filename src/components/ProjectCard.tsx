@@ -4,11 +4,21 @@ import { motion, Variants, useScroll, useTransform } from "framer-motion";
 import theme from "../utilities/theme";
 import "../styles/pages.css";
 
-const ProjectCard = ({ colorMode }: { colorMode: string }): JSX.Element => {
+const ProjectCard = ({
+  colorMode,
+  reverse,
+}: {
+  colorMode: string;
+  reverse?: boolean;
+}): JSX.Element => {
   const { scrollYProgress } = useScroll();
   const scaleAnim = useTransform(scrollYProgress, [0, 0.25, 1], [1, 1.1, 1.2]);
   const yPosAnim = useTransform(scrollYProgress, [0, 0.25, 1], [0, -50, -150]);
-  const xPosAnim = useTransform(scrollYProgress, [0, 0.25, 1], [0, 50, 150]);
+  const xPosAnim = useTransform(
+    scrollYProgress,
+    [0, 0.25, 1],
+    reverse ? [0, -50, -150] : [0, 50, 150]
+  );
   const projectBackground: Variants = {
     visible: {
       opacity: 1,
@@ -36,6 +46,7 @@ const ProjectCard = ({ colorMode }: { colorMode: string }): JSX.Element => {
         display: flex;
         margin-bottom: 5rem;
         width: 100%;
+        justify-content: ${reverse ? "flex-end" : "flex-start"};
       `}
     >
       <motion.div
@@ -60,8 +71,9 @@ const ProjectCard = ({ colorMode }: { colorMode: string }): JSX.Element => {
             display: flex;
             justify-content: center;
             align-items: center;
-            top: -35px;
-            left: 0px;
+            top: -36px;
+            left: ${reverse ? "" : "-1px"};
+            right: ${reverse ? "-1px" : ""};
             position: absolute;
             width: 150px;
             height: 35px;
@@ -90,7 +102,8 @@ const ProjectCard = ({ colorMode }: { colorMode: string }): JSX.Element => {
           width: 40%;
           height: 300px;
           position: absolute;
-          right: 15vw;
+          right: ${reverse ? "" : "15vw"};
+          left: ${reverse ? "15vw" : ""};
           margin-top: 2.5rem;
           z-index: -1;
           box-shadow: 0px 0px 5px 3px

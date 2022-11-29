@@ -30,6 +30,7 @@ const Projects = ({ colorMode }: { colorMode: string }): JSX.Element => {
           Projects
         </h2>
         <ProjectCard colorMode={colorMode} />
+        <ProjectCard colorMode={colorMode} reverse={true} />
         <ProjectCard colorMode={colorMode} />
       </div>
     </div>
