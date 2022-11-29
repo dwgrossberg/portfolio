@@ -2,7 +2,6 @@
 import { css } from "@emotion/react";
 import { motion, Variants, useScroll, useTransform } from "framer-motion";
 import theme from "../utilities/theme";
-import "../styles/pages.css";
 
 const ProjectCard = ({
   colorMode,
@@ -70,14 +69,15 @@ const ProjectCard = ({
             ? theme.colors.dark.backgroundBall
             : theme.colors.light.backgroundBall};
           border-radius: 0 3px 3px 3px;
-          width: 60%;
+          width: 50%;
           height: 300px;
           box-shadow: 0px 0px 5px 3px
             ${colorMode === "dark"
               ? theme.colors.dark.backgroundAccent
               : theme.colors.light.backgroundAccent};
+          position: relative;
           &:before {
-            box-shadow: 0px 0px 2.5px 1.5px
+            box-shadow: 0px 0px 5px 3px
               ${colorMode === "dark"
                 ? theme.colors.dark.backgroundAccent
                 : theme.colors.light.backgroundAccent};
@@ -87,9 +87,9 @@ const ProjectCard = ({
             display: flex;
             justify-content: center;
             align-items: center;
-            top: -36px;
-            left: ${reverse ? "" : "-1px"};
-            right: ${reverse ? "-1px" : ""};
+            top: -35px;
+            left: ${reverse ? "" : "0"};
+            right: ${reverse ? "0" : ""};
             position: absolute;
             width: 150px;
             height: 35px;
@@ -100,6 +100,18 @@ const ProjectCard = ({
             background-color: ${colorMode === "dark"
               ? theme.colors.dark.backgroundAccent
               : theme.colors.light.backgroundAccent};
+          }
+          &:after {
+            background-color: ${colorMode === "dark"
+              ? theme.colors.dark.backgroundBall
+              : theme.colors.light.backgroundBall};
+            height: 10px;
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: ${reverse ? "" : "0px"};
+            right: ${reverse ? "0px" : ""};
+            width: 160px;
           }
         `}
       ></motion.div>
@@ -115,7 +127,6 @@ const ProjectCard = ({
         }}
         css={css`
           border-radius: 3px;
-          width: 40%;
           height: 300px;
           position: absolute;
           right: ${reverse ? "" : "15vw"};
@@ -132,7 +143,7 @@ const ProjectCard = ({
           src={gif}
           alt={title}
           css={css`
-            background-size: hero;
+            height: 100%;
           `}
         ></img>
       </motion.div>

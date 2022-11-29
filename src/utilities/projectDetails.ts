@@ -13,7 +13,7 @@ const projectDetails = (() => {
         repo: "",
       },
       {
-        reverse: false,
+        reverse: true,
         title: "",
         description: "",
         tech: "",
@@ -23,7 +23,7 @@ const projectDetails = (() => {
         repo: "",
       },
       {
-        reverse: true,
+        reverse: false,
         title: "",
         description: "",
         tech: "",
