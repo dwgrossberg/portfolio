@@ -6,9 +6,9 @@ import "../styles/pages.css";
 
 const ProjectCard = ({ colorMode }: { colorMode: string }): JSX.Element => {
   const { scrollYProgress } = useScroll();
-  const scaleAnim = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 1.5]);
-  const yPosAnim = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0, -200]);
-  const xPosAnim = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0, 200]);
+  const scaleAnim = useTransform(scrollYProgress, [0, 0.25, 1], [1, 1.1, 1.2]);
+  const yPosAnim = useTransform(scrollYProgress, [0, 0.25, 1], [0, -50, -150]);
+  const xPosAnim = useTransform(scrollYProgress, [0, 0.25, 1], [0, 50, 150]);
   const projectBackground: Variants = {
     visible: {
       opacity: 1,
@@ -34,7 +34,7 @@ const ProjectCard = ({ colorMode }: { colorMode: string }): JSX.Element => {
     <div
       css={css`
         display: flex;
-        margin-top: 5rem;
+        margin-bottom: 5rem;
         width: 100%;
       `}
     >
@@ -44,9 +44,35 @@ const ProjectCard = ({ colorMode }: { colorMode: string }): JSX.Element => {
           background-color: ${colorMode === "dark"
             ? theme.colors.dark.backgroundBall
             : theme.colors.light.backgroundBall};
-          border-radius: 3px;
-          width: 100%;
-          height: 400px;
+          border-radius: 0 3px 3px 3px;
+          width: 60%;
+          height: 300px;
+          box-shadow: 0px 0px 5px 3px
+            ${colorMode === "dark"
+              ? theme.colors.dark.backgroundAccent
+              : theme.colors.light.backgroundAccent};
+          &:before {
+            box-shadow: 0px 0px 2.5px 1.5px
+              ${colorMode === "dark"
+                ? theme.colors.dark.backgroundAccent
+                : theme.colors.light.backgroundAccent};
+            content: "project name";
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: -35px;
+            left: 0px;
+            position: absolute;
+            width: 150px;
+            height: 35px;
+            border-radius: 3px 3px 3px 0;
+            color: ${colorMode === "dark"
+              ? theme.colors.light.text
+              : theme.colors.dark.text};
+            background-color: ${colorMode === "dark"
+              ? theme.colors.dark.backgroundAccent
+              : theme.colors.light.backgroundAccent};
+          }
         `}
       ></motion.div>
       <motion.div
@@ -57,15 +83,20 @@ const ProjectCard = ({ colorMode }: { colorMode: string }): JSX.Element => {
         style={{ scale: scaleAnim, y: yPosAnim, x: xPosAnim }}
         css={css`
           background-color: ${colorMode === "dark"
-            ? theme.colors.dark.backgroundAccent
-            : theme.colors.light.backgroundAccent};
+            ? theme.colors.dark.projectCard
+            : theme.colors.light.projectCard};
+          opacity: 0.5;
           border-radius: 3px;
-          width: 80%;
-          height: 400px;
+          width: 40%;
+          height: 300px;
           position: absolute;
-          left: 15vw;
+          right: 15vw;
           margin-top: 2.5rem;
           z-index: -1;
+          box-shadow: 0px 0px 5px 3px
+            ${colorMode === "dark"
+              ? theme.colors.dark.backgroundAccent
+              : theme.colors.light.backgroundAccent};
         `}
       ></motion.div>
     </div>

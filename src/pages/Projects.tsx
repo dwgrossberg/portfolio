@@ -21,7 +21,14 @@ const Projects = ({ colorMode }: { colorMode: string }): JSX.Element => {
       `}
     >
       <div className="page-container">
-        <h2 className="title">projects</h2>
+        <h2
+          className="title"
+          css={css`
+            margin-bottom: 5rem;
+          `}
+        >
+          Projects
+        </h2>
         <ProjectCard colorMode={colorMode} />
         <ProjectCard colorMode={colorMode} />
       </div>
