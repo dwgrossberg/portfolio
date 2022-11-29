@@ -7,9 +7,23 @@ import "../styles/pages.css";
 const ProjectCard = ({
   colorMode,
   reverse,
+  title,
+  description,
+  tech,
+  img,
+  gif,
+  liveLink,
+  repo,
 }: {
   colorMode: string;
   reverse?: boolean;
+  title: string;
+  description: string;
+  tech: string;
+  img: any;
+  gif: any;
+  liveLink: string;
+  repo: string;
 }): JSX.Element => {
   const { scrollYProgress } = useScroll();
   const scaleAnim = useTransform(scrollYProgress, [0, 0.25, 1], [1, 1.1, 1.2]);
@@ -67,7 +81,9 @@ const ProjectCard = ({
               ${colorMode === "dark"
                 ? theme.colors.dark.backgroundAccent
                 : theme.colors.light.backgroundAccent};
-            content: "project name";
+            content: "${title}";
+            font-size: 12px;
+            text-transform: uppercase;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -92,12 +108,12 @@ const ProjectCard = ({
         initial={"hidden"}
         animate={"visible"}
         viewport={{ once: true }}
-        style={{ scale: scaleAnim, y: yPosAnim, x: xPosAnim }}
+        style={{
+          scale: scaleAnim,
+          y: yPosAnim,
+          x: xPosAnim,
+        }}
         css={css`
-          background-color: ${colorMode === "dark"
-            ? theme.colors.dark.projectCard
-            : theme.colors.light.projectCard};
-          opacity: 0.5;
           border-radius: 3px;
           width: 40%;
           height: 300px;
@@ -111,7 +127,15 @@ const ProjectCard = ({
               ? theme.colors.dark.backgroundAccent
               : theme.colors.light.backgroundAccent};
         `}
-      ></motion.div>
+      >
+        <img
+          src={gif}
+          alt={title}
+          css={css`
+            background-size: hero;
+          `}
+        ></img>
+      </motion.div>
     </div>
   );
 };

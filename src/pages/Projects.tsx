@@ -1,8 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import theme from "../utilities/theme";
-import "../styles/pages.css";
 import ProjectCard from "../components/ProjectCard";
+import projectDetails from "../utilities/projectDetails";
+import "../styles/pages.css";
 
 const Projects = ({ colorMode }: { colorMode: string }): JSX.Element => {
   return (
@@ -29,9 +30,21 @@ const Projects = ({ colorMode }: { colorMode: string }): JSX.Element => {
         >
           Projects
         </h2>
-        <ProjectCard colorMode={colorMode} />
-        <ProjectCard colorMode={colorMode} reverse={true} />
-        <ProjectCard colorMode={colorMode} />
+        {projectDetails.projects.map((item) => {
+          return (
+            <ProjectCard
+              colorMode={colorMode}
+              reverse={item.reverse}
+              title={item.title}
+              description={item.description}
+              tech={item.tech}
+              img={item.img}
+              gif={item.gif}
+              liveLink={item.liveLink}
+              repo={item.repo}
+            />
+          );
+        })}
       </div>
     </div>
   );
