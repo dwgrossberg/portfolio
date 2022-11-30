@@ -5,7 +5,15 @@ import ProjectCard from "../components/ProjectCard";
 import projectDetails from "../utilities/projectDetails";
 import "../styles/pages.css";
 
-const Projects = ({ colorMode }: { colorMode: string }): JSX.Element => {
+const Projects = ({
+  colorMode,
+  width,
+  breakpoint,
+}: {
+  colorMode: string;
+  width: number;
+  breakpoint: number;
+}): JSX.Element => {
   return (
     <div
       style={{
@@ -16,8 +24,9 @@ const Projects = ({ colorMode }: { colorMode: string }): JSX.Element => {
       }}
       className="page"
       css={css`
+        margin-bottom: -5rem;
         @media screen and (max-width: 600px) {
-          margin-bottom: 15rem;
+          margin-bottom: -15rem;
         }
       `}
     >
@@ -42,6 +51,8 @@ const Projects = ({ colorMode }: { colorMode: string }): JSX.Element => {
               gif={item.gif}
               liveLink={item.liveLink}
               repo={item.repo}
+              width={width}
+              breakpoint={breakpoint}
             />
           );
         })}

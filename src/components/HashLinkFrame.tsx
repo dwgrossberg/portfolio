@@ -60,7 +60,11 @@ const HashLinkFrame = ({
           whileInView={"visible"}
           viewport={{ once: true }}
         >
-          <Projects colorMode={colorMode} />
+          <Projects
+            colorMode={colorMode}
+            width={width}
+            breakpoint={breakpoint}
+          />
         </motion.div>
       </header>
       <header id="tech-stack" className="header">

@@ -13,6 +13,8 @@ const ProjectCard = ({
   gif,
   liveLink,
   repo,
+  width,
+  breakpoint,
 }: {
   colorMode: string;
   reverse?: boolean;
@@ -23,14 +25,25 @@ const ProjectCard = ({
   gif: any;
   liveLink: string;
   repo: string;
+  width: number;
+  breakpoint: number;
 }): JSX.Element => {
   const { scrollYProgress } = useScroll();
   const scaleAnim = useTransform(scrollYProgress, [0, 0.25, 1], [1, 1.1, 1.2]);
-  const yPosAnim = useTransform(scrollYProgress, [0, 0.25, 1], [0, -50, -150]);
+  const yPosAnim = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.6, 1],
+    [300, 0, -200, -500]
+  );
   const xPosAnim = useTransform(
     scrollYProgress,
     [0, 0.25, 1],
-    reverse ? [0, -50, -150] : [0, 50, 150]
+    reverse ? [0, -15, -30] : [0, 15, 30]
+  );
+  const xPosCard = useTransform(
+    scrollYProgress,
+    [0, 0.25, 1],
+    reverse ? [0, 15, 30] : [0, -15, -30]
   );
   const projectBackground: Variants = {
     visible: {
@@ -57,19 +70,22 @@ const ProjectCard = ({
     <div
       css={css`
         display: flex;
-        margin-bottom: 5rem;
+        margin-bottom: 20rem;
         width: 100%;
         justify-content: ${reverse ? "flex-end" : "flex-start"};
       `}
     >
       <motion.div
-        style={{ scale: scaleAnim }}
+        style={{
+          scale: scaleAnim,
+        }}
         css={css`
           background-color: ${colorMode === "dark"
             ? theme.colors.dark.backgroundBall
             : theme.colors.light.backgroundBall};
           border-radius: 0 3px 3px 3px;
-          width: 50%;
+          width: 60%;
+          max-width: 500px;
           height: 300px;
           box-shadow: 0px 0px 5px 3px
             ${colorMode === "dark"
@@ -84,6 +100,7 @@ const ProjectCard = ({
             content: "${title}";
             font-size: 12px;
             text-transform: uppercase;
+            font-weight: 700;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -100,6 +117,10 @@ const ProjectCard = ({
             background-color: ${colorMode === "dark"
               ? theme.colors.dark.backgroundAccent
               : theme.colors.light.backgroundAccent};
+            text-shadow: 0.5px 0.5px
+              ${colorMode === "dark"
+                ? theme.colors.dark.backgroundBall
+                : theme.colors.light.backgroundBall};
           }
           &:after {
             background-color: ${colorMode === "dark"
@@ -127,10 +148,11 @@ const ProjectCard = ({
         }}
         css={css`
           border-radius: 3px;
+          width: 40%;
           height: 300px;
           position: absolute;
-          right: ${reverse ? "" : "15vw"};
-          left: ${reverse ? "15vw" : ""};
+          right: ${reverse ? "" : "10vw"};
+          left: ${reverse ? "10vw" : ""};
           margin-top: 2.5rem;
           z-index: -1;
           box-shadow: 0px 0px 5px 3px
@@ -143,7 +165,11 @@ const ProjectCard = ({
           src={gif}
           alt={title}
           css={css`
+            border-radius: 3px;
             height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: top;
           `}
         ></img>
       </motion.div>

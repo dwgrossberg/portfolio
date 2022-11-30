@@ -81,6 +81,9 @@ const TechStack = ({
             : theme.colors.light.text,
       }}
       className="page"
+      css={css`
+        margin-bottom: 10rem;
+      `}
     >
       <div className="page-container">
         <h2 className="title">Tech Stack</h2>
