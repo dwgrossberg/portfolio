@@ -88,7 +88,7 @@ const ProjectCard = ({
           border-radius: 0 3px 3px 3px;
           width: 60%;
           max-width: 500px;
-          height: 300px;
+          height: ${width < breakpoint ? "375px" : "300px"};
           box-shadow: 0px 0px 5px 3px
             ${colorMode === "dark"
               ? theme.colors.dark.backgroundAccent
@@ -145,8 +145,8 @@ const ProjectCard = ({
           css={css`
             margin-left: 0.5rem;
             text-align: left;
-            margin-top: 1rem;
-            font-size: clamp(11px, 1.5vw, 15px);
+            margin-top: 0.5rem;
+            font-size: clamp(12px, 1.5vw, 15px);
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -154,9 +154,9 @@ const ProjectCard = ({
         >
           <div>{description}</div>
           <div>{details}</div>
-          <div>{tech}</div>
-          <div>{liveLink}</div>
-          <div>{repo}</div>
+          <div>Built With: {tech}</div>
+          <div>Project Demo: {liveLink}</div>
+          <div>GitHub Repo: {repo}</div>
         </div>
       </motion.div>
       <motion.div
@@ -172,7 +172,7 @@ const ProjectCard = ({
         css={css`
           border-radius: 3px;
           width: 40%;
-          height: 300px;
+          height: ${width < breakpoint ? "375px" : "300px"};
           position: absolute;
           right: ${reverse ? "" : "10vw"};
           left: ${reverse ? "10vw" : ""};
