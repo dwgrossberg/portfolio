@@ -8,8 +8,8 @@ const ProjectCard = ({
   reverse,
   title,
   description,
+  details,
   tech,
-  img,
   gif,
   liveLink,
   repo,
@@ -21,8 +21,8 @@ const ProjectCard = ({
   reverse?: boolean;
   title: string;
   description: string;
+  details: string;
   tech: string;
-  img: any;
   gif: any;
   liveLink: string;
   repo: string;
@@ -35,7 +35,7 @@ const ProjectCard = ({
   const yPosAnim = useTransform(
     scrollYProgress,
     [0, 0.3, 0.6, 1],
-    [500 / i, 0, -500 / (i * 2), -1000 / (i * 2)]
+    [500 / i, 0, -500 / i, -1000 / i]
   );
   const xPosAnim = useTransform(
     scrollYProgress,
@@ -94,13 +94,17 @@ const ProjectCard = ({
               ? theme.colors.dark.backgroundAccent
               : theme.colors.light.backgroundAccent};
           position: relative;
+          color: ${colorMode === "dark"
+            ? theme.colors.light.text
+            : theme.colors.dark.text};
+          padding: 5px;
           &:before {
             box-shadow: 0px 0px 5px 3px
               ${colorMode === "dark"
                 ? theme.colors.dark.backgroundAccent
                 : theme.colors.light.backgroundAccent};
             content: "${title}";
-            font-size: 12px;
+            font-size: 0.75rem;
             text-transform: uppercase;
             font-weight: 700;
             display: flex;
@@ -113,9 +117,7 @@ const ProjectCard = ({
             width: 150px;
             height: 35px;
             border-radius: 3px 3px 0 0;
-            color: ${colorMode === "dark"
-              ? theme.colors.light.text
-              : theme.colors.dark.text};
+            color: inherit;
             background-color: ${colorMode === "dark"
               ? theme.colors.dark.backgroundAccent
               : theme.colors.light.backgroundAccent};
@@ -135,9 +137,28 @@ const ProjectCard = ({
             left: ${reverse ? "" : "0px"};
             right: ${reverse ? "0px" : ""};
             width: 160px;
+            z-index: 0;
           }
         `}
-      ></motion.div>
+      >
+        <div
+          css={css`
+            margin-left: 0.5rem;
+            text-align: left;
+            margin-top: 1rem;
+            font-size: clamp(11px, 1.5vw, 15px);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+          `}
+        >
+          <div>{description}</div>
+          <div>{details}</div>
+          <div>{tech}</div>
+          <div>{liveLink}</div>
+          <div>{repo}</div>
+        </div>
+      </motion.div>
       <motion.div
         variants={projectBackground}
         initial={"hidden"}

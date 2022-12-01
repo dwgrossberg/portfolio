@@ -24,7 +24,7 @@ const Projects = ({
       }}
       className="page"
       css={css`
-        margin-bottom: -5rem;
+        margin-bottom: -10rem;
         @media screen and (max-width: 600px) {
           margin-bottom: -15rem;
         }
@@ -46,8 +46,8 @@ const Projects = ({
               reverse={item.reverse}
               title={item.title}
               description={item.description}
+              details={item.details}
               tech={item.tech}
-              img={item.img}
               gif={item.gif}
               liveLink={item.liveLink}
               repo={item.repo}

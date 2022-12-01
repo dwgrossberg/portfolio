@@ -30,12 +30,13 @@ export default function Nav({
         setSelected(0);
         setStrokeVar("10");
         break;
-      case "tech-stack":
+
+      case "projects":
         setSelected(1);
         setStrokeVar("10");
         "underline";
         break;
-      case "projects":
+      case "tech-stack":
         setSelected(2);
         setStrokeVar("10");
         "underline";
