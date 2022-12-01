@@ -11,6 +11,7 @@ const projectDetails = (() => {
         gif: whereIsWaldo,
         liveLink: "",
         repo: "",
+        i: 1,
       },
       {
         reverse: true,
@@ -21,6 +22,7 @@ const projectDetails = (() => {
         gif: "",
         liveLink: "",
         repo: "",
+        i: 2,
       },
       {
         reverse: false,
@@ -31,6 +33,7 @@ const projectDetails = (() => {
         gif: "",
         liveLink: "",
         repo: "",
+        i: 3,
       },
     ],
   };

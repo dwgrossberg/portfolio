@@ -15,6 +15,7 @@ const ProjectCard = ({
   repo,
   width,
   breakpoint,
+  i,
 }: {
   colorMode: string;
   reverse?: boolean;
@@ -27,13 +28,14 @@ const ProjectCard = ({
   repo: string;
   width: number;
   breakpoint: number;
+  i: number;
 }): JSX.Element => {
   const { scrollYProgress } = useScroll();
   const scaleAnim = useTransform(scrollYProgress, [0, 0.25, 1], [1, 1.1, 1.2]);
   const yPosAnim = useTransform(
     scrollYProgress,
     [0, 0.3, 0.6, 1],
-    [300, 0, -200, -500]
+    [500 / i, 0, -500 / (i * 2), -1000 / (i * 2)]
   );
   const xPosAnim = useTransform(
     scrollYProgress,
@@ -110,7 +112,7 @@ const ProjectCard = ({
             position: absolute;
             width: 150px;
             height: 35px;
-            border-radius: 3px 3px 3px 0;
+            border-radius: 3px 3px 0 0;
             color: ${colorMode === "dark"
               ? theme.colors.light.text
               : theme.colors.dark.text};

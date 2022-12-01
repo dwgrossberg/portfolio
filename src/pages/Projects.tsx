@@ -51,6 +51,7 @@ const Projects = ({
               gif={item.gif}
               liveLink={item.liveLink}
               repo={item.repo}
+              i={item.i}
               width={width}
               breakpoint={breakpoint}
             />
