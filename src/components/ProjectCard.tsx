@@ -32,6 +32,7 @@ const ProjectCard = ({
 }): JSX.Element => {
   const { scrollYProgress } = useScroll();
   const scaleAnim = useTransform(scrollYProgress, [0, 0.25, 1], [1, 1.1, 1.2]);
+  const scaleMobile = useTransform(scrollYProgress, [0, 0.25, 1], [1, 1, 1.1]);
   const yPosAnim = useTransform(
     scrollYProgress,
     [0, 0.3, 0.6, 1],
@@ -39,8 +40,8 @@ const ProjectCard = ({
   );
   const yPosMobile = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.5, 0.7, 1],
-    [400, 350, 300, 250, 200]
+    [0, 0.3, 0.5, 0.8, 1],
+    [500, 450, 400, 350, -500]
   );
   const xPosAnim = useTransform(
     scrollYProgress,
@@ -167,13 +168,13 @@ const ProjectCard = ({
         animate={"visible"}
         viewport={{ once: true }}
         style={{
-          scale: scaleAnim,
+          scale: width < breakpoint ? scaleMobile : scaleAnim,
           y: width < breakpoint ? yPosMobile : yPosAnim,
           x: width < breakpoint ? (reverse ? -15 : 15) : xPosAnim,
         }}
         css={css`
           border-radius: 3px;
-          width: ${width < breakpoint ? "85%" : "60%"};
+          width: ${width < breakpoint ? "85%" : "40%"};
           height: ${width < breakpoint ? "350px" : "300px"};
           position: absolute;
           right: ${reverse ? "" : "10vw"};
