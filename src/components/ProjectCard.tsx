@@ -37,16 +37,17 @@ const ProjectCard = ({
     [0, 0.3, 0.6, 1],
     [500 / i, 0, -500 / i, -1000 / i]
   );
+  const yPosMobile = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.5, 0.7, 1],
+    [400, 350, 300, 250, 200]
+  );
   const xPosAnim = useTransform(
     scrollYProgress,
     [0, 0.25, 1],
     reverse ? [0, -15, -30] : [0, 15, 30]
   );
-  const xPosCard = useTransform(
-    scrollYProgress,
-    [0, 0.25, 1],
-    reverse ? [0, 15, 30] : [0, -15, -30]
-  );
+
   const projectBackground: Variants = {
     visible: {
       opacity: 1,
@@ -72,9 +73,10 @@ const ProjectCard = ({
     <div
       css={css`
         display: flex;
-        margin-bottom: 20rem;
+        margin-bottom: ${width < breakpoint ? "40rem" : "20rem"};
         width: 100%;
         justify-content: ${reverse ? "flex-end" : "flex-start"};
+        justify-content: ${width < breakpoint ? "center" : ""};
       `}
     >
       <motion.div
@@ -86,9 +88,9 @@ const ProjectCard = ({
             ? theme.colors.dark.backgroundBall
             : theme.colors.light.backgroundBall};
           border-radius: 0 3px 3px 3px;
-          width: 60%;
+          width: ${width < breakpoint ? "90%" : "60%"};
           max-width: 500px;
-          height: ${width < breakpoint ? "375px" : "300px"};
+          height: ${width < breakpoint ? "350px" : "300px"};
           box-shadow: 0px 0px 5px 3px
             ${colorMode === "dark"
               ? theme.colors.dark.backgroundAccent
@@ -166,16 +168,17 @@ const ProjectCard = ({
         viewport={{ once: true }}
         style={{
           scale: scaleAnim,
-          y: yPosAnim,
-          x: xPosAnim,
+          y: width < breakpoint ? yPosMobile : yPosAnim,
+          x: width < breakpoint ? (reverse ? -15 : 15) : xPosAnim,
         }}
         css={css`
           border-radius: 3px;
-          width: 40%;
-          height: ${width < breakpoint ? "375px" : "300px"};
+          width: ${width < breakpoint ? "85%" : "60%"};
+          height: ${width < breakpoint ? "350px" : "300px"};
           position: absolute;
           right: ${reverse ? "" : "10vw"};
           left: ${reverse ? "10vw" : ""};
+          place-self: center;
           margin-top: 2.5rem;
           z-index: -1;
           box-shadow: 0px 0px 5px 3px

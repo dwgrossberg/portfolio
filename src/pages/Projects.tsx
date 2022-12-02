@@ -42,6 +42,7 @@ const Projects = ({
         {projectDetails.projects.map((item) => {
           return (
             <ProjectCard
+              key={item.i}
               colorMode={colorMode}
               reverse={item.reverse}
               title={item.title}
