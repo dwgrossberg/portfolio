@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { motion, Variants, useScroll, useTransform } from "framer-motion";
+import { defineStyle, Divider } from "@chakra-ui/react";
 import theme from "../utilities/theme";
 
 const ProjectCard = ({
@@ -41,14 +42,13 @@ const ProjectCard = ({
   const yPosMobile = useTransform(
     scrollYProgress,
     [0, 0.3, 0.5, 0.8, 1],
-    [500, 450, 400, 350, -500]
+    [1000, 375, 385, 395, -500]
   );
   const xPosAnim = useTransform(
     scrollYProgress,
     [0, 0.25, 1],
     reverse ? [0, -15, -30] : [0, 15, 30]
   );
-
   const projectBackground: Variants = {
     visible: {
       opacity: 1,
@@ -70,6 +70,16 @@ const ProjectCard = ({
       },
     },
   };
+  const darkDivider = defineStyle({
+    borderColor: {
+      color: theme.colors.light.text,
+    },
+  });
+  const lightDivider = defineStyle({
+    borderColor: {
+      color: theme.colors.dark.text,
+    },
+  });
   return (
     <div
       css={css`
@@ -107,7 +117,7 @@ const ProjectCard = ({
                 ? theme.colors.dark.backgroundAccent
                 : theme.colors.light.backgroundAccent};
             content: "${title}";
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             font-weight: 700;
             display: flex;
@@ -149,7 +159,7 @@ const ProjectCard = ({
             margin-left: 0.5rem;
             text-align: left;
             margin-top: 0.5rem;
-            font-size: clamp(12px, 1.5vw, 15px);
+            font-size: clamp(13px, 1.5vw, 16px);
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -157,6 +167,9 @@ const ProjectCard = ({
         >
           <div>{description}</div>
           <div>{details}</div>
+          <Divider
+            variant={colorMode === "dark" ? "darkDivider" : "lightDivider"}
+          />
           <div>Built With: {tech}</div>
           <div>Project Demo: {liveLink}</div>
           <div>GitHub Repo: {repo}</div>
