@@ -1,8 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { motion, Variants, useScroll, useTransform } from "framer-motion";
-import { defineStyle, Divider } from "@chakra-ui/react";
+import { Divider } from "@chakra-ui/react";
+import stackLight from "../assets/stack-light.svg";
+import stackDark from "../assets/stack-dark.svg";
+import horizontalLine from "../assets/horizontal-line.svg";
+import rightArrow from "../assets/right-arrow.svg";
 import theme from "../utilities/theme";
+import AnimatedStack from "./AnimatedStack";
+import { useState } from "react";
 
 const ProjectCard = ({
   colorMode,
@@ -31,6 +37,7 @@ const ProjectCard = ({
   breakpoint: number;
   i: number;
 }): JSX.Element => {
+  const [path, setPath] = useState("M10 7L14 7M6 12L18 12M3 17L21 17");
   const { scrollYProgress } = useScroll();
   const scaleAnim = useTransform(scrollYProgress, [0, 0.25, 1], [1, 1.1, 1.2]);
   const scaleMobile = useTransform(scrollYProgress, [0, 0.25, 1], [1, 1, 1.1]);
@@ -70,16 +77,6 @@ const ProjectCard = ({
       },
     },
   };
-  const darkDivider = defineStyle({
-    borderColor: {
-      color: theme.colors.light.text,
-    },
-  });
-  const lightDivider = defineStyle({
-    borderColor: {
-      color: theme.colors.dark.text,
-    },
-  });
   return (
     <div
       css={css`
@@ -101,7 +98,7 @@ const ProjectCard = ({
           border-radius: 0 3px 3px 3px;
           width: ${width < breakpoint ? "90%" : "60%"};
           max-width: 500px;
-          height: ${width < breakpoint ? "350px" : "300px"};
+          height: ${width < breakpoint ? "350px" : "400px"};
           box-shadow: 0px 0px 5px 3px
             ${colorMode === "dark"
               ? theme.colors.dark.backgroundAccent
@@ -110,7 +107,6 @@ const ProjectCard = ({
           color: ${colorMode === "dark"
             ? theme.colors.light.text
             : theme.colors.dark.text};
-          padding: 5px;
           &:before {
             box-shadow: 0px 0px 5px 3px
               ${colorMode === "dark"
@@ -156,23 +152,65 @@ const ProjectCard = ({
       >
         <div
           css={css`
-            margin-left: 0.5rem;
+            padding: 0.75rem;
+            width: 100%;
+            height: 100%;
             text-align: left;
-            margin-top: 0.5rem;
             font-size: clamp(13px, 1.5vw, 16px);
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            justify-content: space-around;
           `}
         >
           <div>{description}</div>
           <div>{details}</div>
           <Divider
-            variant={colorMode === "dark" ? "darkDivider" : "lightDivider"}
+            borderColor={
+              colorMode === "dark"
+                ? theme.colors.light.text
+                : theme.colors.dark.text
+            }
           />
-          <div>Built With: {tech}</div>
-          <div>Project Demo: {liveLink}</div>
-          <div>GitHub Repo: {repo}</div>
+          <div
+            css={css`
+              font-style: italic;
+              text-align: center;
+            `}
+          >
+            Built with {tech}
+          </div>
+          <div
+            css={css`
+              display: flex;
+              gap: 15px;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              font-size: clamp(14px, 1.6vw, 18px);
+              cursor: pointer;
+            `}
+            onMouseEnter={() => {
+              setPath("M 2,12 h 20");
+            }}
+            onMouseLeave={() => {
+              setPath("M10 7L14 7M6 12L18 12M3 17L21 17");
+            }}
+          >
+            <AnimatedStack colorMode={colorMode} path={path} />
+            Project Demo
+            <img
+              alt="stack-icon"
+              src={colorMode === "dark" ? stackDark : stackLight}
+            />
+          </div>
+          <div
+            css={css`
+              text-align: center;
+              font-size: clamp(14px, 1.6vw, 18px);
+            `}
+          >
+            GitHub Repository
+          </div>
         </div>
       </motion.div>
       <motion.div
@@ -188,7 +226,7 @@ const ProjectCard = ({
         css={css`
           border-radius: 3px;
           width: ${width < breakpoint ? "85%" : "40%"};
-          height: ${width < breakpoint ? "350px" : "300px"};
+          height: ${width < breakpoint ? "350px" : "400px"};
           position: absolute;
           right: ${reverse ? "" : "10vw"};
           left: ${reverse ? "10vw" : ""};

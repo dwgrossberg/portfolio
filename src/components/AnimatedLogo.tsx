@@ -38,7 +38,8 @@ const AnimatedLogo = ({
               ? theme.colors.dark.text
               : theme.colors.light.text
           }
-          strokeLinecap="round"
+          strokeLinejoin="miter"
+          strokeLinecap="square"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{
             pathLength: 1,

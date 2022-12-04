@@ -6,7 +6,7 @@ const theme = (() => {
         backgroundSec: "#191919",
         backgroundBall: "#DBDBDB",
         backgroundAccent: "#A5FFC9",
-        text: "ghostwhite",
+        text: "#f8f8ff",
         toggle: "rgba(248, 248, 255, 0.4)",
         mobileMenu: "rgba(25, 25, 25, 0.9)",
         projectCard: "rgba(165, 255, 201, .5)",
