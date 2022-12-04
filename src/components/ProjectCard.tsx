@@ -2,12 +2,8 @@
 import { css } from "@emotion/react";
 import { motion, Variants, useScroll, useTransform } from "framer-motion";
 import { Divider } from "@chakra-ui/react";
-import stackLight from "../assets/stack-light.svg";
-import stackDark from "../assets/stack-dark.svg";
-import horizontalLine from "../assets/horizontal-line.svg";
-import rightArrow from "../assets/right-arrow.svg";
 import theme from "../utilities/theme";
-import AnimatedStack from "./AnimatedStack";
+import AnimatedStackLine from "./AnimatedStackLine";
 import { useState } from "react";
 
 const ProjectCard = ({
@@ -196,12 +192,8 @@ const ProjectCard = ({
               setPath("M10 7L14 7M6 12L18 12M3 17L21 17");
             }}
           >
-            <AnimatedStack colorMode={colorMode} path={path} />
+            <AnimatedStackLine colorMode={colorMode} path={path} />
             Project Demo
-            <img
-              alt="stack-icon"
-              src={colorMode === "dark" ? stackDark : stackLight}
-            />
           </div>
           <div
             css={css`

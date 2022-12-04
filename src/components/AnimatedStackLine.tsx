@@ -13,6 +13,9 @@ const AnimatedStack = ({
 }) => {
   const transition = {
     duration: 0.5,
+    type: "spring",
+    damping: 12,
+    stiffness: 200,
   };
   return (
     <svg
