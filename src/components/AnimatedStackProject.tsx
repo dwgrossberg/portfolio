@@ -1,15 +1,12 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import theme from "../utilities/theme";
 
 const AnimatedStack = ({
   colorMode,
-  path,
+  projectPath,
 }: {
   colorMode: string;
-  path: string;
+  projectPath: string;
 }) => {
   const transition = {
     duration: 0.5,
@@ -37,7 +34,7 @@ const AnimatedStack = ({
         }
         strokeLinejoin="miter"
         strokeLinecap="square"
-        animate={{ d: path }}
+        animate={{ d: projectPath }}
         transition={transition}
         initial="stack"
         whileHover="line"

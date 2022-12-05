@@ -3,8 +3,9 @@ import { css } from "@emotion/react";
 import { motion, Variants, useScroll, useTransform } from "framer-motion";
 import { Divider } from "@chakra-ui/react";
 import theme from "../utilities/theme";
-import AnimatedStackLine from "./AnimatedStackLine";
+import AnimatedStackLine from "./AnimatedStackProject";
 import { useState } from "react";
+import AnimatedStackGit from "./AnimatedStackGit";
 
 const ProjectCard = ({
   colorMode,
@@ -33,7 +34,11 @@ const ProjectCard = ({
   breakpoint: number;
   i: number;
 }): JSX.Element => {
-  const [path, setPath] = useState("M10 7L14 7M6 12L18 12M3 17L21 17");
+  const [projectPath, setProjectPath] = useState(
+    "M10 7L14 7M6 12L18 12M3 17L21 17"
+  );
+  const [gitPath, setGitPath] = useState("M10 7L14 7M6 12L18 12M3 17L21 17");
+
   const { scrollYProgress } = useScroll();
   const scaleAnim = useTransform(scrollYProgress, [0, 0.25, 1], [1, 1.1, 1.2]);
   const scaleMobile = useTransform(scrollYProgress, [0, 0.25, 1], [1, 1, 1.1]);
@@ -186,22 +191,44 @@ const ProjectCard = ({
               cursor: pointer;
             `}
             onMouseEnter={() => {
-              setPath("M 2,12 h 20");
+              setProjectPath("M 2,12 h 20");
             }}
             onMouseLeave={() => {
-              setPath("M10 7L14 7M6 12L18 12M3 17L21 17");
+              setProjectPath("M10 7L14 7M6 12L18 12M3 17L21 17");
             }}
           >
-            <AnimatedStackLine colorMode={colorMode} path={path} />
+            <AnimatedStackLine
+              colorMode={colorMode}
+              projectPath={projectPath}
+            />
             Project Demo
+            <AnimatedStackLine
+              colorMode={colorMode}
+              projectPath={projectPath}
+            />
           </div>
           <div
             css={css`
               text-align: center;
               font-size: clamp(14px, 1.6vw, 18px);
+              display: flex;
+              gap: 15px;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              font-size: clamp(14px, 1.6vw, 18px);
+              cursor: pointer;
             `}
+            onMouseEnter={() => {
+              setGitPath("M 2,12 h 20");
+            }}
+            onMouseLeave={() => {
+              setGitPath("M10 7L14 7M6 12L18 12M3 17L21 17");
+            }}
           >
-            GitHub Repository
+            <AnimatedStackGit colorMode={colorMode} gitPath={gitPath} />
+            GitHub
+            <AnimatedStackGit colorMode={colorMode} gitPath={gitPath} />
           </div>
         </div>
       </motion.div>
