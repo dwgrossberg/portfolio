@@ -44,12 +44,12 @@ const ProjectCard = ({
   const scaleMobile = useTransform(scrollYProgress, [0, 0.25, 1], [1, 1, 1.1]);
   const yPosAnim = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.6, 1],
-    [500 / i, 0, -500 / i, -1000 / i]
+    [0, 0.25, 0.5, 0.7, 1],
+    [500 / i, 0, -500 / i, -1000 / i, -1000]
   );
   const yPosMobile = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.5, 0.8, 1],
+    [0, 0.25, 0.5, 0.8, 1],
     [1000, 375, 385, 395, -500]
   );
   const xPosAnim = useTransform(
@@ -124,7 +124,7 @@ const ProjectCard = ({
             left: ${reverse ? "" : "0"};
             right: ${reverse ? "0" : ""};
             position: absolute;
-            width: 150px;
+            width: 185px;
             height: 35px;
             border-radius: 3px 3px 0 0;
             color: inherit;
@@ -146,7 +146,7 @@ const ProjectCard = ({
             top: 0px;
             left: ${reverse ? "" : "0px"};
             right: ${reverse ? "0px" : ""};
-            width: 160px;
+            width: 200px;
             z-index: 0;
           }
         `}
@@ -243,7 +243,7 @@ const ProjectCard = ({
                 colorMode={colorMode}
                 projectPath={projectPath}
               />
-              Project Demo
+              Live Site
               <AnimatedStackLine
                 colorMode={colorMode}
                 projectPath={projectPath}
@@ -287,6 +287,7 @@ const ProjectCard = ({
             width: 100%;
             object-fit: cover;
             object-position: top;
+            object-position: ${title === "Knight's Playground" ? "left" : ""};
           `}
         ></img>
       </motion.div>

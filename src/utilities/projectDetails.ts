@@ -1,4 +1,7 @@
 import whereIsWaldo from "../assets/whereIsWaldo.gif";
+import knightsTourW from "../assets/knights-tour-w.gif";
+import shoppingCart from "../assets/shoppingCart.gif";
+
 const projectDetails = (() => {
   return {
     projects: [
@@ -17,17 +20,32 @@ const projectDetails = (() => {
       },
       {
         reverse: true,
-        title: "",
-        description: "",
-        details: "",
-        tech: "",
-        gif: "",
-        liveLink: "",
-        repo: "",
+        title: "Knight's Playground",
+        description:
+          "A simple app built to demonstrate different algorithmic solutions for two classic chessboard problems: Knight's Travails and Knight's Tour.",
+        details:
+          "This project was challenging on many levels, pushing me to learn numerous methods for initiating a breadth-first search (BFS) traversal, as well as improving my overall understanding of graph theory and recursion.",
+        tech: "JavaScript, SASS, Webpack, Babel, Jest",
+        gif: knightsTourW,
+        liveLink: "https://www.danielgrossberg.com/knights-travails/",
+        repo: "https://github.com/dwgrossberg/knights-travails",
         i: 2,
       },
       {
         reverse: false,
+        title: "Shopping Cart",
+        description:
+          "A shopping cart app built around the Fake Store API that uses React and React-Router-DOM to generate dynamic routes.",
+        details:
+          "Features a modern and clean e-commerce site with full shopping cart functionality, the ability to filter products by different categories, and a responsive design.",
+        tech: "JavaScript, SASS, React, Jest",
+        gif: shoppingCart,
+        liveLink: "https://www.danielgrossberg.com/shopping-cart/",
+        repo: "https://github.com/dwgrossberg/shopping-cart",
+        i: 3,
+      },
+      {
+        reverse: true,
         title: "",
         description: "",
         details: "",
@@ -35,7 +53,7 @@ const projectDetails = (() => {
         gif: "",
         liveLink: "",
         repo: "",
-        i: 3,
+        i: 4,
       },
     ],
   };
