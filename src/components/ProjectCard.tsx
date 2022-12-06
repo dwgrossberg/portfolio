@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { motion, Variants, useScroll, useTransform } from "framer-motion";
-import { Divider } from "@chakra-ui/react";
+import { Divider, Link } from "@chakra-ui/react";
 import theme from "../utilities/theme";
 import AnimatedStackLine from "./AnimatedStackProject";
 import { useState } from "react";
@@ -180,57 +180,76 @@ const ProjectCard = ({
           >
             Built with {tech}
           </div>
-
-          <div
-            css={css`
-              text-align: center;
-              font-size: clamp(14px, 1.6vw, 18px);
-              display: flex;
-              gap: 15px;
-              justify-content: center;
-              align-items: center;
-              text-align: center;
-              font-size: clamp(14px, 1.6vw, 18px);
-              cursor: pointer;
-            `}
-            onMouseEnter={() => {
-              setGitPath("M 2,12 h 20");
+          <Link
+            style={{
+              textDecoration: "none",
             }}
-            onMouseLeave={() => {
-              setGitPath("M10 7L14 7M6 12L18 12M3 17L21 17");
-            }}
+            href={repo}
+            isExternal
           >
-            <AnimatedStackGit colorMode={colorMode} gitPath={gitPath} />
-            GitHub
-            <AnimatedStackGit colorMode={colorMode} gitPath={gitPath} />
-          </div>
-          <div
-            css={css`
-              display: flex;
-              gap: 15px;
-              justify-content: center;
-              align-items: center;
-              text-align: center;
-              font-size: clamp(14px, 1.6vw, 18px);
-              cursor: pointer;
-            `}
-            onMouseEnter={() => {
-              setProjectPath("M 2,12 h 20");
+            <motion.div
+              css={css`
+                text-align: center;
+                font-size: clamp(14px, 1.6vw, 18px);
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: clamp(14px, 1.6vw, 18px);
+                cursor: pointer;
+              `}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onMouseEnter={() => {
+                setGitPath("M 2,12 h 20");
+              }}
+              onMouseLeave={() => {
+                setGitPath("M10 7L14 7M6 12L18 12M3 17L21 17");
+              }}
+            >
+              <AnimatedStackGit colorMode={colorMode} gitPath={gitPath} />
+              GitHub
+              <AnimatedStackGit colorMode={colorMode} gitPath={gitPath} />
+            </motion.div>
+          </Link>
+          <Link
+            style={{
+              textDecoration: "none",
             }}
-            onMouseLeave={() => {
-              setProjectPath("M10 7L14 7M6 12L18 12M3 17L21 17");
-            }}
+            href={liveLink}
+            isExternal
           >
-            <AnimatedStackLine
-              colorMode={colorMode}
-              projectPath={projectPath}
-            />
-            Project Demo
-            <AnimatedStackLine
-              colorMode={colorMode}
-              projectPath={projectPath}
-            />
-          </div>
+            <motion.div
+              css={css`
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: clamp(14px, 1.6vw, 18px);
+                cursor: pointer;
+              `}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onMouseEnter={() => {
+                setProjectPath("M 2,12 h 20");
+              }}
+              onMouseLeave={() => {
+                setProjectPath("M10 7L14 7M6 12L18 12M3 17L21 17");
+              }}
+            >
+              <AnimatedStackLine
+                colorMode={colorMode}
+                projectPath={projectPath}
+              />
+              Project Demo
+              <AnimatedStackLine
+                colorMode={colorMode}
+                projectPath={projectPath}
+              />
+            </motion.div>
+          </Link>
         </div>
       </motion.div>
       <motion.div
