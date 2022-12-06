@@ -180,6 +180,30 @@ const ProjectCard = ({
           >
             Built with {tech}
           </div>
+
+          <div
+            css={css`
+              text-align: center;
+              font-size: clamp(14px, 1.6vw, 18px);
+              display: flex;
+              gap: 15px;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              font-size: clamp(14px, 1.6vw, 18px);
+              cursor: pointer;
+            `}
+            onMouseEnter={() => {
+              setGitPath("M 2,12 h 20");
+            }}
+            onMouseLeave={() => {
+              setGitPath("M10 7L14 7M6 12L18 12M3 17L21 17");
+            }}
+          >
+            <AnimatedStackGit colorMode={colorMode} gitPath={gitPath} />
+            GitHub
+            <AnimatedStackGit colorMode={colorMode} gitPath={gitPath} />
+          </div>
           <div
             css={css`
               display: flex;
@@ -206,29 +230,6 @@ const ProjectCard = ({
               colorMode={colorMode}
               projectPath={projectPath}
             />
-          </div>
-          <div
-            css={css`
-              text-align: center;
-              font-size: clamp(14px, 1.6vw, 18px);
-              display: flex;
-              gap: 15px;
-              justify-content: center;
-              align-items: center;
-              text-align: center;
-              font-size: clamp(14px, 1.6vw, 18px);
-              cursor: pointer;
-            `}
-            onMouseEnter={() => {
-              setGitPath("M 2,12 h 20");
-            }}
-            onMouseLeave={() => {
-              setGitPath("M10 7L14 7M6 12L18 12M3 17L21 17");
-            }}
-          >
-            <AnimatedStackGit colorMode={colorMode} gitPath={gitPath} />
-            GitHub
-            <AnimatedStackGit colorMode={colorMode} gitPath={gitPath} />
           </div>
         </div>
       </motion.div>

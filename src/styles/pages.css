@@ -58,3 +58,7 @@
   flex-direction: column;
   gap: 10px;
 }
+
+#projectSVG {
+  transform: rotate(180deg);
+}

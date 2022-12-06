@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { motion } from "framer-motion";
 import theme from "../utilities/theme";
 
@@ -23,6 +25,7 @@ const AnimatedStack = ({
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       aria-labelledby="stackIconTitle"
+      id="projectSVG"
     >
       <motion.path
         fill="transparent"
