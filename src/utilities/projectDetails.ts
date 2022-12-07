@@ -24,7 +24,7 @@ const projectDetails = (() => {
         description:
           "A simple app built to demonstrate different algorithmic solutions for two classic chessboard problems: Knight's Travails and Knight's Tour.",
         details:
-          "This project was challenging on many levels, pushing me to learn numerous methods for initiating a breadth-first search (BFS) traversal, as well as improving my overall understanding of graph theory and recursion.",
+          "I build this project to improve my overall understanding of graph theory and recursion, with the specific goal of learning new methods for initiating a breadth-first search (BFS) traversal within a graph.",
         tech: "JavaScript, SASS, Webpack, Babel, Jest",
         gif: knightsTourW,
         liveLink: "https://www.danielgrossberg.com/knights-travails/",
@@ -37,7 +37,7 @@ const projectDetails = (() => {
         description:
           "A shopping cart app built around the Fake Store API that uses React and React-Router-DOM to generate dynamic routes.",
         details:
-          "Features a modern and clean e-commerce site with full shopping cart functionality, the ability to filter products by different categories, and a responsive design.",
+          "Features a modern and clean e-commerce site with full shopping cart functionality, a filter bar to sort products by category/price/rating, and a smart responsive design.",
         tech: "JavaScript, SASS, React, Jest",
         gif: shoppingCart,
         liveLink: "https://www.danielgrossberg.com/shopping-cart/",
