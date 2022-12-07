@@ -114,7 +114,7 @@ const ProjectCard = ({
                 ? theme.colors.dark.backgroundAccent
                 : theme.colors.light.backgroundAccent};
             content: "${title}";
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             font-weight: 700;
             display: flex;
@@ -131,7 +131,7 @@ const ProjectCard = ({
             background-color: ${colorMode === "dark"
               ? theme.colors.dark.backgroundAccent
               : theme.colors.light.backgroundAccent};
-            text-shadow: 0.5px 0.5px
+            text-shadow: 1px 1px
               ${colorMode === "dark"
                 ? theme.colors.dark.backgroundBall
                 : theme.colors.light.backgroundBall};
@@ -164,7 +164,13 @@ const ProjectCard = ({
           `}
         >
           <div>{description}</div>
-          <div>{details}</div>
+          <div
+            css={css`
+              margin-top: -0.5rem;
+            `}
+          >
+            {details}
+          </div>
           <Divider
             borderColor={
               colorMode === "dark"
@@ -287,7 +293,10 @@ const ProjectCard = ({
             width: 100%;
             object-fit: cover;
             object-position: top;
-            object-position: ${title === "Knight's Playground" ? "left" : ""};
+            object-position: ${title === "Knight's Playground" ||
+            title === "Battleship"
+              ? "left"
+              : ""};
           `}
         ></img>
       </motion.div>

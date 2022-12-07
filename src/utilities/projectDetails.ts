@@ -1,6 +1,7 @@
 import whereIsWaldo from "../assets/whereIsWaldo.gif";
 import knightsTourW from "../assets/knights-tour-w.gif";
 import shoppingCart from "../assets/shoppingCart.gif";
+import battleship from "../assets/battleship.gif";
 
 const projectDetails = (() => {
   return {
@@ -46,13 +47,15 @@ const projectDetails = (() => {
       },
       {
         reverse: true,
-        title: "",
-        description: "",
-        details: "",
-        tech: "",
-        gif: "",
-        liveLink: "",
-        repo: "",
+        title: "Battleship",
+        description:
+          'A test-driven-development implementation of the classic board game "Battleship."',
+        details:
+          "This was my first experience with any type of unit testing and it really made me restructure my workflow, especially at the start of the project. Instead of branching out into a dozen different directions at once, unit tests forced me to slow down and focus on writing technically sound code, one module at a time.",
+        tech: "JavaScript, SASS, Webpack, Jest",
+        gif: battleship,
+        liveLink: "https://www.danielgrossberg.com/battleship/",
+        repo: "https://github.com/dwgrossberg/battleship",
         i: 4,
       },
     ],
