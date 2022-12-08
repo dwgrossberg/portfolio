@@ -25,7 +25,7 @@ const projectDetails = (() => {
         description:
           "A simple app built to demonstrate different algorithmic solutions for two classic chessboard problems: Knight's Travails and Knight's Tour.",
         details:
-          "I build this project to improve my overall understanding of graph theory and recursion, with the specific goal of learning new methods for initiating a breadth-first search (BFS) traversal within a graph.",
+          "I started this project to improve my overall understanding of graph theory and recursion, with the specific goal of learning new methods for initiating a breadth-first search (BFS) traversal within a graph.",
         tech: "JavaScript, SASS, Webpack, Babel, Jest",
         gif: knightsTourW,
         liveLink: "https://www.danielgrossberg.com/knights-travails/",

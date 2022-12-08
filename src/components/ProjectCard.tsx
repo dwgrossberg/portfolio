@@ -157,7 +157,7 @@ const ProjectCard = ({
             width: 100%;
             height: 100%;
             text-align: left;
-            font-size: clamp(13px, 1.5vw, 16px);
+            font-size: clamp(12px, 1.5vw, 16px);
             display: flex;
             flex-direction: column;
             justify-content: space-around;
