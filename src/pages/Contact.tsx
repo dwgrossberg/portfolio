@@ -2,6 +2,7 @@
 import { css } from "@emotion/react";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
 import theme from "../utilities/theme";
 import "../styles/pages.css";
 
@@ -10,10 +11,11 @@ const Contact = ({ colorMode }: { colorMode: string }): JSX.Element => {
   const sendEmail = (e: any) => {
     e.preventDefault();
     if (form.current == null) return;
+
     emailjs
       .sendForm(
         "service_a0602jv",
-        "service_a0602jv",
+        "template_nyanq8b",
         form.current,
         "8syD1KJGLl2vrXqtp"
       )
@@ -59,32 +61,43 @@ const Contact = ({ colorMode }: { colorMode: string }): JSX.Element => {
           ref={form}
           onSubmit={sendEmail}
           css={css`
-            place-self: center;
             display: flex;
             flex-direction: column;
             gap: 20px;
             width: 400px;
+            place-self: center;
           `}
         >
           <input
             type="text"
             name="user_name"
             placeholder="Name"
+            required
             css={css`
               width: 100%;
               padding: 5px;
+              color: ${colorMode === "dark"
+                ? theme.colors.light.text
+                : theme.colors.dark.text};
               background-color: ${colorMode === "dark"
-                ? theme.colors.light.backgroundSec
-                : theme.colors.dark.backgroundSec};
+                ? theme.colors.dark.backgroundBall
+                : theme.colors.light.backgroundBall};
             `}
           />
           <input
             type="email"
             name="user_email"
             placeholder="Email"
+            required
             css={css`
               width: 100%;
               padding: 5px;
+              color: ${colorMode === "dark"
+                ? theme.colors.light.text
+                : theme.colors.dark.text};
+              background-color: ${colorMode === "dark"
+                ? theme.colors.dark.backgroundBall
+                : theme.colors.light.backgroundBall};
             `}
           />
           <textarea
@@ -93,14 +106,54 @@ const Contact = ({ colorMode }: { colorMode: string }): JSX.Element => {
             css={css`
               width: 100%;
               padding: 5px;
+              color: ${colorMode === "dark"
+                ? theme.colors.light.text
+                : theme.colors.dark.text};
+              background-color: ${colorMode === "dark"
+                ? theme.colors.dark.backgroundBall
+                : theme.colors.light.backgroundBall};
             `}
           />
-          <input
+          <motion.input
             type="submit"
             value="Send"
+            whileHover={{
+              scale: 1.1,
+              boxShadow: `0px 0px 15px 9px ${
+                colorMode === "dark"
+                  ? theme.colors.dark.backgroundAccent
+                  : theme.colors.light.backgroundAccent
+              }`,
+              textShadow: `2px 2px
+                ${
+                  colorMode === "dark"
+                    ? theme.colors.dark.backgroundBall
+                    : theme.colors.light.backgroundBall
+                }`,
+              borderRadius: "7px",
+            }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.5 }}
             css={css`
+              width: 50%;
+              place-self: center;
+              margin-top: 10px;
               padding: 5px 10px;
               cursor: pointer;
+              color: ${colorMode === "dark"
+                ? theme.colors.light.text
+                : theme.colors.dark.text};
+              background-color: ${colorMode === "dark"
+                ? theme.colors.dark.backgroundAccent
+                : theme.colors.light.backgroundAccent};
+              box-shadow: 0px 0px 5px 3px
+                ${colorMode === "dark"
+                  ? theme.colors.dark.backgroundAccent
+                  : theme.colors.light.backgroundAccent};
+              text-shadow: 1px 1px
+                ${colorMode === "dark"
+                  ? theme.colors.dark.backgroundBall
+                  : theme.colors.light.backgroundBall};
             `}
           />
         </form>

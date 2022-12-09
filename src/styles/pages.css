@@ -62,8 +62,3 @@
 #projectSVG {
   transform: rotate(180deg);
 }
-
-input,
-textarea {
-  border-radius: 3px;
-}

@@ -96,7 +96,6 @@ const ProjectCard = ({
           background-color: ${colorMode === "dark"
             ? theme.colors.dark.backgroundBall
             : theme.colors.light.backgroundBall};
-          border-radius: 0 3px 3px 3px;
           width: ${width < breakpoint ? "90%" : "60%"};
           max-width: 500px;
           height: ${width < breakpoint ? "350px" : "400px"};
@@ -126,7 +125,6 @@ const ProjectCard = ({
             position: absolute;
             width: 185px;
             height: 35px;
-            border-radius: 3px 3px 0 0;
             color: inherit;
             background-color: ${colorMode === "dark"
               ? theme.colors.dark.backgroundAccent
@@ -269,7 +267,6 @@ const ProjectCard = ({
           x: width < breakpoint ? (reverse ? -15 : 15) : xPosAnim,
         }}
         css={css`
-          border-radius: 3px;
           width: ${width < breakpoint ? "85%" : "40%"};
           height: ${width < breakpoint ? "350px" : "400px"};
           position: absolute;
@@ -288,7 +285,6 @@ const ProjectCard = ({
           src={gif}
           alt={title}
           css={css`
-            border-radius: 3px;
             height: 100%;
             width: 100%;
             object-fit: cover;
