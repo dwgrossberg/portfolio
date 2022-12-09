@@ -62,3 +62,7 @@
 #projectSVG {
   transform: rotate(180deg);
 }
+
+svg {
+  cursor: pointer;
+}
