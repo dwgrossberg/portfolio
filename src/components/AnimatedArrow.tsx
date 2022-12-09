@@ -30,7 +30,7 @@ const AnimatedArrow = ({
             ? theme.colors.light.text
             : theme.colors.dark.text
         }
-        strokeWidth="1"
+        strokeWidth=".25"
         stroke={
           colorMode === "dark"
             ? theme.colors.light.text
@@ -39,7 +39,6 @@ const AnimatedArrow = ({
         strokeLinejoin="miter"
         strokeLinecap="square"
         animate={{ d: arrowPath }}
-        transition={transition}
         initial="stack"
         whileHover="line"
       />
