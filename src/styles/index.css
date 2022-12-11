@@ -35,3 +35,7 @@ h1 {
 .title {
   font-family: "Raleway", "Lato", Inter, Avenir;
 }
+
+.contact-icon {
+  width: 10vw;
+}
