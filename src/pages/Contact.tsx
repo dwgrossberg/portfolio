@@ -74,6 +74,37 @@ const Contact = ({ colorMode }: { colorMode: string }): JSX.Element => {
             </Link>
           </motion.div>
         </div>
+        <Divider
+          borderWidth=".5px"
+          borderColor={
+            colorMode === "dark"
+              ? theme.colors.dark.backgroundBall
+              : theme.colors.light.backgroundBall
+          }
+          marginTop="2rem"
+          marginBottom="2rem"
+        />
+        <div
+          css={css`
+            place-self: center;
+          `}
+        >
+          My portfolio is{" "}
+          <Link
+            href="https://github.com/dwgrossberg/dwgrossberg.github.io"
+            isExternal
+          >
+            open source
+          </Link>
+        </div>
+        <div
+          css={css`
+            place-self: center;
+            margin-top: -2rem;
+          `}
+        >
+          {`\u00A9`} 2022 | Daniel Grossberg
+        </div>
       </div>
     </div>
   );
