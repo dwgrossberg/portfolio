@@ -1,11 +1,12 @@
-import React from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+
+const DOMAIN = "https://www.danielgrossberg.com/";
 
 const SEO = ({
   title = "Daniel Grossberg",
-  description,
+  description = "Daniel is a software engineer with a passion for technology, problem solving, and puzzles of all sorts. As a self-described philomath, he's always on the lookout for ",
   pageName = "Software Engineer",
-  canonical = "https://www.danielgrossberg.com/",
+  canonical = DOMAIN,
   ogType = "website",
 }: {
   title?: string;
@@ -27,7 +28,7 @@ const SEO = ({
       />
       <meta key="og_locale" property="og:locale" content="en_IE" />
       <meta key="og_site_name" property="og:site_name" content={pageName} />
-      <meta key="og_url" property="og:url" content={canonical} />
+      <meta key="og_url" property="og:url" content={canonical ?? DOMAIN} />
       <meta key="og_site_name" property="og:site_name" content={pageName} />
       <meta name="robots" content="index,follow" />
       <meta
@@ -41,8 +42,8 @@ const SEO = ({
         property="twitter:description"
         content={description}
       />
-      <link rel="canonical" href={canonical} />
-      <link rel="shortcut icon" href="/favicon.ico" />
+      <link rel="canonical" href={canonical ?? DOMAIN} />
+      <link rel="shortcut icon" href="/public/favicon.ico" />
     </Helmet>
   );
 };

@@ -39,6 +39,7 @@ const AnimatedArrow = ({
         strokeLinejoin="miter"
         strokeLinecap="square"
         animate={{ d: arrowPath }}
+        transition={transition}
         initial="stack"
         whileHover="line"
       />
