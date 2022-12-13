@@ -6,6 +6,8 @@ import Projects from "../pages/Projects";
 import TechStack from "../pages/TechStack";
 import Contact from "../pages/Contact";
 import { motion, Variants } from "framer-motion";
+import useDocumentTitle from "../utilities/useDocumentTitle";
+import { useEffect } from "react";
 
 const HashLinkFrame = ({
   colorMode,
@@ -38,6 +40,9 @@ const HashLinkFrame = ({
       },
     },
   };
+  useEffect(() => {
+    console.log(window.location.href);
+  }, [window.location]);
   return (
     <div>
       <header id="home">

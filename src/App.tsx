@@ -23,6 +23,7 @@ const App: FC = () => {
   useEffect(() => {
     storage();
   }, [colorMode]);
+
   return (
     <ChakraProvider>
       <div

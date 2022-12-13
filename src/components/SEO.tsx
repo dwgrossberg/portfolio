@@ -11,14 +11,14 @@ const SEO = ({
 }: {
   title?: string;
   description?: string;
-  pageName?: string;
+  pageName?: any;
   canonical?: string;
   ogType?: string;
 }) => {
   return (
     <Helmet>
       <title key="title">{`${pageName} | ${title}`}</title>
-      <meta name="description" content={description} />
+      <meta name="description" content={description} data-rh="true" />
       <meta key="og_type" property="og:type" content={ogType} />
       <meta key="og_title" property="og:title" content={title} />
       <meta
