@@ -8,6 +8,7 @@ import HashLinkFrame from "./components/HashLinkFrame";
 import storage from "./utilities/storage";
 import BackgroundDark from "./components/BackgroundDark";
 import BackgroundLight from "./components/BackgroundLight";
+import SEO from "./components/SEO";
 
 const App: FC = () => {
   const [colorMode, setColorMode] = useState(localStorage.colorMode || "dark");
@@ -23,9 +24,9 @@ const App: FC = () => {
   useEffect(() => {
     storage();
   }, [colorMode]);
-
   return (
     <ChakraProvider>
+      <SEO />
       <div
         className="App"
         css={css`

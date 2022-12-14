@@ -7,6 +7,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import ToggleSwitch from "./ToggleSwitch";
 import AnimatedLogo from "./AnimatedLogo";
 import { MobileMenu } from "./MobileMenu";
+import useDocumentTitle from "../utilities/useDocumentTitle";
 
 export default function Nav({
   colorMode,
@@ -30,7 +31,6 @@ export default function Nav({
         setSelected(0);
         setStrokeVar("10");
         break;
-
       case "projects":
         setSelected(1);
         setStrokeVar("10");
