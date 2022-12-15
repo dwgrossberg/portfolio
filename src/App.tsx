@@ -9,6 +9,7 @@ import storage from "./utilities/storage";
 import BackgroundDark from "./components/BackgroundDark";
 import BackgroundLight from "./components/BackgroundLight";
 import SEO from "./components/SEO";
+import NotFound from "./pages/NotFound";
 
 const App: FC = () => {
   const [colorMode, setColorMode] = useState(localStorage.colorMode || "dark");
@@ -65,6 +66,7 @@ const App: FC = () => {
                 />
               }
             />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </HashRouter>
       </div>
