@@ -4,7 +4,7 @@ const DOMAIN = "https://www.danielgrossberg.com/";
 
 const SEO = ({
   title = "Daniel Grossberg",
-  description = "Daniel is a software engineer with a passion for technology, problem solving, and puzzles of all sorts.",
+  description = "Daniel is a software engineer with a passion for learning new technologies, building immersive experiences, and wrangling with puzzles of all sorts.",
   pageName = "Software Engineer",
   canonical = DOMAIN,
   ogType = "website",
