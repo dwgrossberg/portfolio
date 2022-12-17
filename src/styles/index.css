@@ -32,7 +32,8 @@ h1 {
 }
 
 .home,
-.title {
+.title,
+.notFound {
   font-family: "Raleway", "Lato", Inter, Avenir;
 }
 

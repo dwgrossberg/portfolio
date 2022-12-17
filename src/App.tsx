@@ -66,7 +66,7 @@ const App: FC = () => {
                 />
               }
             />
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NotFound colorMode={colorMode} />} />
           </Routes>
         </HashRouter>
       </div>
