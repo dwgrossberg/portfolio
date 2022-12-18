@@ -2,7 +2,7 @@
 import { css } from "@emotion/react";
 import SEO from "../components/SEO";
 import theme from "../utilities/theme";
-import { Link as ReactLink } from "@react/router";
+import { Link } from "react-router-dom";
 
 const NotFound = ({ colorMode }: { colorMode: string }): JSX.Element => {
   return (
@@ -32,9 +32,10 @@ const NotFound = ({ colorMode }: { colorMode: string }): JSX.Element => {
       <p>Looks like something went wrong there...</p>
       <p>
         Let me take you back{" "}
-        <Link as={ReactLink} to="/home">
-          here.
+        <Link to="/" style={{ textDecoration: "underline" }}>
+          here
         </Link>
+        .
       </p>
     </div>
   );
