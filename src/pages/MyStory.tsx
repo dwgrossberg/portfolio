@@ -77,6 +77,9 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
                 height: 300px;
                 text-align: left;
                 min-width: 200px;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
                 @media screen and (max-width: 600px) {
                   width: 100%;
                   text-align: center;
@@ -84,8 +87,18 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
                 }
               `}
             >
-              Turning concepts into realities. I excel at transforming ideas
-              into immersive experiences and interactions.
+              <p>
+                With a background in marketing and design, I excel at
+                transforming ideas into immersive experiences. I build
+                interactive software with a focus on seamless customer journeys
+                and powerful user engagements.
+              </p>
+              <p>
+                And no matter what, I love working through the technical details
+                of a problem in search of a solution, whether it’s drilling down
+                into a complicated bug report or scrutinizing a high-level
+                business concept.
+              </p>
             </div>
           </div>
         </div>
