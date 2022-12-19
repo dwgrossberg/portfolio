@@ -80,6 +80,7 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
                 display: flex;
                 flex-direction: column;
                 gap: 1.5rem;
+                margin-top: -0.5rem;
                 @media screen and (max-width: 600px) {
                   width: 100%;
                   text-align: center;
@@ -88,16 +89,17 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
               `}
             >
               <p>
-                With a background in marketing and design, I excel at
-                transforming ideas into immersive experiences. I build
-                interactive software with a focus on seamless customer journeys
-                and powerful user engagements.
+                Hi, my name's Dan - I'm a father, a puzzle enthusiast, and an
+                engineer who loves transforming complex ideas into immersive
+                experiences.
               </p>
               <p>
-                And no matter what, I love working through the technical details
-                of a problem in search of a solution, whether it’s drilling down
-                into a complicated bug report or scrutinizing a high-level
-                business concept.
+                With a background in marketing, design and computer science, I
+                excel at building dynamic and engaging software. No matter the
+                problem, I love working through the technical details of a bug
+                in search of a solution, whether it’s drilling down into a
+                complicated feature report or scrutinizing a high-level business
+                concept.
               </p>
             </div>
           </div>
