@@ -11,20 +11,16 @@ const MenuItem = ({
   colorMode,
   mobileClass,
   isOpen,
-  width,
-  breakpoint,
   onClick,
   onTap,
 }: {
   text: string;
-  selected: boolean;
-  colorMode: string;
-  mobileClass: string;
-  isOpen: boolean;
-  width: number;
-  breakpoint: number;
-  onClick: MouseEventHandler<HTMLDivElement>;
-  onTap: (event: MouseEvent | TouchEvent | PointerEvent) => void;
+  selected?: boolean;
+  colorMode?: string;
+  mobileClass?: string;
+  isOpen?: boolean;
+  onClick?: MouseEventHandler<HTMLDivElement>;
+  onTap?: (event: MouseEvent | TouchEvent | PointerEvent) => void;
 }) => (
   <motion.div
     whileTap={{ scale: 0.9 }}

@@ -100,9 +100,9 @@ const MyStory = ({ colorMode }: { colorMode: string }): JSX.Element => {
               </p>
               <p>
                 I'm a problem solver by nature, who enjoys wading through the
-                technical details of a bug in search of a solution, whether it’s
-                drilling down into a complicated feature report or scrutinizing
-                a high-level business concept.
+                technical details of a bug in search of a solution, whether it
+                {`\u2019`}s drilling down into a complicated feature report or
+                scrutinizing a high-level business concept.
               </p>
             </div>
           </div>
