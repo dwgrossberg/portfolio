@@ -63,8 +63,6 @@ export const MobileMenuItem = ({
             selected={selected === i}
             colorMode={colorMode}
             isOpen={isOpen}
-            width={width}
-            breakpoint={breakpoint}
             onClick={(e: any) => {
               setSelected(i);
               setStrokeVar("10");

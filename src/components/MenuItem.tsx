@@ -11,8 +11,6 @@ const MenuItem = ({
   colorMode,
   mobileClass,
   isOpen,
-  width,
-  breakpoint,
   onClick,
   onTap,
 }: {
