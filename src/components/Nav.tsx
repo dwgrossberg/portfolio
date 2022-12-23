@@ -7,7 +7,6 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import ToggleSwitch from "./ToggleSwitch";
 import AnimatedLogo from "./AnimatedLogo";
 import { MobileMenu } from "./MobileMenu";
-import useDocumentTitle from "../utilities/useDocumentTitle";
 
 export default function Nav({
   colorMode,

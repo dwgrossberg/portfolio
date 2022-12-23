@@ -17,12 +17,12 @@ const MenuItem = ({
   onTap,
 }: {
   text: string;
-  selected: boolean;
-  colorMode: string;
-  mobileClass: string;
-  isOpen: boolean;
-  width: number;
-  breakpoint: number;
+  selected?: boolean;
+  colorMode?: string;
+  mobileClass?: string;
+  isOpen?: boolean;
+  width?: number;
+  breakpoint?: number;
   onClick: MouseEventHandler<HTMLDivElement>;
   onTap: (event: MouseEvent | TouchEvent | PointerEvent) => void;
 }) => (
