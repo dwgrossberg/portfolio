@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { Routes, Route, HashRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import { FC, useEffect, useState } from "react";
 import Nav from "./components/Nav";
@@ -48,7 +48,7 @@ const App: FC = () => {
         >
           {colorMode === "dark" ? <BackgroundDark /> : <BackgroundLight />}
         </div>
-        <HashRouter>
+        <BrowserRouter>
           <Nav
             colorMode={colorMode}
             setColorMode={setColorMode}
@@ -68,7 +68,7 @@ const App: FC = () => {
             />
             <Route path="*" element={<NotFound colorMode={colorMode} />} />
           </Routes>
-        </HashRouter>
+        </BrowserRouter>
       </div>
     </ChakraProvider>
   );
