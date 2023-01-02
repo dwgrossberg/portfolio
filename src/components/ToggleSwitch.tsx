@@ -20,6 +20,7 @@ const ToggleSwitch = ({
   const toggleOn = () => {
     setToggleDirection(toggleDirection === 0 ? 20 : 0);
     setColorMode(colorMode === "dark" ? "light" : "dark");
+    localStorage.setItem("colorMode", colorMode === "dark" ? "light" : "dark");
   };
 
   return (

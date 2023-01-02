@@ -5,14 +5,13 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { FC, useEffect, useState } from "react";
 import Nav from "./components/Nav";
 import HashLinkFrame from "./components/HashLinkFrame";
-import storage from "./utilities/storage";
 import BackgroundDark from "./components/BackgroundDark";
 import BackgroundLight from "./components/BackgroundLight";
 import SEO from "./components/SEO";
 import NotFound from "./pages/NotFound";
 
 const App: FC = () => {
-  const [colorMode, setColorMode] = useState(localStorage.colorMode);
+  const [colorMode, setColorMode] = useState(localStorage.colorMode || "dark");
   const [width, setWidth] = useState(window.innerWidth);
   const breakpoint = 600;
   useEffect(() => {
@@ -23,9 +22,6 @@ const App: FC = () => {
     };
   }, []);
 
-  useEffect(() => {
-    storage();
-  }, [colorMode]);
   return (
     <ChakraProvider>
       <SEO />
