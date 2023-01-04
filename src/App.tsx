@@ -11,7 +11,7 @@ import SEO from "./components/SEO";
 import NotFound from "./pages/NotFound";
 
 const App: FC = () => {
-  const [colorMode, setColorMode] = useState(localStorage.colorMode || "dark");
+  const [colorMode, setColorMode] = useState(localStorage.colorMode || "light");
   const [width, setWidth] = useState(window.innerWidth);
   const breakpoint = 600;
   useEffect(() => {
