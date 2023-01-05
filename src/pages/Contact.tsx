@@ -92,10 +92,7 @@ const Contact = ({ colorMode }: { colorMode: string }): JSX.Element => {
             `}
           >
             My portfolio is{" "}
-            <Link
-              href="https://github.com/dwgrossberg/dwgrossberg.github.io"
-              isExternal
-            >
+            <Link href="https://github.com/dwgrossberg/portfolio" isExternal>
               open source
             </Link>
           </div>
