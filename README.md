@@ -4,7 +4,11 @@
 
 See the live site :point_right: [here](https://www.danielgrossberg.com) :point_left:
 
-This is my first attempt at creating a portfolio site. I built it to showcase my personal projects and tech interests, as well as to create new opportunities for myself as a developer. My goal with this project was to learn and implement at least one or two new (to me) technologies. I started by setting up a TypeScript React App with Vite, a next-gen build tool I've been hearing great things about.
+This is my first attempt at creating a portfolio site. I built it to showcase my personal projects and tech interests, as well as to create new opportunities for myself as a developer. My goal with this project was to learn and implement at least one or two new (to me) technologies.
+
+I'd been looking to learn TypeScript for some time, so I started by playing around with the language and getting a feel for its types and syntax. I also decided to move away from a simple create-react-app structure and utilize ViteJS as my build tool. This allowed me to take advantage of Vite's flexible configuration options and lightning-fast hot module replacement.
+
+Later, I tapped into two third-party libraries - Chakra-UI and Framer Motion for - to help create customizable yet sleek components with simple animations. And finally, I found a third-
 
 ## Tech Stack
 
