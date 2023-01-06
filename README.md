@@ -8,7 +8,7 @@ This is my first attempt at creating a portfolio site. I built it to showcase my
 
 I'd been looking to learn TypeScript for some time, so I started by playing around with the language and getting a feel for its types and syntax. I also decided to move away from a simple create-react-app structure and utilize ViteJS as my build tool. This allowed me to take advantage of Vite's flexible configuration options and lightning-fast hot module replacement.
 
-Later, I tapped into two third-party libraries - Chakra-UI and Framer Motion for - to help create customizable yet sleek components with simple animations. And finally, I found a third-
+Later, I tapped into two third-party libraries - Chakra-UI and Framer Motion - to help create a customized set of components with simple, yet sleek animations. And finally, I started playing around with CSS-Doodle, a third-party web component for drawing patterns with CSS that is really a lot of fun to work with.
 
 ## Tech Stack
 
@@ -23,7 +23,6 @@ Later, I tapped into two third-party libraries - Chakra-UI and Framer Motion for
 
 - The site background design is adapted from a CSS-Doodle by [Alisa Kin](https://codepen.io/alisasila)
 - The header font animation is based on a concept from [Håvard Brynjulfsen](https://codepen.io/havardob)
-- Overall design inspired by The Odin Project's Personal Portfolio [project](https://www.theodinproject.com/lessons/873/project_submissions)
 - Icons created by [Icons8](https://icons8.com)
 
 ## License
