@@ -88,7 +88,12 @@ const TechStack = ({
           margin-bottom: 10rem;
         `}
       >
-        <div className="page-container">
+        <div
+          className="page-container"
+          css={css`
+            align-items: center;
+          `}
+        >
           <h2 className="title">Tech Stack</h2>
           <p
             css={css`
