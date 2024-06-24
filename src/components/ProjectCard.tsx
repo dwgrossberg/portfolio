@@ -123,7 +123,7 @@ const ProjectCard = ({
             left: ${reverse ? "" : "0"};
             right: ${reverse ? "0" : ""};
             position: absolute;
-            width: 185px;
+            width: 200px;
             height: 35px;
             color: inherit;
             background-color: ${colorMode === "dark"
