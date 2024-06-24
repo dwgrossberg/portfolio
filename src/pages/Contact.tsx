@@ -102,7 +102,7 @@ const Contact = ({ colorMode }: { colorMode: string }): JSX.Element => {
               margin-top: -2rem;
             `}
           >
-            Copyright {`\u00A9`} 2023 | Daniel Grossberg
+            Copyright {`\u00A9`} 2024 | Daniel Grossberg
           </div>
         </div>
       </div>

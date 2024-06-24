@@ -48,7 +48,7 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
             gap: clamp(5px, 20vw, 20px);
           `}
         >
-          <h1
+          <h2
             css={css`
               font-size: clamp(18px, 11vw, 110px);
               text-shadow: -0.0075em 0.0075em 0
@@ -71,7 +71,7 @@ const Home = ({ colorMode }: { colorMode: string }): JSX.Element => {
             >
               <WavyText text="DANIEL" />
             </span>
-          </h1>
+          </h2>
           <h1
             css={css`
               font-size: clamp(18px, 11vw, 110px);

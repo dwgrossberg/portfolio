@@ -35,7 +35,7 @@
     "@types/react-router-hash-link": "^2.4.5",
     "@vitejs/plugin-react": "^3.0.0",
     "jsdom": "^20.0.3",
-    "typescript": "^4.9.4",
+    "typescript": "4.9.4",
     "vite": "^4.0.3",
     "vite-plugin-favicons-inject": "^2.1.0",
     "vitest": "^0.26.2"
